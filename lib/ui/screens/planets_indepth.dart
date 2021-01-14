@@ -59,70 +59,110 @@ class _ExplorePlanetsInDepthState extends State<ExplorePlanetsInDepth> {
                 right: getWidth(context) / 30.0,
                 left: getWidth(context) / 30.0,
                 bottom: getWidth(context) / 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        selectedIcon,
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: getWidth(context) / 36.0),
-                          child: Text(
-                            selectedItem,
-                            style: TextStyle(
-                                fontSize: 19.0,
-                                color: Color(0xFFD58235),
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Transform.rotate(
-                      alignment: Alignment.center,
-                      angle: isExpanded ? 180 * 3.14 / 180 : 0,
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0xFFD58235),
-                        ),
-                        iconSize: 32.0,
-                        onPressed: () {
-                          setState(() {
-                            isExpanded = !isExpanded;
-                          });
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: Stack(
-                    children: [
-                      Container(
-                          height: getHeight(context),
-                          width: getWidth(context),
-                          child: Text('Ciao')),
-                      AnimatedPositioned(
-                        duration: Duration(milliseconds: 1000),
-                        top: isExpanded ? 0.1 * getHeight(context) : 0.0,
-                        child: Container(
-                            height: getHeight(context),
-                            width: getWidth(context),
-                            color: Colors.white,
-                            child: SingleChildScrollView(
-                                                          child: Text(
-                                  planetsInfos.getInfos(widget.planetName)[4]),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )),
+            child:Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    selectedIcon,
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: getWidth(
+                                                                  context) /
+                                                              36.0),
+                                                      child: Text(
+                                                        selectedItem,
+                                                        style: TextStyle(
+                                                            fontSize: 19.0,
+                                                            color: Color(
+                                                                0xFFD58235),
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Transform.rotate(
+                                                  alignment: Alignment.center,
+                                                  angle: isExpanded
+                                                      ? 180 * 3.14 / 180
+                                                      : 0,
+                                                  child: IconButton(
+                                                    icon: Icon(
+                                                      Icons.arrow_drop_down,
+                                                      color: Color(0xFFD58235),
+                                                    ),
+                                                    iconSize: 32.0,
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        isExpanded =
+                                                            !isExpanded;
+                                                      });
+                                                    },
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Expanded(
+                                              child: Stack(
+                                                children: [
+                                                  Container(
+                                                      height:
+                                                          getHeight(context),
+                                                      width: getWidth(context),
+                                                      child: ListView.builder(
+                                                          itemCount:
+                                                              inDepthItemsList
+                                                                  .length,
+                                                          itemBuilder:
+                                                              (context, index) {
+                                                            return GestureDetector(
+                                                              onTap: () {
+                                                                setState(() {
+                                                                  isExpanded =
+                                                                      !isExpanded;
+                                                                  selectedItem =
+                                                                      inDepthItemsList[
+                                                                          index];
+                                                                });
+                                                              },
+                                                              child: Text(
+                                                                  inDepthItemsList[
+                                                                      index]),
+                                                            );
+                                                          })),
+                                                  AnimatedPositioned(
+                                                    duration: Duration(
+                                                        milliseconds: 1000),
+                                                    top: isExpanded
+                                                        ? 0.2 *
+                                                            getHeight(context)
+                                                        : 0.0,
+                                                    child: Container(
+                                                        height:
+                                                            getHeight(context),
+                                                        width:
+                                                            getWidth(context),
+                                                        color: Colors.white,
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          child: Text(planetsInfos
+                                                              .getInfos(widget
+                                                                  .planetName)[4]),
+                                                        )),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        )),
       ),
     );
   }

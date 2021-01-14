@@ -38,6 +38,8 @@ dependencies:
   flutter_speed_dial: ^1.2.5
   share: ^0.6.5+4
   skeleton_animation: ^0.0.3
+  google_fonts: ^1.1.1
+
 
 dev_dependencies:
   flutter_test:
@@ -46,8 +48,6 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter.
-flutter_native_splash:
-  color: '04294F'
 
 flutter:
 

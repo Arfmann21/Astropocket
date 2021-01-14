@@ -2,11 +2,9 @@ import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/backend/planets_infos.dart';
 import 'package:astropocket/style/custom_icons/atmosphere_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/creation_icon_icons.dart';
-import 'package:astropocket/style/custom_icons/dropdown_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/orbit_icon_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/ui/screens/planets_indepth.dart';
 import 'package:flutter/material.dart';
 
 class ExplorePlanets extends StatefulWidget {
@@ -92,14 +90,14 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                         Text(
                           widget.planetName.toUpperCase(),
                           style: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.w700),
+                              fontSize: 35, fontWeight: FontWeight.bold),
                         ),
                         Text(
                           widget.planetSubtitle,
                           style: TextStyle(
                               fontSize: 16,
                               color: Color(0xFFD58235),
-                              fontWeight: FontWeight.w500),
+                              fontWeight: FontWeight.w700),
                         )
                       ],
                     ),
@@ -117,7 +115,7 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                         style: TextStyle(
                             color: Color(0xFFD58235),
                             fontSize: 23,
-                            fontWeight: FontWeight.w700),
+                            fontWeight: FontWeight.bold),
                       ),
                       IconButton(
                         icon: Icon(ExpandCustomIcon.arrow_expand),
@@ -140,98 +138,39 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                                   return Container(
                                     height: getHeight(context) / 1.2,
                                     child: Padding(
-                                        padding: EdgeInsets.only(
-                                            top: getHeight(context) / 100.0,
-                                            right: getWidth(context) / 30.0,
-                                            left: getWidth(context) / 30.0,
-                                            bottom: getWidth(context) / 20.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    selectedIcon,
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                          left: getWidth(
-                                                                  context) /
-                                                              36.0),
-                                                      child: Text(
-                                                        selectedItem,
-                                                        style: TextStyle(
-                                                            fontSize: 19.0,
-                                                            color: Color(
-                                                                0xFFD58235),
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
-                                                      ),
-                                                    ),
-                                                  ],
+                                      padding: EdgeInsets.only(
+                                          top: getHeight(context) / 100.0,
+                                          right: getWidth(context) / 30.0,
+                                          left: getWidth(context) / 30.0,
+                                          bottom: getWidth(context) / 20.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                'In-depth',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Color(0xFFD58235),
+                                                  fontWeight: FontWeight.w700
                                                 ),
-                                                Transform.rotate(
-                                                  alignment: Alignment.center,
-                                                  angle: isExpanded
-                                                      ? 180 * 3.14 / 180
-                                                      : 0,
-                                                  child: IconButton(
-                                                    icon: Icon(
-                                                      Icons.arrow_drop_down,
-                                                      color: Color(0xFFD58235),
-                                                    ),
-                                                    iconSize: 32.0,
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        isExpanded =
-                                                            !isExpanded;
-                                                      });
-                                                    },
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Expanded(
-                                              child: Stack(
-                                                children: [
-                                                  Container(
-                                                      height:
-                                                          getHeight(context),
-                                                      width: getWidth(context),
-                                                      child: Text('Ciao')),
-                                                  AnimatedPositioned(
-                                                    duration: Duration(
-                                                        milliseconds: 1000),
-                                                    top: isExpanded
-                                                        ? 0.1 *
-                                                            getHeight(context)
-                                                        : 0.0,
-                                                    child: Container(
-                                                        height:
-                                                            getHeight(context),
-                                                        width:
-                                                            getWidth(context),
-                                                        color: Colors.white,
-                                                        child:
-                                                            SingleChildScrollView(
-                                                          child: Text(planetsInfos
-                                                              .getInfos(widget
-                                                                  .planetName)[4]),
-                                                        )),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        )),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   );
                                 });
-                              });
+                              }).whenComplete(() {
+                            setState(() {
+                              isExpanded = false;
+                            });
+                          });
                         },
                       )
                     ],
@@ -252,7 +191,7 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                           Text(
                             'Type',
                             style: TextStyle(
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                                 color: Color(0xFFD58235),
                                 fontSize: 16),
                           ),
@@ -271,7 +210,7 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                             child: Text(
                               'From Sun',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                   color: Color(0xFFD58235),
                                   fontSize: 16),
                             ),
@@ -293,7 +232,7 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                           Text(
                             'Year lenght',
                             style: TextStyle(
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                                 color: Color(0xFFD58235),
                                 fontSize: 16),
                           ),
@@ -312,7 +251,7 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                             child: Text(
                               'Day length',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                   color: Color(0xFFD58235),
                                   fontSize: 16),
                             ),

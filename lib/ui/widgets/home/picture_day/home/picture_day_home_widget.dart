@@ -7,6 +7,7 @@ import 'package:astropocket/ui/widgets/home/picture_day/home/picture_container_h
 import 'package:astropocket/ui/widgets/home/picture_day/home/picture_day_skeleton_home.dart';
 import 'package:astropocket/ui/widgets/home/picture_day/home/video_container.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PictureDayHomeWidget extends StatefulWidget {
   @override
@@ -52,8 +53,8 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                               'Picture of the day',
                               overflow: TextOverflow.visible,
                               maxLines: 1,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w700,
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w600,
                                 fontSize: 22.0,
                               ),
                             ),

@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:astropocket/backend/global_variables.dart';
+import 'package:astropocket/backend/planets_infos.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/screens/drawer/hidden_drawer.dart';
+import 'package:astropocket/ui/screens/explore_home.dart';
 import 'package:astropocket/ui/widgets/home/fab_speed_dial.dart';
 import 'package:astropocket/ui/widgets/home/home_appbar.dart';
 import 'package:astropocket/ui/widgets/home/news/home/news_home.dart';
@@ -83,8 +85,22 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // TODO Change FAB
-        floatingActionButton: FabSpeedDial(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+          elevation: 5,
+          child: SizedBox(
+          height: 38, child: Image.asset('assets/images/rocket_fab.png')),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ExploreHome(
+                  title: 'Solar system',
+                  headerText: 'Planets',
+                  arrayCardText: PlanetsInfos().planetsName,
+                  arrayCardSubtitleText: planetsSubtitle,
+                  overviewDescription: 'Our solar system consists of our star, the Sun, and everything bound to it by gravity — the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune, dwarf planets such as Pluto, dozens of moons and millions of asteroids, comets and meteoroids. Beyond our own solar system, we have discovered thousands of planetary systems orbiting other stars in the Milky Way.',
+                )));
+          },
+        ),
+        
         body: _connectionStatus == 'ConnectivityResult.none'
             ? Column(
                 children: [

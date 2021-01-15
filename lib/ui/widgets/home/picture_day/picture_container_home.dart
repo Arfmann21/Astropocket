@@ -1,6 +1,5 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/ui/widgets/home/picture_day/home/picture_day_content_home.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:skeleton_animation/skeleton_animation.dart';
@@ -44,8 +43,6 @@ class PictureContainerHome extends StatelessWidget {
                 ),
               ),
             )),
-        // Title and description Container
-        PictureDayContentHome()
       ],
     );
   }

@@ -1,7 +1,6 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:flutter/material.dart';
 
-//TODO Define what to insert in Drawer
 class DrawerHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

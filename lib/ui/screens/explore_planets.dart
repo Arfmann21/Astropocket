@@ -6,6 +6,7 @@ import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/orbit_icon_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ExplorePlanets extends StatefulWidget {
   final planetName;
@@ -89,15 +90,15 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                       children: [
                         Text(
                           widget.planetName.toUpperCase(),
-                          style: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.poppins(
+                              fontSize: 35, fontWeight: FontWeight.w700),
                         ),
                         Text(
                           widget.planetSubtitle,
-                          style: TextStyle(
-                              fontSize: 16,
+                          style: GoogleFonts.poppins(
+                              fontSize: 17,
                               color: Color(0xFFD58235),
-                              fontWeight: FontWeight.w700),
+                              fontWeight: FontWeight.w600),
                         )
                       ],
                     ),
@@ -139,7 +140,7 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                                     height: getHeight(context) / 1.2,
                                     child: Padding(
                                       padding: EdgeInsets.only(
-                                          top: getHeight(context) / 100.0,
+                                          top: getHeight(context) / 40.0,
                                           right: getWidth(context) / 30.0,
                                           left: getWidth(context) / 30.0,
                                           bottom: getWidth(context) / 20.0),
@@ -153,13 +154,32 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                                             children: [
                                               Text(
                                                 'In-depth',
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Color(0xFFD58235),
-                                                  fontWeight: FontWeight.w700
-                                                ),
-                                              )
+                                                style: GoogleFonts.poppins(
+                                                    fontSize: 20,
+                                                    color: Color(0xFFD58235),
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
                                             ],
+                                          ),
+                                          Expanded(
+                                            child: ListView.builder(
+                                              itemCount: 7,
+                                              itemBuilder: (context, index) {
+                                                return Padding(
+                                                  padding: EdgeInsets.only(
+                                                    top: (index + 4) % 2 == 0 ? (index != 4 ? getHeight(context) / 40.0 : getHeight(context) / 50.0) : getHeight(context) / 70.0
+                                                  ),
+                                                  child: Text(
+                                                    planetsInfos.getInfos(widget.planetName)[index + 4],
+                                                    style: GoogleFonts.poppins(
+                                                      fontSize: (index + 4) % 2 == 0 ? 17.0 : 15.0,
+                                                      fontWeight: (index + 4) % 2 == 0 ? FontWeight.w600 : FontWeight.w500
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           )
                                         ],
                                       ),

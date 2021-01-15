@@ -2,9 +2,9 @@ import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ExploreOverview extends StatelessWidget {
-
   final String title;
   final String overviewDescription;
 
@@ -25,7 +25,8 @@ class ExploreOverview extends StatelessWidget {
             children: [
               Text(
                 'Overview',
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.w700),
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600, fontSize: 23.0),
               ),
               IconButton(
                 icon: Icon(ExpandCustomIcon.arrow_expand),

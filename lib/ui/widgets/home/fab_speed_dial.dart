@@ -45,6 +45,9 @@ class FabSpeedDial extends StatelessWidget {
             ),
             // Use FloatingActionButton to set image size (nope, SizedBox and Container doesn't works. This package is garbage, but the only one)
             child: FloatingActionButton(
+              onPressed: () {
+                
+              },
               child: SizedBox(
                   height: 32,
                   child: Image.asset('assets/images/solar_system.png')),      

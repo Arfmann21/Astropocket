@@ -2,6 +2,7 @@ import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/backend/url_launcher.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CopyrightSource extends StatelessWidget {
   final copyright;
@@ -21,29 +22,6 @@ class CopyrightSource extends StatelessWidget {
               top: MediaQuery.of(context).size.height / 20),
           color: SpecificColors(context).darkGreyLightGreyColor,
         ),
-        Padding(
-          padding: EdgeInsets.only(
-              top: getHeight(context) / 20,
-              left: getWidth(context) / 36.0,
-              right: getWidth(context) / 36.0),
-          child: Column(
-            children: [
-              copyright != null ? Row(
-                children: [
-                  Icon(Icons.copyright),
-                  Padding(
-                    padding: EdgeInsets.only(left: getWidth(context) / 25.0),
-                    child: Text(
-                      'Copyright: ' + copyright,
-                      style: TextStyle(
-                          fontSize: 15.0, fontWeight: FontWeight.w600),
-                    ),
-                  )
-                ],
-              ) : Container(),
-            ],
-          ),
-        ),
         GestureDetector(
           onTap: () {
             launchURL('https://apod.nasa.gov/apod/astropix.html');
@@ -60,11 +38,11 @@ class CopyrightSource extends StatelessWidget {
                   Icon(Icons.api_rounded),
                   Container(
                     child: Padding(
-                      padding: EdgeInsets.only(left: getWidth(context) / 25.0),
+                      padding: EdgeInsets.only(left: getWidth(context) / 36.0),
                       child: Text(
-                        'Source: ',
-                        style: TextStyle(
-                            fontSize: 15.0, fontWeight: FontWeight.w600),
+                        'Source: ' ,
+                        style: GoogleFonts.poppins(
+                            fontSize: 16.0, fontWeight: FontWeight.w600),
                       ),
                     ),
                   ),
@@ -86,6 +64,30 @@ class CopyrightSource extends StatelessWidget {
             ),
           ),
         ),
+        Padding(
+          padding: EdgeInsets.only(
+              top: getHeight(context) / 20,
+              left: getWidth(context) / 36.0,
+              right: getWidth(context) / 36.0),
+          child: Column(
+            children: [
+              copyright != null ? Row(
+                children: [
+                  Icon(Icons.copyright),
+                  Padding(
+                    padding: EdgeInsets.only(left: getWidth(context) / 36.0),
+                    child: Text(
+                      'Copyright: ' + copyright,
+                      style: GoogleFonts.poppins(
+                          fontSize: 15.0, fontWeight: FontWeight.w600),
+                    ),
+                  )
+                ],
+              ) : Container(),
+            ],
+          ),
+        ),
+        
       ],
     );
   }

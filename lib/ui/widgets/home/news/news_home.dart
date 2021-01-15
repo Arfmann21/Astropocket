@@ -4,9 +4,10 @@ import 'package:astropocket/backend/url_launcher.dart';
 import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/screens/news.dart';
-import 'package:astropocket/ui/widgets/home/news/home/news_skeleton_home.dart';
+import 'package:astropocket/ui/widgets/home/news/news_skeleton_home.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:skeleton_animation/skeleton_animation.dart';
 
 class NewsHome extends StatefulWidget {
@@ -31,21 +32,28 @@ class _NewsHomeState extends State<NewsHome> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'News',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 22,
+            Hero(
+              tag: 'newsHero',
+              child: Material(
+                color: Colors.transparent,
+                child: Container(
+                  width: getWidth(context) / 1.5,
+                  child: Text(
+                    'News',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 22.0,
+                    ),
+                  ),
+                ),
               ),
             ),
             IconButton(
               icon: Icon(ExpandCustomIcon.arrow_expand,
                   color: SpecificColors(context).blackWhiteTextColor),
               onPressed: () {
-               Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => News()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => News()));
               },
             )
           ],

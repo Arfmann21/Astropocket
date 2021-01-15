@@ -2,13 +2,15 @@ import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/backend/url_launcher.dart';
 import 'package:astropocket/style/custom_icons/youtube_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/ui/widgets/home/picture_day/home/picture_container_home.dart';
-import 'package:astropocket/ui/widgets/home/picture_day/home/picture_day_content_home.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:skeleton_text/skeleton_text.dart';
 
-class VideoContainer extends StatelessWidget {
+class VideoDayItselfWidget extends StatefulWidget {
+  @override
+  _VideoDayItselfWidgetState createState() => _VideoDayItselfWidgetState();
+}
+
+class _VideoDayItselfWidgetState extends State<VideoDayItselfWidget> {
   @override
   Widget build(BuildContext context) {
     youtubeThumbnail = "https://img.youtube.com/vi/" +
@@ -19,7 +21,6 @@ class VideoContainer extends StatelessWidget {
 
     return Column(
       children: [
-        // VIDEO THUMBNAIL AND URL LAUNCHER
         GestureDetector(
           onTap: () {
             launchURL(apodObject.hdurl);
@@ -29,9 +30,6 @@ class VideoContainer extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  height: getHeight(context) / 4,
-                  width: MediaQuery.of(context).size.width,
-
                   //Use Card for the elevation
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -40,19 +38,13 @@ class VideoContainer extends StatelessWidget {
                     child: CachedNetworkImage(
                       imageUrl: (youtubeThumbnail),
                       placeholder: (context, url) {
-                        return SkeletonAnimation(
-                            shimmerColor: SpecificColors(context).shimmerColor,
-                            child: Container(
-                                width: MediaQuery.of(context).size.width,
-                                height: 200));
+                        return Container();
                       },
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 Container(
-                  height: 200,
-                  width: MediaQuery.of(context).size.width,
                   child: Center(
                       child: Icon(
                     Youtube.youtube,
@@ -64,8 +56,6 @@ class VideoContainer extends StatelessWidget {
             ),
           ),
         ),
-
-        PictureDayContentHome()
       ],
     );
   }

@@ -1,6 +1,6 @@
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/ui/widgets/home/news/itself/news_itself_picture_container.dart';
-import 'package:astropocket/ui/widgets/home/news/itself/news_itself_website_share.dart';
+import 'package:astropocket/ui/widgets/itself/news/news_itself_picture_container.dart';
+import 'package:astropocket/ui/widgets/itself/news/news_itself_website_share.dart';
 import 'package:flutter/material.dart';
 
 class NewsItself extends StatefulWidget {

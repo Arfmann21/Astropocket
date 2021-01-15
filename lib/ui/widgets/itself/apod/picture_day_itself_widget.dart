@@ -1,6 +1,4 @@
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/ui/widgets/home/picture_day/itself/picture_day_content_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +43,7 @@ class _PictureDayItselfWidgetState extends State<PictureDayItselfWidget> {
                 ),
               )),
         ),
-        PictureDayContentWidget()
+        
       ],
     );
   }

@@ -4,9 +4,10 @@ import 'package:astropocket/backend/api/spaceflight.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/backend/url_launcher.dart';
 import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/ui/widgets/home/news/itself/news_itself.dart';
+import 'package:astropocket/ui/widgets/itself/news/news_itself.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:skeleton_animation/skeleton_animation.dart';
 
 class News extends StatefulWidget {
@@ -50,10 +51,16 @@ class _NewsState extends State<News> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            'News',
-            style:
-                TextStyle(fontWeight: FontWeight.w700),
+          title: Hero(
+            tag: 'newsHero',
+            child: Material(
+              color: Colors.transparent,
+              child: Text(
+                'News',
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600, fontSize: 22.0),
+              ),
+            ),
           ),
         ),
         body: FutureBuilder<NewsApi>(

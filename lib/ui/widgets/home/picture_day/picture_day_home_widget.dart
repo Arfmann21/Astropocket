@@ -3,9 +3,10 @@ import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/screens/picture_of_day.dart';
-import 'package:astropocket/ui/widgets/home/picture_day/home/picture_container_home.dart';
-import 'package:astropocket/ui/widgets/home/picture_day/home/picture_day_skeleton_home.dart';
-import 'package:astropocket/ui/widgets/home/picture_day/home/video_container.dart';
+import 'package:astropocket/ui/widgets/home/picture_day/picture_container_home.dart';
+import 'package:astropocket/ui/widgets/home/picture_day/picture_day_content_home.dart';
+import 'package:astropocket/ui/widgets/home/picture_day/picture_day_skeleton_home.dart';
+import 'package:astropocket/ui/widgets/home/picture_day/video_container.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,8 +52,6 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                             width: getWidth(context) / 1.5,
                             child: Text(
                               'Picture of the day',
-                              overflow: TextOverflow.visible,
-                              maxLines: 1,
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 22.0,
@@ -83,6 +82,7 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                   snapshot.data.type == 'video'
                       ? VideoContainer()
                       : PictureContainerHome(),
+                      PictureDayContentHome()
                 ],
               );
             } else

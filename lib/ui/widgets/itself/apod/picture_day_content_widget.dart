@@ -1,6 +1,7 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PictureDayContentWidget extends StatefulWidget {
   @override
@@ -21,11 +22,10 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
             Center(
               child: Container(
                 margin: EdgeInsets.only(top: getHeight(context) / 60),
-                width: getWidth(context) / 1.2,
                 child: Text(
                   apodObject.title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700),
+                  style: GoogleFonts.poppins(fontSize: 22.0, fontWeight: FontWeight.w600),
                 ),
               ),
             ),
@@ -33,7 +33,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
             // The Dropdown icon (as IconButton)
             Container(
               alignment: Alignment.centerRight,
-              margin: EdgeInsets.only(top: getHeight(context) / 60),
+              margin: EdgeInsets.only(top: getHeight(context) / 100),
 
               // The dropdown icon must be rotated when the description is expanded (and viceversa)
               child: Transform.rotate(
@@ -65,7 +65,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
             // Max lines must be based on isExpanded
             maxLines: isExpanded ? 150 : 4,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: GoogleFonts.poppins(
                 fontSize: 15.5,
                 fontWeight: FontWeight.w500,
                 color: SpecificColors(context).lightGreyDarkGreyColor),

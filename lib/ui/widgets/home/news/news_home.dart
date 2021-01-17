@@ -20,8 +20,8 @@ class _NewsHomeState extends State<NewsHome> {
 
   @override
   void initState() {
+    futureNews = fetchNews(true, 'articles');
     super.initState();
-    futureNews = fetchNews(false);
   }
 
   @override

@@ -2,6 +2,8 @@ library config.globals;
 
 import 'package:astropocket/backend/check_loading.dart';
 import 'package:astropocket/backend/theme_changer.dart';
+import 'package:astropocket/ui/widgets/itself/news/articles_news.dart';
+import 'package:astropocket/ui/widgets/itself/news/blogs_news.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'api/nasa_apod.dart';
@@ -18,6 +20,11 @@ double getWidth(BuildContext context) {
 }
 
 ApodApi apodObject = ApodApi();
+
+List newsPages = [
+  ArticlesNews(),
+  BlogsNews()
+];
 
 String youtubeThumbnail = "";
 // Planets

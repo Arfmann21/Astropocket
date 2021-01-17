@@ -37,6 +37,9 @@ ThemeData darkTheme() {
   return darkTheme.copyWith(
       scaffoldBackgroundColor: Color(0xFF031a30),
       iconTheme: IconThemeData(color: Color(0xFFcccccc)),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: Color(0xFF031e30)
+      ),
       appBarTheme: AppBarTheme(
           elevation: 0,
           centerTitle: true,

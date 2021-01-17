@@ -61,15 +61,6 @@ flutter:
     - assets/images/planets/
 
   fonts:
-    - family: 'Poppins'
-      fonts:
-        - asset: assets/fonts/poppins_regular.ttf
-          style: normal
-        - asset: assets/fonts/poppins_bold.ttf
-          weight: 900
-        - asset: assets/fonts/poppins_medium.ttf
-          weight: 500
-
     - family: 'DropdownIcon'
       fonts:
         - asset: assets/fonts/DropdownIcon.ttf
@@ -88,6 +79,16 @@ flutter:
     - family: 'AtmosphereIcon'
       fonts:
         - asset: assets/fonts/AtmosphereIcon.ttf
+    - family: 'MagnetosphereIcon'
+      fonts:
+        - asset: assets/fonts/MagnetosphereIcon.ttf
+    - family: 'RingIcon'
+      fonts:
+        - asset: assets/fonts/RingIcon.ttf
+    - family: 'RocketIcon'
+      fonts:
+        - asset: assets/fonts/RocketIcon.ttf
+    
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

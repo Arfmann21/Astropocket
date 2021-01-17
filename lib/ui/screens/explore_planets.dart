@@ -3,7 +3,9 @@ import 'package:astropocket/backend/planets_infos.dart';
 import 'package:astropocket/style/custom_icons/atmosphere_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/creation_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
+import 'package:astropocket/style/custom_icons/magnetosphere_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/orbit_icon_icons.dart';
+import 'package:astropocket/style/custom_icons/ring_icon_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,24 +27,16 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
   List<Icon> iconList = [
     Icon(Icons.description_outlined),
     Icon(Icons.explore_outlined),
+    Icon(Icons.aspect_ratio),
     Icon(OrbitIcon.orbit),
     Icon(Icons.view_module_outlined),
     Icon(CreationIcon.creation),
     Icon(Icons.texture_outlined),
-    Icon(AtmosphereIcon.airballoon_outline)
-  ];
-
-  List<String> inDepthItemsList = [
-    'Description',
-    'Exploration',
-    'Orbit and Rotation',
-    'Structure',
-    'Formation',
-    'Surface',
-    'Atmosphere',
-    'Magnetosphere',
-    'Moons',
-    'Potential for Life'
+    Icon(AtmosphereIcon.airballoon_outline),
+    Icon(MagnetosphereIcon.magnet),
+    Icon(RingIcon.ring),
+    Icon(Icons.nights_stay),
+    Icon(Icons.emoji_nature)
   ];
 
   PlanetsInfos planetsInfos = new PlanetsInfos();
@@ -164,19 +158,74 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                                           ),
                                           Expanded(
                                             child: ListView.builder(
-                                              itemCount: 7,
+                                              itemCount: 24,
                                               itemBuilder: (context, index) {
                                                 return Padding(
                                                   padding: EdgeInsets.only(
-                                                    top: (index + 4) % 2 == 0 ? (index != 4 ? getHeight(context) / 40.0 : getHeight(context) / 50.0) : getHeight(context) / 70.0
-                                                  ),
-                                                  child: Text(
-                                                    planetsInfos.getInfos(widget.planetName)[index + 4],
-                                                    style: GoogleFonts.poppins(
-                                                      fontSize: (index + 4) % 2 == 0 ? 17.0 : 15.0,
-                                                      fontWeight: (index + 4) % 2 == 0 ? FontWeight.w600 : FontWeight.w500
-                                                    ),
-                                                  ),
+                                                      top: (index + 4) % 2 == 0
+                                                          ? (index != 4
+                                                              ? getHeight(
+                                                                      context) /
+                                                                  40.0
+                                                              : getHeight(
+                                                                      context) /
+                                                                  50.0)
+                                                          : getHeight(context) /
+                                                              70.0),
+                                                  // Innested Row for a future change of this section.
+                                                  child: (index + 4) % 2 == 0
+                                                      ? Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Row(
+                                                              children: [
+                                                                iconList[(index /
+                                                                        2)
+                                                                    .toInt()],
+                                                                Padding(
+                                                                  padding: EdgeInsets.only(
+                                                                      left: getWidth(
+                                                                              context) /
+                                                                          30.0),
+                                                                  child: Text(
+                                                                    planetsInfos
+                                                                        .getInfos(
+                                                                            widget.planetName)[index +
+                                                                        4],
+                                                                    style: GoogleFonts.poppins(
+                                                                        fontSize:
+                                                                            17.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600),
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            )
+                                                          ],
+                                                        )
+                                                      : Text(
+                                                          planetsInfos.getInfos(
+                                                                  widget
+                                                                      .planetName)[
+                                                              index + 4],
+                                                          style: GoogleFonts.poppins(
+                                                              fontSize: (index +
+                                                                              4) %
+                                                                          2 ==
+                                                                      0
+                                                                  ? 17.0
+                                                                  : 15.0,
+                                                              fontWeight: (index +
+                                                                              4) %
+                                                                          2 ==
+                                                                      0
+                                                                  ? FontWeight
+                                                                      .w600
+                                                                  : FontWeight
+                                                                      .w500),
+                                                        ),
                                                 );
                                               },
                                             ),

@@ -23,6 +23,7 @@ class SpecificColors {
   Color lightGreyDarkGreyColor;
 
   Color exploreCardColor;
+  Color cardColor;
 
   SpecificColors(BuildContext context) {
         final ThemeData currentTheme = Theme.of(context);
@@ -38,7 +39,7 @@ class SpecificColors {
         darkGreyLightGreyColor = currentTheme.brightness == Brightness.light ? Color(0xFF333333) : Color(0xFFcccccc);
         lightGreyDarkGreyColor = currentTheme.brightness == Brightness.light ? Color(0xFF404040) : Color(0xFFBFBFBF);
 
-        pulseColorBase = currentTheme.brightness == Brightness.light ? Color(0xFFD9D9D9) : Color(0xFF053361);
+        pulseColorBase = currentTheme.brightness == Brightness.light ? Color(0xFFD9D9D9) : Color(0xFF0c3046);
 
         shimmerColor = Color(0xFFE6E6E6);
 

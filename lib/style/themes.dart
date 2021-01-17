@@ -55,7 +55,7 @@ ThemeData darkTheme() {
           FloatingActionButtonThemeData(backgroundColor: Color(0xFF04294F)),
       primaryTextTheme:
           TextTheme(headline6: GoogleFonts.poppins(color: Color(0xFFcccccc))),
-      cardColor: Color(0xFF031a30),
+      cardColor: Color(0xFF1c3046),
       textTheme: TextTheme(
           button: GoogleFonts.poppins(color: Color(0xFFE6E6E6)),
           bodyText2: GoogleFonts.poppins(color: Color(0xFFcccccc))));

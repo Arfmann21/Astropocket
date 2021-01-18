@@ -23,7 +23,7 @@ class SpecificColors {
   Color lightGreyDarkGreyColor;
 
   Color exploreCardColor;
-  Color cardColor;
+  Color backgroundAsCardColor;
 
   SpecificColors(BuildContext context) {
         final ThemeData currentTheme = Theme.of(context);
@@ -46,5 +46,7 @@ class SpecificColors {
         systemNavigationBarColor = currentTheme.brightness == Brightness.light ? Color(0xFFf2f2f2) : Color(0xFF042649);
 
         exploreCardColor = currentTheme.brightness == Brightness.light ? Color(0xFF404040) : Color(0xFF052748);
+
+        backgroundAsCardColor = currentTheme.brightness == Brightness.light ? Color(0xFFFFFF) : Color(0xFFc3046);
   }
 }

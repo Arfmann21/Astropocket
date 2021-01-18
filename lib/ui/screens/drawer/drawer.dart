@@ -1,5 +1,6 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/rocket_icon_icons.dart';
+import 'package:astropocket/ui/screens/launches.dart';
 import 'package:astropocket/ui/screens/nasa_reports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,26 +35,33 @@ class DrawerHome extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(top: getWidth(context) / 15.0),
-                child: Row(
-                  children: [
-                    Icon(RocketIcon.rocket_outline),
-                    Padding(
-                      padding: EdgeInsets.only(left: getWidth(context) / 36.0),
-                      child: Text(
-                        'Launches',
-                        style: GoogleFonts.poppins(
-                            fontSize: 15.5, fontWeight: FontWeight.w500),
-                      ),
-                    )
-                  ],
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Launches()));
+                  },
+                  child: Row(
+                    children: [
+                      Icon(RocketIcon.rocket_outline),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: getWidth(context) / 36.0),
+                        child: Text(
+                          'Launches',
+                          style: GoogleFonts.poppins(
+                              fontSize: 15.5, fontWeight: FontWeight.w500),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: getWidth(context) / 30.0),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => NasaReports()));
-                    
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => NasaReports()));
                   },
                   child: Row(
                     children: [

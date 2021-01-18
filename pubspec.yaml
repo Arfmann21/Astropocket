@@ -88,6 +88,12 @@ flutter:
     - family: 'RocketIcon'
       fonts:
         - asset: assets/fonts/RocketIcon.ttf
+    - family: 'UpcomingIcon'
+      fonts:
+        - asset: assets/fonts/UpcomingIcon.ttf
+    - family: 'PreviousIcon'
+      fonts: 
+        - asset: assets/fonts/PreviousIcon.ttf
     
   # To add assets to your application, add an assets section, like this:
   # assets:

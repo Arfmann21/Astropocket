@@ -29,6 +29,7 @@ class _ArticlesNewsState extends State<ArticlesNews> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting)
             return ListView.builder(
+              addAutomaticKeepAlives: true,
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return Padding(

@@ -5,24 +5,52 @@ class LaunchesApi {
   final List<dynamic> general;
   final int count;
 
+  final String launchImageUrl;
+
+  // For the 'State' screen
+  final String state;
+  final String launchDate;
+  final String liveUrl;
+
+// For the 'Mission' screen
+  final String missionName;
+  final String missionDescription;
+  final String launchServiceProvider;
+  final String launchServiceProviderLogo;
+
+  //For the 'Rocket' screen
+  final String rocketName;
+  final String rocketDescription;
+  final String rocketProvider;
+  final String rocketProviderLogo;
+
   LaunchesApi(
-      {this.count, this.general});
+      {this.count,
+      this.general,
+      this.launchImageUrl,
+      this.state,
+      this.launchDate,
+      this.liveUrl,
+      this.missionDescription,
+      this.missionName,
+      this.launchServiceProvider,
+      this.launchServiceProviderLogo,
+      this.rocketName,
+      this.rocketDescription,
+      this.rocketProvider,
+      this.rocketProviderLogo});
   // 'json' is the map fetched from the response body (decoded in json)
   factory LaunchesApi.fromJson(Map<String, dynamic> json) {
     // return the object of NewsApi with attributes values taken from the map 'json'
-    return LaunchesApi(
-        general: json['results'],
-        count: json['count']
-       );
+    return LaunchesApi(general: json['results'], count: json['count']);
   }
 }
 
 Future<LaunchesApi> fetchLaunches() async {
   // try for network issues
   try {
-    final response = await http
-            .get("https://ll.thespacedevs.com/2.0.0/launch/upcoming/");
-        
+    final response = await http.get(
+        "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?mode=detailed&limit=100");
 
     // status code 200 means the get request is successful
     if (response.statusCode == 200) {

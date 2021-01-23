@@ -1,5 +1,6 @@
 library config.globals;
 
+import 'package:astropocket/backend/api/launches_api.dart';
 import 'package:astropocket/backend/check_loading.dart';
 import 'package:astropocket/backend/theme_changer.dart';
 import 'package:astropocket/ui/widgets/itself/news/articles_news.dart';
@@ -20,6 +21,7 @@ double getWidth(BuildContext context) {
 }
 
 ApodApi apodObject = ApodApi();
+LaunchesApi launchesObject = LaunchesApi();
 
 List newsPages = [
   ArticlesNews(),

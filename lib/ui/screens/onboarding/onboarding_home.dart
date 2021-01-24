@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class OnBoardingHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFF04294F),
@@ -37,7 +36,7 @@ class OnBoardingHome extends StatelessWidget {
                   left: getWidth(context) / 18.0,
                   right: getWidth(context) / 18.0),
               child: Text(
-                'Start your jorney across the universe: visit planets, black holes, galaxies and much more',
+                '[TO CHANGE] Start your jorney across the universe: visit planets, black holes, galaxies and much more',
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 18.0,
@@ -50,18 +49,23 @@ class OnBoardingHome extends StatelessWidget {
               width: getWidth(context),
               height: getHeight(context) / 12,
               margin: EdgeInsets.only(
-                  top: getHeight(context) / 15, left: getWidth(context) / 14.4, right: getWidth(context) / 14.4),
-              child: RaisedButton(
-                elevation: 10,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(getWidth(context) / 9)),
-                color: Color(0xFF28527E),
+                  top: getHeight(context) / 15,
+                  left: getWidth(context) / 14.4,
+                  right: getWidth(context) / 14.4),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 10.0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(getWidth(context) / 9)),
+                  primary: Color(0xFF28527E),
+                ),
                 child: Text(
                   'Start now',
                   style: TextStyle(fontSize: 20.0, color: Color(0xFFE6E6E6)),
                 ),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => HomeDrawerBuilder()));

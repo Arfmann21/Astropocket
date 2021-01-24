@@ -21,11 +21,13 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
             // The title
             Center(
               child: Container(
+                width: getWidth(context) / 1.2,
                 margin: EdgeInsets.only(top: getHeight(context) / 60),
                 child: Text(
                   apodObject.title,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(fontSize: 22.0, fontWeight: FontWeight.w600),
+                  style: GoogleFonts.poppins(
+                      fontSize: 22.0, fontWeight: FontWeight.w600),
                 ),
               ),
             ),
@@ -61,7 +63,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
               right: getWidth(context) / 36.0),
           child: Text(
             apodObject.explanation,
-
+            textAlign: TextAlign.justify,
             // Max lines must be based on isExpanded
             maxLines: isExpanded ? 150 : 4,
             overflow: TextOverflow.ellipsis,

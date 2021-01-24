@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 class PictureDayContentHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+            final ThemeData currentTheme = Theme.of(context);
+
     return Container(
             margin: EdgeInsets.only(top: getHeight(context) / 62),
 

@@ -69,7 +69,7 @@ class _PictureOfTheDayState extends State<PictureOfTheDay> {
           ),
           actions: [
             IconButton(
-              icon: Hero(tag: 'apodShareHero', child: Icon(Icons.share)),
+              icon: Hero(tag: 'apodShareHero', child: Icon(Icons.share_outlined)),
               onPressed: () async {
                 // create Object of the class Apod with fetched JSON
                 var apodObject = await fetchApod();

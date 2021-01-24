@@ -1,4 +1,3 @@
-
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/themes.dart';
 import 'package:astropocket/ui/screens/home.dart';
@@ -53,11 +52,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'AstroPocket',
-      debugShowCheckedModeBanner: false,
       themeMode: themeChanger.currentTheme(),
       theme: lightTheme(),
       darkTheme: darkTheme(),
-      home: isFirstAccess ? OnBoardingHome() : HomeDrawerBuilder(),
+      home: isFirstAccess
+          ? OnBoardingHome()
+          : HomeDrawerBuilder(),
     );
   }
 }

@@ -61,7 +61,6 @@ class _LaunchesState extends State<Launches> {
             if (snapshot.hasData) {
               return ListView.builder(
                   addAutomaticKeepAlives: true,
-                  addSemanticIndexes: true,
                   itemCount: 100,
                   itemBuilder: (builder, index) {
                     return Padding(
@@ -79,6 +78,7 @@ class _LaunchesState extends State<Launches> {
                                 ['image'],
                             launchDate: snapshot.data.general[index]
                                 ['window_start'],
+                            launchName: snapshot.data.general[index]['name'],
                             liveUrl: snapshot.data.general[index]['vidURLs']
                                     .toString()
                                     .contains('url')
@@ -88,7 +88,7 @@ class _LaunchesState extends State<Launches> {
                             missionDescription:
                                 snapshot.data.general[index]['mission'] != null
                                     ? snapshot.data.general[index]['mission']
-                                        ['configuration']
+                                        ['description']
                                     : 'Mission details unavaibles',
                             missionName:
                                 snapshot.data.general[index]['mission'] != null
@@ -129,24 +129,28 @@ class _LaunchesState extends State<Launches> {
                               children: [
                                 Hero(
                                   tag: 'imageHero$index',
-                                  child: Container(
-                                      height: getHeight(context) / 3.5,
-                                      width: getWidth(context),
-                                      child: CachedNetworkImage(
-                                        fit: BoxFit.cover,
-                                        imageUrl: snapshot.data.general[index]
-                                                    ['image'] !=
-                                                null
-                                            ? snapshot.data.general[index]
-                                                ['image']
-                                            : snapshot.data.general[index][
-                                                        'launch_service_provider']
-                                                    ['logo_url'] ??
-                                                'Image unavaible',
-                                        placeholder: (context, url) {
-                                          return Container();
-                                        },
-                                      )),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(
+                                        getWidth(context) / 36.0),
+                                    child: Container(
+                                        height: getHeight(context) / 3.5,
+                                        width: getWidth(context),
+                                        child: CachedNetworkImage(
+                                          fit: BoxFit.cover,
+                                          imageUrl: snapshot.data.general[index]
+                                                      ['image'] !=
+                                                  null
+                                              ? snapshot.data.general[index]
+                                                  ['image']
+                                              : snapshot.data.general[index][
+                                                          'launch_service_provider']
+                                                      ['logo_url'] ??
+                                                  'Image unavaible',
+                                          placeholder: (context, url) {
+                                            return Container();
+                                          },
+                                        )),
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
@@ -165,9 +169,10 @@ class _LaunchesState extends State<Launches> {
                                 ),
                                 StatefulBuilder(
                                   builder: (context, _) {
-                                    sharedIndex = index;
-                                    sharedSnapshot = snapshot;
-                                    return UpcomingLaunchStateDateWidget();
+                                    return UpcomingLaunchStateDateWidget(
+                                      index: index,
+                                      snapshot: snapshot,
+                                    );
                                   },
                                 )
                               ],
@@ -227,10 +232,14 @@ class _LaunchesState extends State<Launches> {
                   child: Container(
                     height: getHeight(context) / 2.5,
                     width: getWidth(context),
-                    child: Skeleton(
-                      baseColor: SpecificColors(context).pulseColorBase,
-                      // The Highlight color is the same for both white and dark theme
-                      hightlightColor: const Color(0xFF053361),
+                    child: ClipRRect(
+                      borderRadius:
+                          BorderRadius.circular(getWidth(context) / 36.0),
+                      child: Skeleton(
+                        baseColor: SpecificColors(context).pulseColorBase,
+                        // The Highlight color is the same for both white and dark theme
+                        hightlightColor: const Color(0xFF053361),
+                      ),
                     ),
                   ),
                 );

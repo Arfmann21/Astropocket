@@ -11,6 +11,7 @@ class LaunchesApi {
   final String state;
   final String launchDate;
   final String liveUrl;
+  final String launchName;
 
 // For the 'Mission' screen
   final String missionName;
@@ -30,6 +31,7 @@ class LaunchesApi {
       this.launchImageUrl,
       this.state,
       this.launchDate,
+      this.launchName,
       this.liveUrl,
       this.missionDescription,
       this.missionName,

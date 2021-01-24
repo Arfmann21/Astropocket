@@ -34,7 +34,7 @@ class NewsItselfWebsiteShare extends StatelessWidget {
           ),
           Container(
             child: IconButton(
-              icon: Icon(Icons.share),
+              icon: Icon(Icons.share_outlined),
               onPressed: () async {
                 // Method to share something from the app (package Share)
                 await Share.share(

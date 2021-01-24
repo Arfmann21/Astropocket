@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData lightTheme() {
-  final ThemeData lightTheme = ThemeData.light();
-
-  return lightTheme.copyWith(
+  return ThemeData(
+    brightness: Brightness.light,
     scaffoldBackgroundColor: Color(0xFFFFFFFF),
     accentColor: Colors.red,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: Colors.white,
     ),
     appBarTheme: AppBarTheme(
-        elevation: 0,
-        centerTitle: true,
-        color: Color(0xFFFFFFFF),
-        titleTextStyle:
-            GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22.0),
-        iconTheme: IconThemeData(color: Color(0xFF212121))),
+      elevation: 0,
+      centerTitle: true,
+      color: Color(0xFFFFFFFF),
+      titleTextStyle:
+          GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22.0),
+      iconTheme: IconThemeData(color: Color(0xFF212121)),
+    ),
     cardTheme: CardTheme(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       elevation: 10,
@@ -32,14 +32,12 @@ ThemeData lightTheme() {
 }
 
 ThemeData darkTheme() {
-  final ThemeData darkTheme = ThemeData.dark();
-
-  return darkTheme.copyWith(
+  return ThemeData(
+      brightness: Brightness.dark,
       scaffoldBackgroundColor: Color(0xFF031a30),
       iconTheme: IconThemeData(color: Color(0xFFcccccc)),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: Color(0xFF031e30)
-      ),
+      bottomNavigationBarTheme:
+          BottomNavigationBarThemeData(backgroundColor: Color(0xFF031e30)),
       appBarTheme: AppBarTheme(
           elevation: 0,
           centerTitle: true,

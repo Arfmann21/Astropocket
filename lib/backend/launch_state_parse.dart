@@ -23,6 +23,10 @@ class LaunchDataParse {
     }
   }
 
+  bool isUpcomingLaunched() {
+    return stateParse() == 'Success' || stateParse() ==  'Failed' ? true :  false; 
+  } 
+
   String dateParse() {
     var year = date.substring(0, 4);
     var month = date.substring(5, 7);

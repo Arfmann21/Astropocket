@@ -2,7 +2,7 @@
     package="com.example.pocket_astronomy">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="pocket_astronomy"
+        android:label="Astropocket"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

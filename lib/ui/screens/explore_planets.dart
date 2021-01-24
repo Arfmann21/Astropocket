@@ -181,9 +181,8 @@ class _ExplorePlanetsState extends State<ExplorePlanets> {
                                                           children: [
                                                             Row(
                                                               children: [
-                                                                iconList[(index /
-                                                                        2)
-                                                                    .toInt()],
+                                                                iconList[index ~/
+                                                                        2],
                                                                 Padding(
                                                                   padding: EdgeInsets.only(
                                                                       left: getWidth(

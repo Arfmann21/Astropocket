@@ -1,11 +1,9 @@
 import 'dart:async';
 
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/backend/planets_infos.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/style/themes.dart';
 import 'package:astropocket/ui/screens/drawer/hidden_drawer.dart';
-import 'package:astropocket/ui/screens/explore_home.dart';
 import 'package:astropocket/ui/widgets/home/home_appbar.dart';
 import 'package:astropocket/ui/widgets/home/news/news_home.dart';
 import 'package:astropocket/ui/widgets/home/picture_day/picture_day_home_widget.dart';

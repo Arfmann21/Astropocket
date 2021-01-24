@@ -3,13 +3,11 @@ import 'dart:async';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/backend/launch_state_parse.dart';
 import 'package:astropocket/backend/url_launcher.dart';
-import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/youtube_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:container_tab_indicator/container_tab_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share/share.dart';
 

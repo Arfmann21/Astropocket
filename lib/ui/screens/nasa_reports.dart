@@ -1,16 +1,13 @@
 import 'dart:async';
 
 import 'package:astropocket/backend/api/nasa_reports_api.dart';
-import 'package:astropocket/backend/date_parse.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/backend/url_launcher.dart';
-import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/widgets/itself/reports/nasa_report_itself.dart';
 import 'package:astropocket/ui/widgets/itself/reports/nasa_report_skeleton.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:skeleton_animation/skeleton_animation.dart';
 
 class NasaReports extends StatefulWidget {
   @override

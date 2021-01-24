@@ -22,10 +22,12 @@ class HomeDrawerBuilder extends StatelessWidget {
     );
 
     return MaterialApp(
+      title: 'AstroPocket',
       themeMode: themeChanger.currentTheme(),
       theme: lightTheme(),
       darkTheme: darkTheme(),
-      home: child,);
+      home: child,
+    );
   }
 }
 
@@ -104,7 +106,7 @@ class _HomeState extends State<Home> {
                 )));
           },
         ),*/
-        
+
         body: _connectionStatus == 'ConnectivityResult.none'
             ? Column(
                 children: [

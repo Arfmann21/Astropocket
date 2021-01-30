@@ -1,7 +1,6 @@
 import 'package:astropocket/backend/api/nasa_apod.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
-import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/screens/picture_of_day.dart';
 import 'package:astropocket/ui/widgets/home/picture_day/picture_container_home.dart';
 import 'package:astropocket/ui/widgets/home/picture_day/picture_day_content_home.dart';
@@ -54,7 +53,7 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                               'Picture of the day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
-                                fontSize: 22.0,
+                                fontSize: 21.5,
                               ),
                             ),
                           ),
@@ -64,8 +63,7 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                         icon: Hero(
                           tag: 'apodShareHero',
                           child: Icon(ExpandCustomIcon.arrow_expand,
-                              color:
-                                  SpecificColors(context).blackWhiteTextColor),
+                            ),
                         ),
                         onPressed: () {
                           Navigator.push(

@@ -6,7 +6,6 @@ import 'package:skeleton_animation/skeleton_animation.dart';
 class PictureDaySkeletonItself extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print(getHeight(context));
     return Column(
       children: [
         Column(

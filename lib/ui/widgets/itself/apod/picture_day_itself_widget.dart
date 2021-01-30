@@ -17,7 +17,6 @@ class _PictureDayItselfWidgetState extends State<PictureDayItselfWidget> {
 
   @override
   Widget build(BuildContext context) {
-    print(apodObject.hdurl);
 
     return Column(
       children: [

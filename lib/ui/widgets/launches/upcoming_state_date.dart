@@ -6,19 +6,18 @@ import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class UpcomingLaunchStateDateWidget extends StatefulWidget {
+class LaunchesListStateDateWidget extends StatefulWidget {
   final index;
   final snapshot;
 
-  UpcomingLaunchStateDateWidget({this.index, this.snapshot});
+  LaunchesListStateDateWidget({this.index, this.snapshot});
 
   @override
-  _UpcomingLaunchStateDateWidgetState createState() =>
-      _UpcomingLaunchStateDateWidgetState();
+  _LaunchesListStateDateWidgetState createState() =>
+      _LaunchesListStateDateWidgetState();
 }
 
-class _UpcomingLaunchStateDateWidgetState
-    extends State<UpcomingLaunchStateDateWidget> {
+class _LaunchesListStateDateWidgetState extends State<LaunchesListStateDateWidget> {
   var stateIndex;
   var stateSnapshot;
   int timeDiff;
@@ -55,9 +54,6 @@ class _UpcomingLaunchStateDateWidgetState
                     stateSnapshot.data.general[stateIndex]['window_start']) !=
                 DateTime.now()) {
               timeDiff -= 1;
-            } else {
-              print('Times up!');
-              //Do something
             }
           });
         }
@@ -68,8 +64,6 @@ class _UpcomingLaunchStateDateWidgetState
     int hours = timeDiff ~/ (60 * 60) % 24;
     int minutes = (timeDiff ~/ 60) % 60;
     int seconds = timeDiff % 60;
-
-    print(stateSnapshot.data.general[stateIndex]['window_start']);
 
     return Stack(
       children: [
@@ -109,7 +103,7 @@ class _UpcomingLaunchStateDateWidgetState
                             date: stateSnapshot.data.general[stateIndex]
                                 ['window_start'])
                         .dateParse(),
-                    style: GoogleFonts.poppins(fontSize: 16.0),
+                    style: GoogleFonts.poppins(fontSize: 16.0, color: SpecificColors(context).secondaryTextColor),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: getWidth(context) / 36.0),
@@ -130,6 +124,7 @@ class _UpcomingLaunchStateDateWidgetState
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
                         fontSize: 22,
+                        color: SpecificColors(context).primaryTextColor
                       ),
                     ),
                   )
@@ -153,7 +148,6 @@ class _UpcomingLaunchStateDateWidgetState
           ),
           child: Center(
             // Current status
-
             child: Text(
               LaunchDataParse(
                       state: stateSnapshot.data.general[stateIndex]['status']
@@ -162,7 +156,11 @@ class _UpcomingLaunchStateDateWidgetState
               style: GoogleFonts.poppins(
                   fontSize: 18.0,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFF1FD246)),
+                  color: stateSnapshot.data.general[stateIndex]['status']
+                              ['name'] ==
+                          'Failure'
+                      ? SpecificColors(context).launchFailedColor
+                      : SpecificColors(context).stateColor),
             ),
           ),
         ),

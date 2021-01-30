@@ -6,7 +6,7 @@ class SpecificColors {
   Color exploreTextColor;
   Color startNowTextColor;
 
-  Color dropdownBackgroundColor;
+  Color backgroundColorAsScaffold;
   Color dropdownIconColor;
   Color blackWhiteTextColor;
 
@@ -33,8 +33,12 @@ class SpecificColors {
   Color indicatorColor;
 
   Color stateColor;
-  Color failedStateColor;
   Color unavaibleLaunchVideoColor;
+
+  Color launchFailedColor;
+  
+  Color secondaryTextColor;
+  Color primaryTextColor;
 
   SpecificColors(BuildContext context) {
         final ThemeData currentTheme = Theme.of(context);
@@ -43,11 +47,11 @@ class SpecificColors {
         exploreTextColor = Color(0xFFE6E6E6);
         startNowTextColor = Color(0xFFE6E6E6);
 
-        dropdownBackgroundColor = currentTheme.brightness == Brightness.light ? Color(0xFFFFFFFF) : Color(0xFF04294F);
+        backgroundColorAsScaffold = currentTheme.brightness == Brightness.light ? Color(0xFFFFFFFF) : Color(0xF031a30);
         dropdownIconColor = currentTheme.brightness == Brightness.light ? Color(0xFFFFFFF) : Color(0xFF346F94);
         blackWhiteTextColor = currentTheme.brightness == Brightness.light ? Color(0xFF212121) : Color(0xFFE6E6E6);
 
-        darkGreyLightGreyColor = currentTheme.brightness == Brightness.light ? Color(0xFF333333) : Color(0xFFcccccc);
+        darkGreyLightGreyColor = currentTheme.brightness == Brightness.light ? Color(0xFF0066cc) : Color(0xFF00b389);
         lightGreyDarkGreyColor = currentTheme.brightness == Brightness.light ? Color(0xFF404040) : Color(0xFFBFBFBF);
 
         pulseColorBase = currentTheme.brightness == Brightness.light ? Color(0xFFD9D9D9) : Color(0xFF0c3046);
@@ -67,7 +71,13 @@ class SpecificColors {
         unselectedLabelColor = currentTheme.brightness == Brightness.light ? Color(0xFF757575) : Color(0xFFa6a6a6);
         indicatorColor = currentTheme.brightness == Brightness.light ? Color(0xFF0066cc) : Color(0xFF00b389);
 
+        // State color is also used for Success and Ready to launch
         stateColor = currentTheme.brightness == Brightness.light ? Color(0xFF158936) : Color(0xFF00b389);
         unavaibleLaunchVideoColor = currentTheme.brightness == Brightness.light ? Color(0xFF212121) : Color(0xFF1c3046);
+
+        launchFailedColor = currentTheme.brightness == Brightness.light ? Color(0xFFcc0000) : Color(0xFFff4d4d);
+
+        secondaryTextColor = currentTheme.brightness == Brightness.light ? Color(0xFF666666) : Color(0xFFb3b3b3);
+        primaryTextColor = currentTheme.brightness == Brightness.light ? Color(0xFF333333) : Color(0xFFbfbfbf);
   }
 }

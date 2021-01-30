@@ -51,7 +51,7 @@ class _NewsHomeState extends State<NewsHome> {
             ),
             IconButton(
               icon: Icon(ExpandCustomIcon.arrow_expand,
-                  color: SpecificColors(context).blackWhiteTextColor),
+                  ),
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => News()));

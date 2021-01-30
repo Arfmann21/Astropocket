@@ -14,7 +14,7 @@ class FabSpeedDial extends StatelessWidget {
       // This widget doesn't have a center property
       marginRight: (MediaQuery.of(context).size.width / 2) - 33,
       elevation: 15.0,
-      backgroundColor: SpecificColors(context).dropdownBackgroundColor,
+      backgroundColor: SpecificColors(context).backgroundColorAsScaffold,
 
       // Use SizedBox to define image size
       child: SizedBox(

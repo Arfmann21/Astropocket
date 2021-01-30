@@ -8,11 +8,28 @@ class HomeAppbar extends StatefulWidget {
   _HomeAppbarState createState() => _HomeAppbarState();
 }
 
-class _HomeAppbarState extends State<HomeAppbar> {
-  bool isDrawerOpen = false;
+class _HomeAppbarState extends State<HomeAppbar>
+    with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
+
+  @override
+  void initState() {
+    drawerState.addListener(() {
+      setState(() {});
+    });
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 350));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    drawerState.loadState()
+        ? drawerState.loadPressed()
+            ? null
+            : _animationController.reverse()
+        : _animationController.reverse();
+
     ThemeData currentTheme = Theme.of(context);
     String image = currentTheme.brightness == Brightness.light
         ? 'sun_theme'
@@ -25,19 +42,27 @@ class _HomeAppbarState extends State<HomeAppbar> {
           margin: EdgeInsets.only(
               left: getWidth(context) / 18.0, top: getHeight(context) / 62.2),
           child: IconButton(
-            icon: Icon(
-              Icons.menu_rounded,
-              size: 36.0,
+            icon: AnimatedIcon(
+              icon: AnimatedIcons.menu_arrow,
+              size: 38.0,
+              progress: _animationController,
+              color: SpecificColors(context).primaryTextColor,
             ),
             color: SpecificColors(context).blackWhiteTextColor,
             onPressed: () {
-              if (isDrawerOpen) {
-                SlidingDrawerMain.of(context).close();
-                isDrawerOpen = false;
-              } else {
+              drawerState.setState();              
+              setState(() {
+                drawerState.loadState()
+                    ? _animationController.forward()
+                    : _animationController.reverse();
+              });
+              if (drawerState.loadState()) {
                 SlidingDrawerMain.of(context).open();
-                isDrawerOpen = true;
+              } else {
+                SlidingDrawerMain.of(context).close();
               }
+
+            
             },
           ),
         ),
@@ -46,10 +71,11 @@ class _HomeAppbarState extends State<HomeAppbar> {
                 right: getWidth(context) / 18.0,
                 top: getHeight(context) / 62.2),
             child: IconButton(
-              splashColor: themeChanger.currentTheme() == ThemeMode.light ? Colors.black38 : Colors.white70,
+              splashColor: themeChanger.currentTheme() == ThemeMode.light
+                  ? Colors.black38
+                  : Colors.white70,
               icon: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 270),
-              
+                  duration: const Duration(milliseconds: 200),
                   child: Image.asset(
                     'assets/images/$image.png',
                     key: ValueKey<String>('assets/images/$image.png'),
@@ -61,7 +87,6 @@ class _HomeAppbarState extends State<HomeAppbar> {
                       ? 'sun_theme'
                       : 'moon_theme';
                 });
-                print(image);
               },
             ))
       ],

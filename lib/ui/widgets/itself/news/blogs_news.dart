@@ -52,14 +52,16 @@ class _BlogsNewsState extends State<BlogsNews> {
                     ),
                   );
                 });
-          else
+          else {
+            var limit = snapshot.data.totalDocs;
+
             return Padding(
               padding: EdgeInsets.only(
                   left: getWidth(context) / 30.0,
                   right: getWidth(context) / 30.0,
                   top: getHeight(context) / 30.0),
               child: ListView.builder(
-                itemCount: 1000,
+                itemCount: limit <= 1000 ? limit :  1000,
                 itemBuilder: (context, index) {
                   // Gesture detector on top of Listview tree so the 'onTap' is referred to the entire news container
                   return GestureDetector(
@@ -75,6 +77,7 @@ class _BlogsNewsState extends State<BlogsNews> {
                 },
               ),
             );
+          }
         });
   }
 }

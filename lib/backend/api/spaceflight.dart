@@ -7,9 +7,10 @@ class NewsApi {
   final String websiteName;
   final String url;
   final List general;
+  final int totalDocs;
 
   NewsApi(
-      {this.title, this.thumbnail, this.websiteName, this.url, this.general});
+      {this.title, this.thumbnail, this.websiteName, this.url, this.general, this.totalDocs});
   // 'json' is the map fetched from the response body (decoded in json)
   factory NewsApi.fromJson(Map<String, dynamic> json) {
     // return the object of NewsApi with attributes values taken from the map 'json'
@@ -18,7 +19,9 @@ class NewsApi {
         title: json['docs'][0]['title'],
         url: json['docs'][0]['url'],
         thumbnail: json['docs'][0]['featured_image'],
-        websiteName: json['docs'][0]['news_site_long']);
+        websiteName: json['docs'][0]['news_site_long'],
+        totalDocs: json['totalDocs']
+        );
   }
 }
 

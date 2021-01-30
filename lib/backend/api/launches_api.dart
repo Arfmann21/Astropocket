@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import '../global_variables.dart';
+
 class LaunchesApi {
   final List<dynamic> general;
   final int count;
@@ -48,11 +50,52 @@ class LaunchesApi {
   }
 }
 
-Future<LaunchesApi> fetchLaunches() async {
+ // Set a global object to use for specific launch infos. This method will be called when the user tap on a launch
+  void setLaunchesObject(snapshot, index) {
+    launchesObject = LaunchesApi(
+      state: snapshot.data.general[index]['status']['name'],
+      launchImageUrl: snapshot.data.general[index]['image'],
+      launchDate: snapshot.data.general[index]['window_start'],
+      launchName: snapshot.data.general[index]['name'],
+
+      // Sometimes, the live is not avaible
+      liveUrl:
+          snapshot.data.general[index]['vidURLs'].toString().contains('url')
+              ? snapshot.data.general[index]['vidURLs'][0]['url']
+              : 'No video avaibles',
+
+      // Sometimes, mission name and description is not avaible
+      missionDescription: snapshot.data.general[index]['mission'] != null
+          ? snapshot.data.general[index]['mission']['description']
+          : snapshot.data.general[index]['launch_service_provider']['name'] +
+              ' didn\'t provide mission details',
+      missionName: snapshot.data.general[index]['mission'] != null
+          ? snapshot.data.general[index]['mission']['name']
+          : 'Mission details unavaibles',
+
+      // Launch agency name and logo
+      launchServiceProvider: snapshot.data.general[index]
+          ['launch_service_provider']['name'],
+      launchServiceProviderLogo: snapshot.data.general[index]
+          ['launch_service_provider']['logo_url'],
+
+      // Rocket name, description and provider name and logo
+      rocketName: snapshot.data.general[index]['rocket']['configuration']
+          ['full_name'],
+      rocketDescription: snapshot.data.general[index]['rocket']['configuration']
+          ['description'],
+      rocketProvider: snapshot.data.general[index]['rocket']['configuration']
+          ['manufacturer']['name'],
+      rocketProviderLogo: snapshot.data.general[index]['rocket']
+          ['configuration']['manufacturer']['logo_url'],
+    );
+  }
+
+Future<LaunchesApi> fetchLaunches(type, isSearched, searchName) async {
   // try for network issues
   try {
-    final response = await http.get(
-        "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?mode=detailed&limit=100");
+    final response = isSearched == true ? await http.get("https://ll.thespacedevs.com/2.0.0/launch/?search=$searchName&mode=detailed") :  await http.get(
+        "https://ll.thespacedevs.com/2.0.0/launch/$type/?mode=detailed&limit=100");
 
     // status code 200 means the get request is successful
     if (response.statusCode == 200) {

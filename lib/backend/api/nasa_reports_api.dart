@@ -7,14 +7,16 @@ class NasaReportsApi {
   final String websiteName;
   final String url;
   final List general;
+  final int itemNumber;
 
   NasaReportsApi(
-      {this.title, this.thumbnail, this.websiteName, this.url, this.general});
+      {this.title, this.thumbnail, this.websiteName, this.url, this.general, this.itemNumber});
   // 'json' is the map fetched from the response body (decoded in json)
   factory NasaReportsApi.fromJson(Map<String, dynamic> json) {
     // return the object of NewsApi with attributes values taken from the map 'json'
     return NasaReportsApi(
         general: json['docs'],
+        itemNumber: json['totalDocs']
        );
   }
 }

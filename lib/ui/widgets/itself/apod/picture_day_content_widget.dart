@@ -27,7 +27,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
                   apodObject.title,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
-                      fontSize: 22.0, fontWeight: FontWeight.w600),
+                      fontSize: 22.0, fontWeight: FontWeight.w600, color: SpecificColors(context).primaryTextColor),
                 ),
               ),
             ),
@@ -42,7 +42,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
                 alignment: Alignment.center,
                 angle: isExpanded ? 180 * 3.14 / 180 : 0,
                 child: IconButton(
-                  icon: Icon(Icons.arrow_drop_down),
+                  icon: Icon(Icons.arrow_drop_down, color: SpecificColors(context).primaryTextColor,),
                   iconSize: 32.0,
                   onPressed: () {
                     setState(() {
@@ -58,7 +58,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
         // The description
         Padding(
           padding: EdgeInsets.only(
-              top: getHeight(context) / 93.3,
+              top: getWidth(context) / 20.0,
               left: getWidth(context) / 36.0,
               right: getWidth(context) / 36.0),
           child: Text(
@@ -70,7 +70,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
             style: GoogleFonts.poppins(
                 fontSize: 15.5,
                 fontWeight: FontWeight.w500,
-                color: SpecificColors(context).lightGreyDarkGreyColor),
+                color: SpecificColors(context).secondaryTextColor),
           ),
         ),
       ],

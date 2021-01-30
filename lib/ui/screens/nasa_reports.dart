@@ -22,7 +22,8 @@ class _NasaReportsState extends State<NasaReports> {
 
   @override
   void initState() {
-    futureReports = fetchReports();
+    if (fetchNasaReports == null) 
+    fetchNasaReports = fetchReports();
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
     super.initState();
@@ -54,11 +55,11 @@ class _NasaReportsState extends State<NasaReports> {
         ),
       ),
       body: FutureBuilder<NasaReportsApi>(
-        future: futureReports,
+        future: fetchNasaReports,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return ListView.builder(
-                itemCount: 1000,
+                itemCount: snapshot.data.itemNumber,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(
@@ -67,24 +68,22 @@ class _NasaReportsState extends State<NasaReports> {
                         right: getWidth(context) / 30.0,
                         bottom: getWidth(context) / 20.0),
                     child: GestureDetector(
-                      onTap: () {
-                        launchURL(snapshot.data.general[index]['url']);
-                      },
-                      child: NasaReportItselfWidget(
-                        index: index,
-                        data: snapshot.data.general,
-                      )
-                    ),
+                        onTap: () {
+                          launchURL(snapshot.data.general[index]['url']);
+                        },
+                        child: NasaReportItselfWidget(
+                          index: index,
+                          data: snapshot.data.general,
+                        )),
                   );
                 });
           } else {
             return Padding(
-              padding: EdgeInsets.only(
-                  top: getHeight(context) / 30.0,
-                  left: getWidth(context) / 30.0,
-                  right: getWidth(context) / 30.0),
-              child: NasaReportSkeleton()
-            );
+                padding: EdgeInsets.only(
+                    top: getHeight(context) / 30.0,
+                    left: getWidth(context) / 30.0,
+                    right: getWidth(context) / 30.0),
+                child: NasaReportSkeleton());
           }
         },
       ),

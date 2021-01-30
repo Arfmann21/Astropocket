@@ -9,6 +9,9 @@ class LaunchDataParse {
       case 'Success':
         return 'Success';
 
+      case 'Failure':
+        return 'Failure';
+
       case 'Go':
         return 'Ready to launch';
 
@@ -18,14 +21,19 @@ class LaunchDataParse {
       case 'In Flight':
         return 'In flight';
 
+      case 'Partial Failure':
+        return 'Partial failure';
+
       default:
         return 'Error';
     }
   }
 
   bool isUpcomingLaunched() {
-    return stateParse() == 'Success' || stateParse() ==  'Failed' ? true :  false; 
-  } 
+    return stateParse() == 'Success' || stateParse() == 'Failure'
+        ? true
+        : false;
+  }
 
   String dateParse() {
     var year = date.substring(0, 4);

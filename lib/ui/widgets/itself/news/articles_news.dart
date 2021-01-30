@@ -8,7 +8,6 @@ import 'package:skeleton_animation/skeleton_animation.dart';
 import 'news_itself.dart';
 
 class ArticlesNews extends StatefulWidget {
-
   @override
   _ArticlesNewsState createState() => _ArticlesNewsState();
 }
@@ -29,7 +28,7 @@ class _ArticlesNewsState extends State<ArticlesNews> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting)
             return ListView.builder(
-              addAutomaticKeepAlives: true,
+                addAutomaticKeepAlives: true,
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return Padding(
@@ -49,7 +48,7 @@ class _ArticlesNewsState extends State<ArticlesNews> {
                     ),
                   );
                 });
-          else
+          else {
             return Padding(
               padding: EdgeInsets.only(
                   left: getWidth(context) / 30.0,
@@ -72,6 +71,7 @@ class _ArticlesNewsState extends State<ArticlesNews> {
                 },
               ),
             );
+          }
         });
   }
 }

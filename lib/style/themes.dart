@@ -14,20 +14,20 @@ ThemeData lightTheme() {
       centerTitle: true,
       color: Color(0xFFFFFFFF),
       titleTextStyle:
-          GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22.0),
-      iconTheme: IconThemeData(color: Color(0xFF212121)),
+          GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22.0, color: Color(0xFF404040)),
+      iconTheme: IconThemeData(color: Color(0xFF404040)),
     ),
     cardTheme: CardTheme(
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      elevation: 10,
+      elevation: 5,
     ),
     primaryTextTheme:
         TextTheme(headline6: GoogleFonts.poppins(color: Color(0xFF212121))),
     textTheme: TextTheme(
-      bodyText1: GoogleFonts.poppins(color: Color(0xFF12121)),
+      bodyText1: GoogleFonts.poppins(color: Color(0xFF212121)),
       bodyText2: GoogleFonts.poppins(color: Color(0xFF212121)),
     ),
-    iconTheme: IconThemeData(color: Color(0xFF212121)),
+    iconTheme: IconThemeData(color: Color(0xFF404040)),
   );
 }
 
@@ -35,7 +35,7 @@ ThemeData darkTheme() {
   return ThemeData(
       brightness: Brightness.dark,
       scaffoldBackgroundColor: Color(0xFF031a30),
-      iconTheme: IconThemeData(color: Color(0xFFcccccc)),
+      iconTheme: IconThemeData(color: Color(0xFFbfbfbf)),
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: Color(0xFF031e30)),
       appBarTheme: AppBarTheme(
@@ -44,17 +44,17 @@ ThemeData darkTheme() {
           titleTextStyle:
               GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22.0),
           color: Color(0xFF031a30),
-          iconTheme: IconThemeData(color: Color(0xFFcccccc))),
+          iconTheme: IconThemeData(color: Color(0xFFB3B3B3))),
       cardTheme: CardTheme(
         clipBehavior: Clip.antiAliasWithSaveLayer,
-        elevation: 10,
+        elevation: 5,
       ),
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: Color(0xFF04294F)),
       primaryTextTheme:
-          TextTheme(headline6: GoogleFonts.poppins(color: Color(0xFFcccccc))),
+          TextTheme(headline6: GoogleFonts.poppins(color: Color(0xFFB3B3B3))),
       cardColor: Color(0xFF1c3046),
       textTheme: TextTheme(
           button: GoogleFonts.poppins(color: Color(0xFFE6E6E6)),
-          bodyText2: GoogleFonts.poppins(color: Color(0xFFcccccc))));
+          bodyText2: GoogleFonts.poppins(color: Color(0xFFB3B3B3))));
 }

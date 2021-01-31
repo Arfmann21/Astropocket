@@ -1,6 +1,6 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/rocket_icon_icons.dart';
-import 'package:astropocket/ui/screens/launches.dart';
+import 'package:astropocket/ui/screens/launches/launches.dart';
 import 'package:astropocket/ui/screens/nasa_reports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

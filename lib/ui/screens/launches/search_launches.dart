@@ -1,7 +1,7 @@
 import 'package:astropocket/backend/api/launches_api.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/ui/screens/specific_launch.dart';
+import 'package:astropocket/ui/screens/launches/specific_launch.dart';
 import 'package:astropocket/ui/widgets/launches/too_many_requests.dart';
 import 'package:astropocket/ui/widgets/launches/upcoming_state_date.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -15,8 +15,13 @@ class SearchLaunches extends StatefulWidget {
 }
 
 class _SearchLaunchesState extends State<SearchLaunches> {
+  // Use this to search
   String query = '';
+
+  // To fetch the API using the query as search field
   Future futureLaunches;
+
+  // Check if the query is empty. If true, show the suggested
   bool isClear = true;
 
   List<String> suggested = [
@@ -24,20 +29,16 @@ class _SearchLaunchesState extends State<SearchLaunches> {
     'Cassini-Huygens',
     'Mars pathfinder',
     'STS-51-L',
-    'Sputnik I'
   ];
 
+  // Needs to edit the TextField text from outside
   var _controller = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // TextField as title to let user type search
         title: TextField(
           textCapitalization: TextCapitalization.sentences,
           controller: _controller,
@@ -56,6 +57,8 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                 color: SpecificColors(context).secondaryTextColor),
           ),
         ),
+
+        // Clear icon
         actions: [
           IconButton(
             icon: Icon(Icons.clear),
@@ -70,7 +73,10 @@ class _SearchLaunchesState extends State<SearchLaunches> {
         ],
       ),
       body: isClear
-          ? Padding(
+          ?
+          // Show suggested 
+          // General padding 
+          Padding(
               padding: EdgeInsets.only(
                   top: getWidth(context) / 10.0,
                   left: getWidth(context) / 20.0),
@@ -85,11 +91,14 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                       color: SpecificColors(context).primaryTextColor,
                     ),
                   ),
+
+                  // Show a ListView with the suggested items. Wrapped in Expanded() because of the Column
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(top: getWidth(context) / 15.0),
                       child: ListView.separated(
                         itemCount: 5,
+                        // Return some space bewteen each item
                         separatorBuilder: (context, index) {
                           return Padding(
                             padding:
@@ -97,6 +106,8 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                           );
                         },
                         itemBuilder: (context, index) {
+
+                          // Let the user tap on each item, so he can search it by simply clicking
                           return GestureDetector(
                             onTap: () {
                               _controller.text = suggested[index];

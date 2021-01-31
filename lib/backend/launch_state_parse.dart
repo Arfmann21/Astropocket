@@ -30,7 +30,7 @@ class LaunchDataParse {
   }
 
   bool isUpcomingLaunched() {
-    return stateParse() == 'Success' || stateParse() == 'Failure'
+    return stateParse() == 'Success' || stateParse() == 'Failure' || stateParse() == 'Partial failure'
         ? true
         : false;
   }

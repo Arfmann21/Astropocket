@@ -2,7 +2,7 @@ import 'package:astropocket/backend/api/launches_api.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/previous_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/upcoming_icon_icons.dart';
-import 'package:astropocket/ui/screens/search_launches.dart';
+import 'package:astropocket/ui/screens/launches/search_launches.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

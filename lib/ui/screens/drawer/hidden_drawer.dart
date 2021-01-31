@@ -22,7 +22,7 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
   static const double minDragStartEdge = 60;
   static const double maxDragStartEdge = maxSlide - 16;
   AnimationController _animationController;
-  bool _canBeDragged = false;
+ // bool _canBeDragged = false;
 
   @override
   void initState() {
@@ -96,7 +96,7 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
     );
   }
 
-  void _onDragStart(DragStartDetails details) {
+ /* void _onDragStart(DragStartDetails details) {
     bool isDragOpenFromLeft = _animationController.isDismissed &&
         details.globalPosition.dx < minDragStartEdge;
     bool isDragCloseFromRight = _animationController.isCompleted &&
@@ -125,5 +125,5 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
       close();
     } else
       open();
-  }
+  }*/
 }

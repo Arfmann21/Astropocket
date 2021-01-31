@@ -1,7 +1,7 @@
 import 'package:astropocket/backend/api/launches_api.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/ui/screens/specific_launch.dart';
+import 'package:astropocket/ui/screens/launches/specific_launch.dart';
 import 'package:astropocket/ui/widgets/launches/too_many_requests.dart';
 import 'package:astropocket/ui/widgets/launches/upcoming_state_date.dart';
 import 'package:cached_network_image/cached_network_image.dart';

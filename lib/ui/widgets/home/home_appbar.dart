@@ -24,6 +24,8 @@ class _HomeAppbarState extends State<HomeAppbar>
 
   @override
   Widget build(BuildContext context) {
+
+    // I have no idea how this works anymore. All I know is that I should have used normal if-else instead of ternary
     drawerState.loadState()
         ? drawerState.loadPressed()
             ? null

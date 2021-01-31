@@ -157,8 +157,8 @@ class _LaunchesListStateDateWidgetState extends State<LaunchesListStateDateWidge
                   fontSize: 18.0,
                   fontWeight: FontWeight.w500,
                   color: stateSnapshot.data.general[stateIndex]['status']
-                              ['name'] ==
-                          'Failure'
+                              ['name'] !=
+                          'Success'
                       ? SpecificColors(context).launchFailedColor
                       : SpecificColors(context).stateColor),
             ),

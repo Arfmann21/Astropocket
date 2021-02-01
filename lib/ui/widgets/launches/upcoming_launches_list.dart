@@ -19,7 +19,6 @@ class UpcomingLaunchesList extends StatefulWidget {
 }
 
 class _UpcomingLaunchesListState extends State<UpcomingLaunchesList> {
-  Future<LaunchesApi> futureLaunches;
 
   @override
   void initState() {

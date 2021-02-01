@@ -1,6 +1,7 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/rocket_icon_icons.dart';
 import 'package:astropocket/ui/screens/launches/launches.dart';
+import 'package:astropocket/ui/screens/mars_photos.dart';
 import 'package:astropocket/ui/screens/nasa_reports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -97,10 +98,13 @@ class DrawerHome extends StatelessWidget {
                         Padding(
                           padding:
                               EdgeInsets.only(left: getWidth(context) / 36.0),
-                          child: Text(
-                            'NASA Rover Photos',
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w500, fontSize: 15.5),
+                          child: GestureDetector(
+                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MarsPhotos())),
+                                                      child: Text(
+                              'Mars Rover Photos',
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w500, fontSize: 15.5),
+                            ),
                           ),
                         ),
                       ],

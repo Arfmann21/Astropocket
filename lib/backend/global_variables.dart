@@ -19,6 +19,7 @@ CheckLoading checkLoading = CheckLoading();
 var fetchNasaReports;
 var fetchedUpcomingLaunches;
 var fetchedPreviousLaunches;
+var fetchMarsPhotos;
 
 double getHeight(BuildContext context) {
   return MediaQuery.of(context).size.height;

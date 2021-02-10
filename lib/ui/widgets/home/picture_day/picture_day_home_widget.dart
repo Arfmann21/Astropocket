@@ -52,7 +52,7 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                             child: Text(
                               'Picture of the day',
                               style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                                 fontSize: 21.5,
                               ),
                             ),
@@ -62,8 +62,9 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                       IconButton(
                         icon: Hero(
                           tag: 'apodShareHero',
-                          child: Icon(ExpandCustomIcon.arrow_expand,
-                            ),
+                          child: Icon(
+                            ExpandCustomIcon.arrow_expand,
+                          ),
                         ),
                         onPressed: () {
                           Navigator.push(
@@ -80,7 +81,7 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                   snapshot.data.type == 'video'
                       ? VideoContainer()
                       : PictureContainerHome(),
-                      PictureDayContentHome()
+                  PictureDayContentHome()
                 ],
               );
             } else
@@ -92,9 +93,9 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Picture of the day',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w700,
-                      fontSize: 22,
+                      fontSize: 21.5,
                     ),
                   ),
                 ),

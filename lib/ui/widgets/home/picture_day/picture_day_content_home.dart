@@ -19,7 +19,7 @@ class PictureDayContentHome extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w700,
                     fontSize: 15.0,
-                    color: SpecificColors(context).lightGreyDarkGreyColor),
+                    color: SpecificColors(context).secondaryTextColor),
 
                 // The actuals texts
                 children: [

@@ -29,6 +29,9 @@ class _PictureOfTheDayState extends State<PictureOfTheDay> {
   void initState() {
     super.initState();
 
+    apodScrolling.addListener(() {
+      if(mounted) setState(() {});
+    });
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
     futureApod = fetchApod();
@@ -54,6 +57,8 @@ class _PictureOfTheDayState extends State<PictureOfTheDay> {
   Widget build(BuildContext context) {
     var imageUrl = '';
 
+    print(apodScrolling.getScroll());
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -64,13 +69,15 @@ class _PictureOfTheDayState extends State<PictureOfTheDay> {
               child: Text(
                 'Picture of the day',
                 style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600, fontSize: 22.0, color: SpecificColors(context).primaryTextColor),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22.0,)
               ),
             ),
           ),
           actions: [
             IconButton(
-              icon: Hero(tag: 'apodShareHero', child: Icon(Icons.share_outlined)),
+              icon:
+                  Hero(tag: 'apodShareHero', child: Icon(Icons.share_outlined)),
               onPressed: () async {
                 // create Object of the class Apod with fetched JSON
                 var apodObject = await fetchApod();
@@ -86,6 +93,7 @@ class _PictureOfTheDayState extends State<PictureOfTheDay> {
           ],
         ),
         body: SingleChildScrollView(
+          physics: apodScrolling.getScroll() == false ? NeverScrollableScrollPhysics() : AlwaysScrollableScrollPhysics(),
           child: Container(
             margin: EdgeInsets.only(top: getHeight(context) / 37.3),
             child: Column(

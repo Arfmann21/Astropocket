@@ -1,6 +1,7 @@
 library config.globals;
 
 import 'package:astropocket/backend/api/launches_api.dart';
+import 'package:astropocket/backend/apod_scrolling.dart';
 import 'package:astropocket/backend/check_loading.dart';
 import 'package:astropocket/backend/drawer_state.dart';
 import 'package:astropocket/backend/theme_changer.dart';
@@ -15,11 +16,16 @@ import 'api/nasa_apod.dart';
 ThemeChanger themeChanger = ThemeChanger();
 DrawerState drawerState = DrawerState();
 CheckLoading checkLoading = CheckLoading();
+ApodScrolling apodScrolling = ApodScrolling();
 
 var fetchNasaReports;
 var fetchedUpcomingLaunches;
 var fetchedPreviousLaunches;
 var fetchMarsPhotos;
+
+var globalSnapshot;
+
+ScrollController apodScrollController;
 
 double getHeight(BuildContext context) {
   return MediaQuery.of(context).size.height;

@@ -22,6 +22,9 @@ class _NewsHomeState extends State<NewsHome> {
   @override
   void initState() {
     futureNews = fetchNews(true, 'articles');
+    drawerState.addListener(() {
+      setState(() {});
+    });
     super.initState();
   }
 
@@ -42,7 +45,7 @@ class _NewsHomeState extends State<NewsHome> {
                   child: Text(
                     'News',
                     style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       fontSize: 22.0,
                     ),
                   ),
@@ -50,8 +53,9 @@ class _NewsHomeState extends State<NewsHome> {
               ),
             ),
             IconButton(
-              icon: Icon(ExpandCustomIcon.arrow_expand,
-                  ),
+              icon: Icon(
+                ExpandCustomIcon.arrow_expand,
+              ),
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => News()));
@@ -76,7 +80,8 @@ class _NewsHomeState extends State<NewsHome> {
                       // If the user click on the News container, the browser will open to see the news on its website
                       return GestureDetector(
                         onTap: () {
-                          launchURL(snapshot.data.url);
+                          if (drawerState.loadState() == false)
+                            launchURL(snapshot.data.url);
                         },
                         // Use card for the elevation
                         child: Card(

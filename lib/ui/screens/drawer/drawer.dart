@@ -1,7 +1,8 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/custom_icons/rocket_icon_icons.dart';
 import 'package:astropocket/ui/screens/launches/launches.dart';
-import 'package:astropocket/ui/screens/mars_photos.dart';
+import 'package:astropocket/ui/screens/mars_weather.dart';
+import 'package:astropocket/ui/screens/marsphotos/mars_photos_home.dart';
 import 'package:astropocket/ui/screens/nasa_reports.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -88,29 +89,31 @@ class DrawerHome extends StatelessWidget {
                       fontSize: 17.0, fontWeight: FontWeight.w600),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: getWidth(context) / 15.0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.crop_original_outlined),
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: getWidth(context) / 36.0),
-                          child: GestureDetector(
-                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MarsPhotos())),
-                                                      child: Text(
-                              'Mars Rover Photos',
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500, fontSize: 15.5),
-                            ),
+              Column(
+                children: [
+                  /*Row(
+                    children: [
+                      Icon(Icons.crop_original_outlined),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: getWidth(context) / 36.0),
+                        child: GestureDetector(
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MarsPhotosHome())),
+                                                    child: Text(
+                            'Mars Rover Photos',
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500, fontSize: 15.5),
                           ),
                         ),
-                      ],
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: getWidth(context) / 15.0),
+                      ),
+                    ],
+                  ),*/
+                  Padding(
+                    padding: EdgeInsets.only(top: getWidth(context) / 15.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MarsWeather()));
+                      },
                       child: Row(
                         children: [
                           Icon(Icons.wb_sunny_outlined),
@@ -126,8 +129,8 @@ class DrawerHome extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               )
             ],
           ),

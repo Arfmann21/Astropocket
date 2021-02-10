@@ -25,7 +25,7 @@ Future<MarsPhotosApi> fetchMarsPhotosApi() async {
   // try for network issues
   try {
     var response = await http.get(
-        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=EIfDjB0WSAscEbwAkQhUsxbYndr1fOrbmF8wqigw");
+        "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=EIfDjB0WSAscEbwAkQhUsxbYndr1fOrbmF8wqigw");
 
     // status code 200 means the get request is successful
     if (response.statusCode == 200)

@@ -12,25 +12,34 @@ class _PictureDayItselfWidgetState extends State<PictureDayItselfWidget> {
 
   @override
   void initState() {
+    apodScrolling.addListener(() {
+      if (mounted) setState(() {});
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         // Pciture container
         Container(
           // Use Card for the elevation
           child: Card(
-           color: Colors.transparent,
+              color: Colors.transparent,
               elevation: 10,
               child: Hero(
                 tag: 'apodHero',
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(getWidth(context) / 36),
                   child: InteractiveViewer(
+                    onInteractionUpdate: (scaleDetails) {
+                   //   print(scaleDetails);
+                      if (scaleDetails.focalPoint.distance < 1.0)
+                        apodScrolling.setScrollTrue();
+                      else
+                        apodScrolling.setScrollFalse();
+                    },
                     child: CachedNetworkImage(
                       fit: BoxFit.fill,
                       imageUrl: apodObject.hdurl,
@@ -42,7 +51,6 @@ class _PictureDayItselfWidgetState extends State<PictureDayItselfWidget> {
                 ),
               )),
         ),
-        
       ],
     );
   }

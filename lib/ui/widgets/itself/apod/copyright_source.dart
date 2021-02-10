@@ -20,7 +20,7 @@ class CopyrightSource extends StatelessWidget {
               left: getWidth(context) / 20,
               right: getWidth(context) / 20,
               top: MediaQuery.of(context).size.height / 20),
-          color: SpecificColors(context).darkGreyLightGreyColor,
+          color: SpecificColors(context).secondaryTextColor,
         ),
         GestureDetector(
           onTap: () {

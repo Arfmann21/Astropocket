@@ -70,6 +70,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
             style: GoogleFonts.poppins(
                 fontSize: 15.5,
                 fontWeight: FontWeight.w500,
+                letterSpacing: 1.0,
                 color: SpecificColors(context).secondaryTextColor),
           ),
         ),

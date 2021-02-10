@@ -49,9 +49,12 @@ class _NasaReportsState extends State<NasaReports> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'NASA Reports',
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+        title: Material(
+          color: Colors.transparent,
+          child: Text(
+            'NASA Reports',
+            style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 21.5),
+          ),
         ),
       ),
       body: FutureBuilder<NasaReportsApi>(

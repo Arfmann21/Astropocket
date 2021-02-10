@@ -22,13 +22,13 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
   static const double minDragStartEdge = 60;
   static const double maxDragStartEdge = maxSlide - 16;
   AnimationController _animationController;
- // bool _canBeDragged = false;
+  // bool _canBeDragged = false;
 
   @override
   void initState() {
     drawerState.addListener(() {
-      setState(() {
-    });});
+      setState(() {});
+    });
     super.initState();
     _animationController = AnimationController(
       vsync: this,
@@ -47,6 +47,7 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
     return WillPopScope(
       onWillPop: () async {
         if (_animationController.isCompleted) {
+          drawerState.setState();
           close();
           return false;
         }
@@ -73,21 +74,20 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
                     alignment: Alignment.centerLeft,
                     child: GestureDetector(
                         onTap: () => {
-                          drawerState.setState(),
-                          _animationController.isCompleted ? close() : null
-                        },
+                              drawerState.setState(),
+                              _animationController.isCompleted ? close() : null
+                            },
                         child: Card(
-                          elevation: drawerState.loadState() ? 5.0 : 0.0,
-                          color: SpecificColors(context).backgroundColorAsScaffold,
-                          margin: EdgeInsets.all(0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: drawerState.loadState() ? BorderRadius.circular(getWidth(context) / 36.0) : BorderRadius.circular(0.0)
-                          ),
-                          child: Container(
-                            child: widget.child)
-                            )
-                          )
-                          )
+                            elevation: drawerState.loadState() ? 5.0 : 0.0,
+                            color: SpecificColors(context)
+                                .backgroundColorAsScaffold,
+                            margin: EdgeInsets.all(0),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: drawerState.loadState()
+                                    ? BorderRadius.circular(
+                                        getWidth(context) / 36.0)
+                                    : BorderRadius.circular(0.0)),
+                            child: Container(child: widget.child))))
               ],
             );
           },
@@ -96,7 +96,7 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
     );
   }
 
- /* void _onDragStart(DragStartDetails details) {
+  /* void _onDragStart(DragStartDetails details) {
     bool isDragOpenFromLeft = _animationController.isDismissed &&
         details.globalPosition.dx < minDragStartEdge;
     bool isDragCloseFromRight = _animationController.isCompleted &&

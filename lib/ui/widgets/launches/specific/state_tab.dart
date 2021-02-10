@@ -37,7 +37,7 @@ class SpecificLaunchStateTab extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontSize: 21.0,
                     fontWeight: FontWeight.w600,
-                    color: launchesObject.state != 'Success' ? SpecificColors(context).launchFailedColor : SpecificColors(context).stateColor),
+                    color: launchesObject.state == 'Failure' || launchesObject.state == 'Partial Failure' ? SpecificColors(context).launchFailedColor : SpecificColors(context).stateColor),
               ),
             ),
 

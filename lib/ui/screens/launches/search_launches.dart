@@ -97,7 +97,7 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                     child: Padding(
                       padding: EdgeInsets.only(top: getWidth(context) / 15.0),
                       child: ListView.separated(
-                        itemCount: 5,
+                        itemCount: suggested.length,
                         // Return some space bewteen each item
                         separatorBuilder: (context, index) {
                           return Padding(

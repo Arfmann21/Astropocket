@@ -42,9 +42,12 @@ class _LaunchesState extends State<Launches> {
         },
       ),
       appBar: AppBar(
-        title: Text(
-          'Launches',
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+        title: Material(
+          color: Colors.transparent,
+          child: Text(
+            'Launches',
+            style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 21.5),
+          ),
         ),
         actions: [
           IconButton(

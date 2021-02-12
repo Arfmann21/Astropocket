@@ -26,7 +26,7 @@ class NewsItselfWebsiteShare extends StatelessWidget {
             child: Text(
               data[index]['news_site_long'] +
                   ' - ' +
-                  DateParse(data[index]['published_date']).getParse(),
+                  DateParse(DateTime.parse(data[index]['published_date'])).getParse(),
               style: TextStyle(
                   color: SpecificColors(context).darkGreyLightGreyColor,
                   fontSize: 14.0),

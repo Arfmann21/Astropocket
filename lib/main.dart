@@ -1,8 +1,10 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/themes.dart';
+import 'package:astropocket/ui/screens/changelog.dart';
 import 'package:astropocket/ui/screens/home.dart';
 import 'package:astropocket/ui/screens/onboarding/onboarding_home.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
@@ -20,20 +22,48 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool isFirstAccess = false;
+  bool isThereAChangelog = false;
+  String savedVersion;
   ThemeMode themeMode = ThemeMode.dark;
+
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+  );
 
   @override
   void initState() {
-    checkFirstAccess();
+    super.initState();
+
+    _initPackageInfo();
     themeChanger.addListener(() {
       setState(() {});
     });
-    super.initState();
   }
 
-  Future<void> checkFirstAccess() async {
+  Future<void> _initPackageInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+
+    print(_packageInfo.version);
+
+    checkFirstAccessAndSettings();
+  }
+
+  Future<void> checkFirstAccessAndSettings() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     var isFirstAccessPref = pref.getBool('isFirstAccess') ?? true;
+    isCelsius = pref.getBool('isCelsius') ?? false;
+
+    setState(() {
+      savedVersion = pref.getString('savedVersion') ?? '0';
+    });
+
+    print(savedVersion);
 
     if (isFirstAccessPref) {
       setState(() {
@@ -46,6 +76,14 @@ class _MyAppState extends State<MyApp> {
         isFirstAccess = false;
       });
     }
+
+    if (savedVersion != _packageInfo.version && savedVersion != '0') {
+      setState(() {
+        isThereAChangelog = true;
+      });
+    }
+
+    pref.setString('savedVersion', _packageInfo.version);
   }
 
   @override
@@ -57,7 +95,11 @@ class _MyAppState extends State<MyApp> {
       darkTheme: darkTheme(),
       home: isFirstAccess
           ? OnBoardingHome()
-          : HomeDrawerBuilder(),
+          : isThereAChangelog
+              ? Changelog(
+                  versionNumber: _packageInfo.version,
+                )
+              : HomeDrawerBuilder(),
     );
   }
 }

@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.1.7
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -30,9 +30,11 @@ dependencies:
   cupertino_icons: ^1.0.1
   ext_video_player: ^0.0.4
   flutter_native_splash: ^0.1.9
+  flutter_rounded_date_picker: ^1.0.5+1
   flutter_speed_dial: ^1.2.5
   google_fonts: ^1.1.1
   http: ^0.12.2
+  package_info: ^0.4.3+4
   share: ^0.6.5+4
   shared_preferences: ^0.5.12+4
   skeleton_animation: ^0.0.3
@@ -57,6 +59,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/planets/
+    - assets/images/moon/
 
   fonts:
     - family: 'DropdownIcon'
@@ -92,6 +95,15 @@ flutter:
     - family: 'PreviousIcon'
       fonts:
         - asset: assets/fonts/PreviousIcon.ttf
+    - family: 'CalendarIcon'
+      fonts:
+        - asset: assets/fonts/CalendarIcon.ttf
+    - family: 'MoonIcon'
+      fonts:
+        - asset: assets/fonts/MoonIcon.ttf
+    - family: 'NewspaperIcon'
+      fonts:
+        - asset: assets/fonts/NewspaperIcon.ttf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

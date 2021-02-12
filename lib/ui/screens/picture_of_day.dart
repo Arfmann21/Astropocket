@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:astropocket/backend/api/nasa_apod.dart';
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/widgets/itself/apod/copyright_source.dart';
 import 'package:astropocket/ui/widgets/itself/apod/picture_day_content_widget.dart';
 import 'package:astropocket/ui/widgets/itself/apod/picture_day_itself_widget.dart';

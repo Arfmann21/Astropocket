@@ -29,7 +29,7 @@ class NasaReportItselfWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    DateParse(data[index]['published_date']).getParse(),
+                    DateParse(DateTime.parse(data[index]['published_date'])).getParse(),
                     style: GoogleFonts.poppins(
                         fontSize: 16.0, fontWeight: FontWeight.w500, color: SpecificColors(context).darkGreyLightGreyColor),
                   ),

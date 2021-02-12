@@ -1,5 +1,5 @@
 class DateParse {
-  final date;
+  DateTime date;
 
   DateParse(this.date);
 
@@ -36,7 +36,31 @@ class DateParse {
         default:
           return 'Null';
       }
+    } else
+      return 'Date unavaible';
+  }
+
+  String getWeekDay() {
+    int weekDayNum = date.weekday;
+
+    switch (weekDayNum) {
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Friday';
+      case 6:
+        return 'Saturday';
+      case 7:
+        return 'Sunday';
+
+      default:
+        return 'Error';
     }
-    else return 'Date unavaible';
   }
 }

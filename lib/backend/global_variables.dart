@@ -25,6 +25,8 @@ var fetchMarsPhotos;
 
 var globalSnapshot;
 
+var isCelsius;
+
 ScrollController apodScrollController;
 
 double getHeight(BuildContext context) {

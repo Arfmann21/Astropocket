@@ -17,7 +17,7 @@ class SlidingDrawerMain extends StatefulWidget {
 
 class SlidingDrawerMainState extends State<SlidingDrawerMain>
     with SingleTickerProviderStateMixin {
-  static const Duration toggleDuration = Duration(milliseconds: 200);
+  static const Duration toggleDuration = Duration(milliseconds: 150);
   static const double maxSlide = 225;
   static const double minDragStartEdge = 60;
   static const double maxDragStartEdge = maxSlide - 16;

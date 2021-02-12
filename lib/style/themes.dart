@@ -35,6 +35,7 @@ ThemeData darkTheme() {
   return ThemeData(
       brightness: Brightness.dark,
       scaffoldBackgroundColor: Color(0xFF031a30),
+      primaryColor: Color(0xFF082C50),
       iconTheme: IconThemeData(color: Color(0xFFD9D9D9)),
       bottomNavigationBarTheme:
           BottomNavigationBarThemeData(backgroundColor: Color(0xFF031e30)),

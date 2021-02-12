@@ -138,8 +138,8 @@ class _MarsWeatherState extends State<MarsWeather> {
                                           padding: EdgeInsets.only(
                                               top: getWidth(context) / 50.0),
                                           child: Text(
-                                            DateParse(weatherData[index + 1]
-                                                    ['First_UTC'])
+                                            DateParse(DateTime.parse(weatherData[index + 1]
+                                                    ['First_UTC']))
                                                 .getParse()
                                                 .toString(),
                                             style: GoogleFonts.poppins(
@@ -219,6 +219,9 @@ class _MarsWeatherState extends State<MarsWeather> {
                                 ),
                               );
                             },
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: getWidth(context) / 30.0),
                           )
                         ],
                       ),

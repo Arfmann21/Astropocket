@@ -111,7 +111,7 @@ class _InsightCurrentDayState extends State<InsightCurrentDay> {
 
                           // Earth day
                           Text(
-                            DateParse(widget.weatherData[0]['First_UTC'])
+                            DateParse(DateTime.parse(widget.weatherData[0]['First_UTC']))
                                 .getParse()
                                 .toString(),
                             style: GoogleFonts.poppins(

@@ -23,6 +23,8 @@ var fetchedUpcomingLaunches;
 var fetchedPreviousLaunches;
 var fetchMarsPhotos;
 
+String savedVersion;
+
 var globalSnapshot;
 
 var isCelsius;

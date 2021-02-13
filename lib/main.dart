@@ -3,6 +3,7 @@ import 'package:astropocket/style/themes.dart';
 import 'package:astropocket/ui/screens/changelog.dart';
 import 'package:astropocket/ui/screens/home.dart';
 import 'package:astropocket/ui/screens/onboarding/onboarding_home.dart';
+import 'package:astropocket/ui/widgets/settings_info/info_section.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +24,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool isFirstAccess = false;
   bool isThereAChangelog = false;
-  String savedVersion;
   ThemeMode themeMode = ThemeMode.dark;
 
   PackageInfo _packageInfo = PackageInfo(

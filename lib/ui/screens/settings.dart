@@ -14,21 +14,21 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       appBar: AppBar(
         title: Material(
+          color: Colors.transparent,
           child: Text(
             'Settings & info',
             style: GoogleFonts.poppins(
-              fontWeight: FontWeight.w600,
-              fontSize: 21.5
-            ),
+                fontWeight: FontWeight.w600, fontSize: 21.5),
           ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: getWidth(context) / 30.0, right: getWidth(context) / 30.0, top: getHeight(context) / 20.0),
+        padding: EdgeInsets.only(
+            left: getWidth(context) / 20.0,
+            right: getWidth(context) / 20.0,
+            top: getHeight(context) / 20.0),
         child: Column(
-          children: [
-            SettingsSection()
-          ],
+          children: [SettingsSection()],
         ),
       ),
     );

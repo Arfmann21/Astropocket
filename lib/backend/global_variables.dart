@@ -26,6 +26,8 @@ var fetchMarsPhotos;
 var globalSnapshot;
 
 var isCelsius;
+var mdy;
+var dmy;
 
 ScrollController apodScrollController;
 

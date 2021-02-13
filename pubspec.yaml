@@ -27,7 +27,7 @@ dependencies:
   carousel_slider: ^3.0.0
   connectivity: ^2.0.2
   container_tab_indicator: ^0.2.0
-  cupertino_icons: ^1.0.1
+  cupertino_icons: ^1.0.0
   ext_video_player: ^0.0.4
   flutter_native_splash: ^0.1.9
   flutter_rounded_date_picker: ^1.0.5+1

@@ -13,8 +13,6 @@ ThemeData lightTheme() {
       elevation: 0,
       centerTitle: true,
       color: Color(0xFFFAFAFA),
-      titleTextStyle:
-          GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22.0, color: Color(0xFF2414C6B)),
       iconTheme: IconThemeData(color: Color(0xFF2414C6B)),
     ),
     cardTheme: CardTheme(
@@ -42,8 +40,6 @@ ThemeData darkTheme() {
       appBarTheme: AppBarTheme(
           elevation: 0,
           centerTitle: true,
-          titleTextStyle:
-              GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 22.0, color: Color(0xFFD9D9D9)),
           color: Color(0xFF031a30),
           iconTheme: IconThemeData(color: Color(0xFFd9d9d9))),
       cardTheme: CardTheme(

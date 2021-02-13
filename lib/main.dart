@@ -58,6 +58,8 @@ class _MyAppState extends State<MyApp> {
     SharedPreferences pref = await SharedPreferences.getInstance();
     var isFirstAccessPref = pref.getBool('isFirstAccess') ?? true;
     isCelsius = pref.getBool('isCelsius') ?? false;
+    mdy = pref.getBool('mdy') ?? true;
+    dmy = pref.getBool('dmy') ?? false;
 
     setState(() {
       savedVersion = pref.getString('savedVersion') ?? '0';

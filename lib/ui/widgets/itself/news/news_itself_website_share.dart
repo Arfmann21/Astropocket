@@ -38,7 +38,7 @@ class NewsItselfWebsiteShare extends StatelessWidget {
               onPressed: () async {
                 // Method to share something from the app (package Share)
                 await Share.share(
-                    '🔭 ${data[index]['title']} \n\n🌐 ${data[index]['url']}\n\n🔗 Shared by AstroPocket: [Link store]');
+                    '🔭 ${data[index]['title']} \n\n🌐 ${data[index]['url']}\n\n');
               },
             ),
           )

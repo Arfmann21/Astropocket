@@ -69,11 +69,14 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
 
     //The strings for the share, based on the status of the launch: the upcoming list could contain an already launched launch
     String shareUpcomingText =
-        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} will launch on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n📱 Track the launch with Astropocket: [link store]';
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} will launch on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n';
     String sharePreviousTextSuccess =
-        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n✅ Status: Successful\n\n📱 Track the launch with Astropocket: [link store]';
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n✅ Status: Successful\n\n';
     String sharePreviousTextFailure =
-        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n❌ Status: Failure\n\n📱 Track the launch with Astropocket: [link store]';
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n❌ Status: Failure\n\n';
+
+    String sharePreviousTextPartialFailure =
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n❌ Status: Partial failure\n\n';
 
     // Use a DefaultTabController as root to avoid a second Scaffold
     return DefaultTabController(
@@ -99,6 +102,9 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
                         await Share.share(sharePreviousTextFailure);
                         break;
 
+                      case 'Partial failure':
+                      await Share.share(sharePreviousTextPartialFailure);
+                      break;
                       // If not failure and success, then it's not launched yet
                       default:
                         await Share.share(shareUpcomingText);
@@ -142,7 +148,11 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
                                 height: getHeight(context),
                                 width: getWidth(context),
                                 child: CachedNetworkImage(
-                                  imageUrl: launchesObject.launchImageUrl != null ? launchesObject.launchImageUrl :  launchesObject.launchServiceProviderLogo,
+                                  imageUrl:
+                                      launchesObject.launchImageUrl != null
+                                          ? launchesObject.launchImageUrl
+                                          : launchesObject
+                                              .launchServiceProviderLogo,
                                   fit: BoxFit.cover,
                                   placeholder: (context, url) {
                                     return Container();
@@ -272,21 +282,18 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
                   Stack(
                     fit: StackFit.loose,
                     children: [
-
                       // First tab, which contain state and livesteam
-                      SpecificLaunchStateTab(
-                        selectedIndex: selectedIndex
-                      ),
-                      
+                      SpecificLaunchStateTab(selectedIndex: selectedIndex),
+
                       // Second tab, which conatin mission details
                       SpecificLaunchMissionTab(
                         selectedIndex: selectedIndex,
                       ),
-                      
+
                       // Third tab, which contain rocket details
-                     SpecificLaunchRocketTab(
-                       selectedIndex: selectedIndex,
-                     )
+                      SpecificLaunchRocketTab(
+                        selectedIndex: selectedIndex,
+                      )
                     ],
                   )
                 ],

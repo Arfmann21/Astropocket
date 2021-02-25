@@ -37,7 +37,7 @@ class NasaReportItselfWidget extends StatelessWidget {
                     icon: Icon(Icons.share_outlined),
                     onPressed: () async {
                       await Share.share(
-                          '📄 ${data[index]['title'] ?? 'NASA Reports - TItle unavaible'}\n\n🌐  Link: ${data[index]['url']}\n\n🔗 Shared from Astropocket: [Link store]');
+                          '📄 ${data[index]['title'] ?? 'NASA Reports - TItle unavaible'}\n\n🌐  Link: ${data[index]['url']}\n\n');
                     },
                   )
                 ],

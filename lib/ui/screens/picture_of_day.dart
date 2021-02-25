@@ -81,7 +81,7 @@ class _PictureOfTheDayState extends State<PictureOfTheDay> {
 
                 // Method to share something from the app (package Share)
                 await Share.share(
-                    '🔭 Look at the astronomy picture of the day!\n\n🌐 $imageUrl\n\n🔗 Shared by AstroPocket: [Link store]');
+                    '🔭 Look at the astronomy picture of the day!\n\n🌐 $imageUrl\n\n');
               },
             )
           ],

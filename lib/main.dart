@@ -4,6 +4,7 @@ import 'package:astropocket/ui/screens/changelog.dart';
 import 'package:astropocket/ui/screens/home.dart';
 import 'package:astropocket/ui/screens/onboarding/onboarding_home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
@@ -86,6 +87,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
     return MaterialApp(
       title: 'AstroPocket',
       themeMode: themeChanger.currentTheme(),

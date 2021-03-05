@@ -62,7 +62,7 @@ class _NasaReportsState extends State<NasaReports> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return ListView.builder(
-                itemCount: snapshot.data.itemNumber,
+                itemCount: 100,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(

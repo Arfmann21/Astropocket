@@ -73,6 +73,7 @@ class _NewsHomeState extends State<NewsHome> {
                   if (snapshot.connectionState == ConnectionState.waiting)
                     return NewsSkeletonHome();
                   else {
+
                     if (snapshot.hasData) {
                       // If the user click on the News container, the browser will open to see the news on its website
                       return GestureDetector(

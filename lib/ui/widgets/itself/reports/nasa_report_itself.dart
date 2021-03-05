@@ -7,7 +7,7 @@ import 'package:share/share.dart';
 
 class NasaReportItselfWidget extends StatelessWidget {
   final int index;
-  final List<dynamic> data;
+  final List data;
 
   NasaReportItselfWidget({this.index, this.data});
 
@@ -29,7 +29,7 @@ class NasaReportItselfWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    DateParse(DateTime.parse(data[index]['published_date'])).getParse(),
+                    DateParse(DateTime.parse(data[index]['publishedAt'])).getParse(),
                     style: GoogleFonts.poppins(
                         fontSize: 16.0, fontWeight: FontWeight.w500, color: SpecificColors(context).blueGreenColor),
                   ),

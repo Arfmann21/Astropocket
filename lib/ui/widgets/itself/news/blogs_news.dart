@@ -33,7 +33,7 @@ class _BlogsNewsState extends State<BlogsNews> {
           if (snapshot.connectionState == ConnectionState.waiting)
             return ListView.builder(
                 addAutomaticKeepAlives: true,
-                itemCount: 10,
+                itemCount: 100,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(
@@ -53,15 +53,13 @@ class _BlogsNewsState extends State<BlogsNews> {
                   );
                 });
           else {
-            var limit = snapshot.data.totalDocs;
-
             return Padding(
               padding: EdgeInsets.only(
                   left: getWidth(context) / 30.0,
                   right: getWidth(context) / 30.0,
                   top: getHeight(context) / 30.0),
               child: ListView.builder(
-                itemCount: limit <= 1000 ? limit :  1000,
+                itemCount: 1000,
                 itemBuilder: (context, index) {
                   // Gesture detector on top of Listview tree so the 'onTap' is referred to the entire news container
                   return GestureDetector(

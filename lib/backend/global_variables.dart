@@ -21,6 +21,8 @@ var fetchedUpcomingLaunches;
 var fetchedPreviousLaunches;
 var fetchMarsPhotos;
 
+var test;
+
 var globalSnapshot;
 
 var isCelsius;

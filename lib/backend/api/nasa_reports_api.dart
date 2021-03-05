@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:astropocket/backend/global_variables.dart';
 import 'package:http/http.dart' as http;
 
 class NasaReportsApi {
@@ -12,11 +13,10 @@ class NasaReportsApi {
   NasaReportsApi(
       {this.title, this.thumbnail, this.websiteName, this.url, this.general, this.itemNumber});
   // 'json' is the map fetched from the response body (decoded in json)
-  factory NasaReportsApi.fromJson(Map<String, dynamic> json) {
+  factory NasaReportsApi.fromJson(List json) {
     // return the object of NewsApi with attributes values taken from the map 'json'
     return NasaReportsApi(
-        general: json['docs'],
-        itemNumber: json['totalDocs']
+        general: json,
        );
   }
 }
@@ -25,7 +25,7 @@ Future<NasaReportsApi> fetchReports() async {
   // try for network issues
   try {
     final response = await http
-            .get("https://spaceflightnewsapi.net/api/v1/reports?limit=1000?news_site=nasa?");
+            .get("https://spaceflightnewsapi.net/api/v2/reports?_limit=1000");
         
 
     // status code 200 means the get request is successful

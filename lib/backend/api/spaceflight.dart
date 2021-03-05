@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import '../global_variables.dart';
+
 class NewsApi {
   final String title;
   final String thumbnail;
@@ -10,18 +12,22 @@ class NewsApi {
   final int totalDocs;
 
   NewsApi(
-      {this.title, this.thumbnail, this.websiteName, this.url, this.general, this.totalDocs});
+      {this.title,
+      this.thumbnail,
+      this.websiteName,
+      this.url,
+      this.general,
+      this.totalDocs});
   // 'json' is the map fetched from the response body (decoded in json)
-  factory NewsApi.fromJson(Map<String, dynamic> json) {
+  factory NewsApi.fromJson(List json) {
     // return the object of Spaceflight with attributes values taken from the map 'json'
     return NewsApi(
-        general: json['docs'],
-        title: json['docs'][0]['title'],
-        url: json['docs'][0]['url'],
-        thumbnail: json['docs'][0]['featured_image'],
-        websiteName: json['docs'][0]['news_site_long'],
-        totalDocs: json['totalDocs']
-        );
+      general: json,
+      title: json[0]['title'],
+      url: json[0]['url'],
+      thumbnail: json[0]['imageUrl'],
+      websiteName: json[0]['newsSite'],
+    );
   }
 }
 
@@ -30,9 +36,9 @@ Future<NewsApi> fetchNews(bool home, String type) async {
   try {
     final response = home
         ? await http
-            .get("https://spaceflightnewsapi.net/api/v1/articles?limit=1")
+            .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=1")
         : await http
-            .get("https://spaceflightnewsapi.net/api/v1/$type?limit=1000");
+            .get("https://spaceflightnewsapi.net/api/v2/$type?_limit=1000");
 
     // status code 200 means the get request is successful
     if (response.statusCode == 200) {

@@ -24,9 +24,9 @@ class NewsItselfWebsiteShare extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             child: Text(
-              data[index]['news_site_long'] +
+              data[index]['newsSite'] +
                   ' - ' +
-                  DateParse(DateTime.parse(data[index]['published_date'])).getParse(),
+                  DateParse(DateTime.parse(data[index]['publishedAt'])).getParse(),
               style: TextStyle(
                   color: SpecificColors(context).blueGreenColor,
                   fontSize: 14.0),

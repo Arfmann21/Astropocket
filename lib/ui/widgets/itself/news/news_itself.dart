@@ -31,7 +31,7 @@ class _NewsItselfState extends State<NewsItself> {
           children: [
             // Picture container
             NewsItselfPictureContainer(
-              newsThumbnail: widget.data[widget.index]['featured_image'],
+              newsThumbnail: widget.data[widget.index]['imageUrl'],
             ),
 
             // News website name, share button and news date

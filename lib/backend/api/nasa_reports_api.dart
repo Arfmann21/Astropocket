@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:astropocket/backend/global_variables.dart';
 import 'package:http/http.dart' as http;
 
 class NasaReportsApi {

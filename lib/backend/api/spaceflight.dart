@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import '../global_variables.dart';
-
 class NewsApi {
   final String title;
   final String thumbnail;

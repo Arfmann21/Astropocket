@@ -29,7 +29,7 @@ class Fixes extends StatelessWidget {
           child: RichText(
             text: TextSpan(children: [
               TextSpan(
-                text: 'Changelog bug:',
+                text: 'Rounded icon:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
@@ -38,7 +38,25 @@ class Fixes extends StatelessWidget {
               ),
               TextSpan(
                 text:
-                    ' fixed the dark status bar theme when changelog was showing',
+                    ' fixed app icon not rounded in the launcher',
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15.0,
+                  color: SpecificColors(context).secondaryTextColor,
+                ),
+                
+              ),
+              TextSpan(
+                text: '\n\nPerformance:',
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 15.0,
+                  color: SpecificColors(context).primaryTextColor,
+                ),
+              ),
+              TextSpan(
+                text:
+                    ' fixed a performance issue that was causing a lag when clicking on drawer menu for the first time',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.0,

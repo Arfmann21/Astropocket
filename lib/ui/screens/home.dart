@@ -42,9 +42,9 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+        initConnectivity();
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen(updateConnectionStatus);
-    initConnectivity();
   }
 
   @override

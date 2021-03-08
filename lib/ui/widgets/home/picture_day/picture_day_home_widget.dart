@@ -42,51 +42,59 @@ class _PictureDayHomeWidgetState extends State<PictureDayHomeWidget> {
                 copyright: snapshot.data.copyright,
               );
 
-              return Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Hero(
-                        tag: 'apodTextHero',
-                        child: Material(
-                          color: Colors.transparent,
-                          child: Container(
-                            width: getWidth(context) / 1.5,
-                            child: Text(
-                              'Picture of the day',
-                              style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 21.5,
+              return GestureDetector(
+                 onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PictureOfTheDay()));
+                          },
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Hero(
+                          tag: 'apodTextHero',
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Container(
+                              width: getWidth(context) / 1.5,
+                              child: Text(
+                                'Picture of the day',
+                                style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 21.5,
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      IconButton(
-                        icon: Hero(
-                          tag: 'apodShareHero',
-                          child: Icon(
-                            ExpandCustomIcon.arrow_expand,
+                        IconButton(
+                          icon: Hero(
+                            tag: 'apodShareHero',
+                            child: Icon(
+                              ExpandCustomIcon.arrow_expand,
+                            ),
                           ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PictureOfTheDay()));
-                        },
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  snapshot.data.type == 'video'
-                      ? VideoContainer()
-                      : PictureContainerHome(),
-                  PictureDayContentHome()
-                ],
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PictureOfTheDay()));
+                          },
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    snapshot.data.type == 'video'
+                        ? VideoContainer()
+                        : PictureContainerHome(),
+                    PictureDayContentHome()
+                  ],
+                ),
               );
             } else
               return RequestError();

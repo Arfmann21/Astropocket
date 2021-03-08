@@ -27,10 +27,11 @@ class _InfoSectionState extends State<InfoSection> {
             height: getHeight(context) / 7.0,
             width: getHeight(context) / 7.0,
             child: Card(
+              color: Colors.transparent,
               child: Image.asset("assets/images/logo.png"),
               shape: RoundedRectangleBorder(
                   borderRadius:
-                      BorderRadius.circular(getWidth(context) / 36.0)),
+                      BorderRadius.circular(getWidth(context) / 25.0)),
             ),
           ),
         ),

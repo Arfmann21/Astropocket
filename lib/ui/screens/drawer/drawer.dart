@@ -38,9 +38,10 @@ class _DrawerHomeState extends State<DrawerHome> {
                   height: 100,
                   width: 100,
                   child: Card(
+                    color: Colors.transparent,
                    child: Image.asset("assets/images/logo.png"),
                    shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(getWidth(context) / 36.0)
+                     borderRadius: BorderRadius.circular(getWidth(context) / 25.0)
                    ),
                   ),
                 ),

@@ -42,6 +42,8 @@ class SpecificColors {
   Color checkboxcCheckedColor;
   Color checkboxActiveBoxColor;
 
+  Color snackbarBackgroundColor;
+
   SpecificColors(BuildContext context) {
     final ThemeData currentTheme = Theme.of(context);
 
@@ -123,5 +125,7 @@ class SpecificColors {
     checkboxActiveBoxColor = currentTheme.brightness == Brightness.light
         ? Color(0xFF158936)
         : Color(0xFF00b389);
+
+        snackbarBackgroundColor = currentTheme.brightness == Brightness.light ? Color(0xFF247FDB) : Color(0xFF158936);
   }
 }

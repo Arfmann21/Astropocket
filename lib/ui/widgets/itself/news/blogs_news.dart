@@ -8,10 +8,6 @@ import 'package:skeleton_animation/skeleton_animation.dart';
 import 'news_itself.dart';
 
 class BlogsNews extends StatefulWidget {
-  final String type;
-
-  BlogsNews({this.type});
-
   @override
   _BlogsNewsState createState() => _BlogsNewsState();
 }

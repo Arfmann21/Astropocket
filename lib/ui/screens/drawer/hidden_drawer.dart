@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class SlidingDrawerMain extends StatefulWidget {
   final Widget child;
 
-  const SlidingDrawerMain({Key key, @required this.child}) : super(key: key);
+  const SlidingDrawerMain({Key key, this.child}) : super(key: key);
 
   static SlidingDrawerMainState of(BuildContext context) =>
       context.findAncestorStateOfType<SlidingDrawerMainState>();

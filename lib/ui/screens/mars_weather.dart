@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:astropocket/backend/api/insight_weather_api.dart';
-import 'package:astropocket/backend/date_parse.dart';
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/backend/temperature_parsing.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/widgets/insight/current_day.dart';
 import 'package:astropocket/ui/widgets/launches/too_many_requests.dart';
@@ -62,7 +60,7 @@ class _MarsWeatherState extends State<MarsWeather> {
               top: getHeight(context) / 70.0,
               left: getWidth(context) / 36.0,
               right: getWidth(context) / 36.0),
-          child: FutureBuilder(
+          child: FutureBuilder<InsightWeatherApi>(
               future: fetchInsightWeatherApi(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
@@ -106,7 +104,7 @@ class _MarsWeatherState extends State<MarsWeather> {
                           ),
 
                           // Previous days title
-                          Container(
+                         /* Container(
                             alignment: Alignment.centerLeft,
                             padding: EdgeInsets.only(
                                 top: getWidth(context) / 20.0,
@@ -118,10 +116,25 @@ class _MarsWeatherState extends State<MarsWeather> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
+                          ),*/
+
+                          Padding(
+                            padding: EdgeInsets.only(top: getHeight(context) / 10.0),
+                            child: Center(
+                              child: Text(
+                                'NASA has temporarily suspended daily weather measurements.',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w500,
+                                  
+                                ),
+                              ),
+                            ),
                           ),
 
                           // Build the list of previous days weather
-                          ListView.separated(
+                         /* ListView.separated(
                             separatorBuilder: (context, index) {
                               return Padding(
                                 padding: EdgeInsets.only(
@@ -247,7 +260,7 @@ class _MarsWeatherState extends State<MarsWeather> {
                                 ),
                               );
                             },
-                          ),
+                          ),*/
                           Padding(
                             padding:
                                 EdgeInsets.only(top: getWidth(context) / 30.0),

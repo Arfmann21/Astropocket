@@ -30,7 +30,7 @@ class NewFeatures extends StatelessWidget {
           child: RichText(
             text: TextSpan(children: [
               TextSpan(
-                text: 'Changelog:',
+                text: 'Download picture:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
@@ -39,47 +39,13 @@ class NewFeatures extends StatelessWidget {
               ),
               TextSpan(
                 text:
-                    ' you will now see the changelog whenever the app is updated. \nNote: it will not be displayed if is your first access to the app.',
+                    ' you can now download the picture of the day.',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.0,
                   color: SpecificColors(context).secondaryTextColor,
                 ),
               ),
-              TextSpan(
-                text: '\n\nMoon phases:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).primaryTextColor,
-                ),
-              ),
-              TextSpan(
-                text:
-                    ' you can now get the moon phase for a given date, with a full calendar.',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).secondaryTextColor,
-                ),
-              ),
-              TextSpan(
-                text: '\n\nSettings & info:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).primaryTextColor,
-                ),
-              ),
-              TextSpan(
-                text:
-                    ' you can now set Celsius temperature unit for InSight Weather, change the date format for launches and view the info of the app.',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).secondaryTextColor,
-                ),
-              )
             ]),
           ),
         ),

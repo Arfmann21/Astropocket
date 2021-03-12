@@ -29,7 +29,7 @@ class Fixes extends StatelessWidget {
           child: RichText(
             text: TextSpan(children: [
               TextSpan(
-                text: 'Rounded icon:',
+                text: 'Connection status:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
@@ -38,16 +38,15 @@ class Fixes extends StatelessWidget {
               ),
               TextSpan(
                 text:
-                    ' fixed app icon not rounded in the launcher',
+                    ' fixed a bug of the connection status that was causing offline drawer even if there was an active connection.',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.0,
                   color: SpecificColors(context).secondaryTextColor,
-                ),
-                
-              ),
-              TextSpan(
-                text: '\n\nPerformance:',
+                ),)
+                ,
+                 TextSpan(
+                text: '\n\nChangelog status bar color:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
@@ -56,7 +55,7 @@ class Fixes extends StatelessWidget {
               ),
               TextSpan(
                 text:
-                    ' fixed a performance issue that was causing a lag when clicking on drawer menu for the first time',
+                    ' fixed a bug in the changelog screen that was causing a wrong status bar color for light theme.',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.0,

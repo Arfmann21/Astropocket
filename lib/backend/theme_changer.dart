@@ -14,12 +14,13 @@ class ThemeChanger extends ChangeNotifier {
   }
 
   void setStatusBarColor() {
-    if (_isDark && _isDark != null)
+    print(_isDark);
+    if (_isDark)
       SystemChrome.setSystemUIOverlayStyle(
           SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light, statusBarColor: Color(0xFF041a2f)));
     else
       SystemChrome.setSystemUIOverlayStyle(
-          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark, statusBarColor: Color(0xFFF2F2F2)));
+          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark, statusBarColor: Color(0xFFFAFAFA)));
   }
 
   void switchTheme() {

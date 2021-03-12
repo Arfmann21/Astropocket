@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class ConnectionNotifier extends ChangeNotifier{
   bool _isConnectionAvaible = true;
 
-  void setAvailability() {
-    _isConnectionAvaible = !_isConnectionAvaible;
+  void setAvailability({isAvaible = false}) {
+    _isConnectionAvaible = isAvaible;
 
     notifyListeners();
   }

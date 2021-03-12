@@ -90,12 +90,21 @@ class SpecificLaunchStateTab extends StatelessWidget {
                               height: 200,
                               width: MediaQuery.of(context).size.width,
                               child: Center(
-                                  child: Icon(
+                                  child: Container(
+                          margin: EdgeInsets.only(bottom: getWidth(context) / 36.0, right: getWidth(context) / 36.0),
+                          height: getWidth(context) / 7.0,
+                          width: getWidth(context) / 7.0,
+                          decoration: BoxDecoration(
+                          color: Color.fromRGBO(33, 33, 33, 80),
+                          shape: BoxShape.circle,
+                          ),
+                          child: Icon(
                                 Youtube.youtube,
-                                size: 46,
+                                size: 36,
                                 color: SpecificColors(context).shimmerColor,
                               )),
                             ),
+                            )
                           ],
                         ),
                       )

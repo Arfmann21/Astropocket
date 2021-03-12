@@ -23,6 +23,10 @@ class _DrawerHomeState extends State<DrawerHome> {
     super.initState();
   }
 
+@override
+void dispose() { 
+  super.dispose();
+}
   @override
   Widget build(BuildContext context) {
     return SafeArea(

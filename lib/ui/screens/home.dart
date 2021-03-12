@@ -20,7 +20,7 @@ class HomeDrawerBuilder extends StatelessWidget {
     );
 
     return MaterialApp(
-      title: 'AstroPocket',
+      title: 'Astropocket',
       themeMode: themeChanger.currentTheme(),
       theme: lightTheme(),
       darkTheme: darkTheme(),
@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-        initConnectivity();
+    initConnectivity();
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen(updateConnectionStatus);
   }
@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> initConnectivity() async {
-    ConnectivityResult result;
+    ConnectivityResult result = ConnectivityResult.none;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       result = await _connectivity.checkConnectivity();
@@ -73,15 +73,16 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> updateConnectionStatus(ConnectivityResult result) async {
+    print(result);
     switch (result) {
       case ConnectivityResult.wifi:
-        connectionNotifier.setAvailability();
+        connectionNotifier.setAvailability(isAvaible: true);
         setState(() {
           _connectionStatus = result.toString();
         });
         break;
       case ConnectivityResult.mobile:
-        connectionNotifier.setAvailability();
+        connectionNotifier.setAvailability(isAvaible: true);
         setState(() {
           _connectionStatus = result.toString();
         });
@@ -143,11 +144,10 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                           fontSize: 15.0,
                           fontWeight: FontWeight.w700,
-                          color:
-                              SpecificColors(context).blueGreenColor),
+                          color: SpecificColors(context).blueGreenColor),
                     ),
                   ),
-                 /* Expanded(
+                  /* Expanded(
                       child: Container(
                     child: Text(
                       'You can still explore',
@@ -162,7 +162,7 @@ class _HomeState extends State<Home> {
                 ],
               )
             : SingleChildScrollView(
-              child: Column(
+                child: Column(
                   children: [
                     HomeAppbar(),
                     Padding(
@@ -182,7 +182,7 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-            ),
+              ),
       ),
     );
   }

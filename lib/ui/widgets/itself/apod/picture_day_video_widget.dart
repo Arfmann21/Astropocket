@@ -44,13 +44,29 @@ class _PictureDayVideoWidgetState extends State<PictureDayVideoWidget> {
                       fit: BoxFit.cover,
                     ),
                     Positioned.fill(
-                      child: Center(
-                          child: Icon(
-                        Youtube.youtube,
-                        size: 46,
-                        color: SpecificColors(context).shimmerColor,
-                      )),
-                    ),
+                        child: Center(
+                      child: Container(
+                        height: 200,
+                        width: MediaQuery.of(context).size.width,
+                        child: Center(
+                          child: Container(
+                              margin: EdgeInsets.only(
+                                  bottom: getWidth(context) / 36.0,
+                                  right: getWidth(context) / 36.0),
+                              height: getWidth(context) / 7.0,
+                              width: getWidth(context) / 7.0,
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(33, 33, 33, 80),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Youtube.youtube,
+                                size: 46,
+                                color: SpecificColors(context).shimmerColor,
+                              )),
+                        ),
+                      ),
+                    ))
                   ],
                 ),
               ),

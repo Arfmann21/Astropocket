@@ -1,6 +1,5 @@
 import 'package:astropocket/backend/date_parse.dart';
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/backend/temperature_parsing.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,8 +67,9 @@ class _InsightCurrentDayState extends State<InsightCurrentDay> {
                   children: [
 
                     // Mars day
-                    Row(
+                    Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Sol ${widget.reversedSolKeys[0]}',
@@ -79,7 +79,7 @@ class _InsightCurrentDayState extends State<InsightCurrentDay> {
                               color: Color(0xFFE6E6E6)),
                         ),
 
-                        // Highest temperature of the day
+                      /*  // Highest temperature of the day
                         RichText(
                           text: TextSpan(children: [
                             TextSpan(
@@ -102,7 +102,7 @@ class _InsightCurrentDayState extends State<InsightCurrentDay> {
                           ]),
                         ),
                       ],
-                    ),
+                    ),*/
                     Padding(
                       padding: EdgeInsets.only(top: getWidth(context) / 100.0),
                       child: Row(
@@ -120,7 +120,7 @@ class _InsightCurrentDayState extends State<InsightCurrentDay> {
                                 color: Color(0xFFd9d9d9)),
                           ),
 
-                          // Lowest temperature of the day
+                        /*  // Lowest temperature of the day
                           RichText(
                             text: TextSpan(children: [
                               TextSpan(
@@ -142,17 +142,19 @@ class _InsightCurrentDayState extends State<InsightCurrentDay> {
                                     color: Color(0xFFD9D9D9)),
                               )
                             ]),
-                          ),
+                          ),*/
                         ],
                       ),
-                    )
-                  ],
                 ),
-              ),
+                      ]
+                ),
             ],
           ),
         ),
       ],
+          ),
+        ),
+      ]
     );
   }
 }

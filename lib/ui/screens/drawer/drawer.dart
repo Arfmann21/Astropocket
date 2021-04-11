@@ -1,6 +1,8 @@
 import 'package:astropocket/backend/global_variables.dart';
+import 'package:astropocket/style/custom_icons/iss_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/moon_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/rocket_icon_icons.dart';
+import 'package:astropocket/ui/screens/iss/issmain.dart';
 import 'package:astropocket/ui/screens/launches/launches.dart';
 import 'package:astropocket/ui/screens/mars_weather.dart';
 import 'package:astropocket/ui/screens/moon_phases.dart';
@@ -105,6 +107,32 @@ void dispose() {
                                     left: getWidth(context) / 36.0),
                                 child: Text(
                                   'NASA Reports',
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 15.5,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                       Padding(
+                        padding: EdgeInsets.only(top: getWidth(context) / 30.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => IssMain()));
+                          },
+                          child: Row(
+                            children: [
+                              Icon(IssIcon.space_station),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: getWidth(context) / 36.0),
+                                child: Text(
+                                  'ISS Tracker',
                                   style: GoogleFonts.poppins(
                                       fontSize: 15.5,
                                       fontWeight: FontWeight.w500),

@@ -4,6 +4,8 @@ import 'package:astropocket/backend/api/launches_api.dart';
 import 'package:astropocket/backend/connection_notifier.dart';
 import 'package:astropocket/backend/drawer_state.dart';
 import 'package:astropocket/backend/theme_changer.dart';
+import 'package:astropocket/ui/widgets/isstracker/issnextpassesoverview.dart';
+import 'package:astropocket/ui/widgets/isstracker/isstrackingdetails.dart';
 import 'package:astropocket/ui/widgets/itself/news/articles_news.dart';
 import 'package:astropocket/ui/widgets/itself/news/blogs_news.dart';
 import 'package:astropocket/ui/widgets/launches/previous_launches_list.dart';
@@ -20,8 +22,6 @@ var fetchNasaReports;
 var fetchedUpcomingLaunches;
 var fetchedPreviousLaunches;
 var fetchMarsPhotos;
-
-var test;
 
 var globalSnapshot;
 
@@ -46,12 +46,15 @@ LaunchesApi launchesObject = LaunchesApi();
 
 List newsPages = [ArticlesNews(), BlogsNews()];
 
+
 List launchesPages = [
   UpcomingLaunchesList(
     type: 'upcoming',
   ),
   PreviousLaunchesList(),
 ];
+
+var issVisualPassesSnapshot;
 
 String youtubeThumbnail = "";
 

@@ -11,7 +11,6 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  themeChanger.currentTheme();
   timeDilation = 1.3;
   runApp(MyApp());
 }
@@ -37,11 +36,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-
     _initPackageInfo();
     themeChanger.addListener(() {
       setState(() {});
     });
+    themeChanger.currentTheme();
   }
 
   Future<void> _initPackageInfo() async {
@@ -88,9 +87,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown,
-      ]);
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    print(themeChanger.currentTheme().toString());
+
     return MaterialApp(
       title: 'AstroPocket',
       themeMode: themeChanger.currentTheme(),

@@ -4,29 +4,31 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeChanger extends ChangeNotifier {
   // Default theme for the app is Dark
-  bool _isDark = true;
+  bool isDark = true;
 
   // Return the current theme
   ThemeMode currentTheme() {
     checkTheme();
     setStatusBarColor();
-    return _isDark ? ThemeMode.dark : ThemeMode.light;
+    return isDark ? ThemeMode.dark : ThemeMode.light;
   }
 
   void setStatusBarColor() {
-    print(_isDark);
-    if (_isDark)
+    print(isDark);
+    if (isDark)
       SystemChrome.setSystemUIOverlayStyle(
           SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light, statusBarColor: Color(0xFF041a2f)));
-    else
+    else{
       SystemChrome.setSystemUIOverlayStyle(
           SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark, statusBarColor: Color(0xFFFAFAFA)));
+          print('sono qui');
+    }
   }
 
   void switchTheme() {
-    _isDark = !_isDark;
+    isDark = !isDark;
     setStatusBarColor();
-    saveTheme(_isDark);
+    saveTheme(isDark);
 
     // This method will notify every listener and rebuild (like a setState)
     notifyListeners();
@@ -41,6 +43,6 @@ class ThemeChanger extends ChangeNotifier {
     SharedPreferences pref = await SharedPreferences.getInstance();
     bool isDarkPref = pref.getBool('isDark') ?? true;
 
-    _isDark = isDarkPref;
+    isDark = isDarkPref;
   }
 }

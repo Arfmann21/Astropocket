@@ -3,6 +3,7 @@ import 'package:astropocket/backend/url_launcher.dart';
 import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/github_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/instagram_icon_icons.dart';
+import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -152,6 +153,7 @@ class _InfoSectionState extends State<InfoSection> {
               icon: Icon(ExpandCustomIcon.arrow_expand),
               onPressed: () {
                 showModalBottomSheet(
+                  backgroundColor: SpecificColors(context).backgroundColorAsScaffold,
                     context: context,
                     shape: RoundedRectangleBorder(
                         borderRadius:

@@ -35,7 +35,7 @@ packages:
       name: carousel_slider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "4.0.0"
   characters:
     dependency: transitive
     description:
@@ -106,6 +106,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  dogma:
+    dependency: transitive
+    description:
+      name: dogma
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
   fake_async:
     dependency: transitive
     description:
@@ -132,6 +139,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_android:
+    dependency: transitive
+    description:
+      name: flutter_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0"
   flutter_blurhash:
     dependency: transitive
     description:
@@ -289,6 +303,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  model_viewer:
+    dependency: "direct main"
+    description:
+      name: model_viewer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.1"
   octo_image:
     dependency: transitive
     description:
@@ -608,7 +629,7 @@ packages:
       name: webview_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "0.3.24"
   win32:
     dependency: transitive
     description:

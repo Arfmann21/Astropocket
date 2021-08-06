@@ -4,8 +4,6 @@ import 'package:astropocket/backend/api/launches_api.dart';
 import 'package:astropocket/backend/connection_notifier.dart';
 import 'package:astropocket/backend/drawer_state.dart';
 import 'package:astropocket/backend/theme_changer.dart';
-import 'package:astropocket/ui/widgets/isstracker/issnextpassesoverview.dart';
-import 'package:astropocket/ui/widgets/isstracker/isstrackingdetails.dart';
 import 'package:astropocket/ui/widgets/itself/news/articles_news.dart';
 import 'package:astropocket/ui/widgets/itself/news/blogs_news.dart';
 import 'package:astropocket/ui/widgets/launches/previous_launches_list.dart';
@@ -28,6 +26,10 @@ var globalSnapshot;
 var isCelsius;
 var dateFormat;
 var dmy;
+
+var isKilometers;
+var distanceUnit;
+var miles;
 
 var appVersion;
 
@@ -54,8 +56,7 @@ List launchesPages = [
   PreviousLaunchesList(),
 ];
 
-var issVisualPassesSnapshot;
-
+var fetchedIssVisualPasses;
 String youtubeThumbnail = "";
 
 /* Unimplemented feature. If the app goes well, will be implemented 

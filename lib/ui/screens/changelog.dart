@@ -51,7 +51,7 @@ class Changelog extends StatelessWidget {
 
                 // New features and Fixes widgets. Just comment if one of them is not present
                 NewFeatures(),
-                Fixes()
+                //Fixes()
               ],
             ),
           ),

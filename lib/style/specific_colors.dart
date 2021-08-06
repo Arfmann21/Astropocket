@@ -57,7 +57,7 @@ class SpecificColors {
 
     backgroundColorAsScaffold = currentTheme.brightness == Brightness.light
         ? Color(0xFFFAFAFA)
-        : Color(0xF031a30);
+        : Color(0xFF031a30);
 
     blueGreenColor = currentTheme.brightness == Brightness.light
         ? Color(0xFF0066cc)

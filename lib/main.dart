@@ -57,6 +57,12 @@ class _MyAppState extends State<MyApp> {
     var isFirstAccessPref = pref.getBool('isFirstAccess') ?? true;
     isCelsius = pref.getBool('isCelsius') ?? false;
     dateFormat = pref.getString('dateFormat') ?? "mdy";
+    distanceUnit = pref.getString('distanceUnit') ?? 'miles';
+
+    if(distanceUnit == "miles")
+      isKilometers = false;
+    else
+      isKilometers = true;
 
     setState(() {
       savedVersion = pref.getString('savedVersion') ?? '0';

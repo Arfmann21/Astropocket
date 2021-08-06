@@ -10,6 +10,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+// ignore: must_be_immutable
 class IssNextPassesOverview extends StatefulWidget {
   bool isLocationPermissionGranted;
 
@@ -27,20 +28,27 @@ class _IssNextPassesOverviewState extends State<IssNextPassesOverview> {
   @override
   void initState() {
     super.initState();
-    if (issVisualPassesSnapshot == null)
-      futurePasses = fetchIssPasses();
-    else
-      futurePasses = issVisualPassesSnapshot;
-
     isLocationPermissionGranted = widget.isLocationPermissionGranted;
+
+    if (isLocationPermissionGranted) {
+      if (fetchedIssVisualPasses == null)
+        futurePasses = fetchIssPasses();
+      else
+        futurePasses = fetchedIssVisualPasses;
+    }
+
+    if (futurePasses != null) getUserPosition();
     //getLocationPermission();
     //getUserPosition();
   }
 
+  // ignore: missing_return
   Future<Permission> getLocationPermission() async {
     var permission = await Permission.locationWhenInUse.request().isGranted;
 
     if (permission) {
+      getUserPosition();
+
       setState(() {
         isLocationPermissionGranted = true;
       });
@@ -91,8 +99,8 @@ class _IssNextPassesOverviewState extends State<IssNextPassesOverview> {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     if (snapshot.hasData) {
-                      if (issVisualPassesSnapshot == null)
-                        issVisualPassesSnapshot = futurePasses;
+                      if (fetchedIssVisualPasses == null)
+                        fetchedIssVisualPasses = futurePasses;
 
                       return IssPassesOverviewList(snapshot: snapshot);
                     } else

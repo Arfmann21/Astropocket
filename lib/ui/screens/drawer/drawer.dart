@@ -1,12 +1,15 @@
 import 'package:astropocket/backend/global_variables.dart';
+import 'package:astropocket/backend/planets_infos.dart';
 import 'package:astropocket/style/custom_icons/iss_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/moon_icon_icons.dart';
+import 'package:astropocket/style/custom_icons/planet_icon_icons.dart';
 import 'package:astropocket/style/custom_icons/rocket_icon_icons.dart';
 import 'package:astropocket/ui/screens/iss/issmain.dart';
 import 'package:astropocket/ui/screens/launches/launches.dart';
 import 'package:astropocket/ui/screens/mars_weather.dart';
 import 'package:astropocket/ui/screens/moon_phases.dart';
 import 'package:astropocket/ui/screens/nasa_reports.dart';
+import 'package:astropocket/ui/screens/planets_home.dart';
 import 'package:astropocket/ui/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,17 +28,20 @@ class _DrawerHomeState extends State<DrawerHome> {
     super.initState();
   }
 
-@override
-void dispose() { 
-  super.dispose();
-}
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Padding(
           padding: EdgeInsets.only(
-              top: getHeight(context) / 9.5, left: getWidth(context) / 20.0, bottom: getWidth(context) / 36.0),
+              top: getHeight(context) / 9.5,
+              left: getWidth(context) / 20.0,
+              bottom: getWidth(context) / 36.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,10 +51,10 @@ void dispose() {
                   width: 100,
                   child: Card(
                     color: Colors.transparent,
-                   child: Image.asset("assets/images/logo.png"),
-                   shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(getWidth(context) / 25.0)
-                   ),
+                    child: Image.asset("assets/images/logo.png"),
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(getWidth(context) / 25.0)),
                   ),
                 ),
                 Visibility(
@@ -116,7 +122,7 @@ void dispose() {
                           ),
                         ),
                       ),
-                       Padding(
+                      Padding(
                         padding: EdgeInsets.only(top: getWidth(context) / 30.0),
                         child: GestureDetector(
                           onTap: () {
@@ -127,7 +133,7 @@ void dispose() {
                           },
                           child: Row(
                             children: [
-                              Icon(IssIcon.space_station),
+                              Icon(IssIcon.satellite),
                               Padding(
                                 padding: EdgeInsets.only(
                                     left: getWidth(context) / 36.0),
@@ -145,7 +151,7 @@ void dispose() {
                       Padding(
                         padding: EdgeInsets.only(top: getWidth(context) / 10.0),
                         child: Text(
-                          'Mars',
+                          'Solar System',
                           style: GoogleFonts.poppins(
                               fontSize: 17.0, fontWeight: FontWeight.w600),
                         ),
@@ -201,14 +207,6 @@ void dispose() {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: getWidth(context) / 10.0),
-                  child: Text(
-                    'Moon',
-                    style: GoogleFonts.poppins(
-                        fontSize: 17.0, fontWeight: FontWeight.w600),
-                  ),
-                ),
                 Column(
                   children: [
                     /*Row(
@@ -244,7 +242,41 @@ void dispose() {
                               padding: EdgeInsets.only(
                                   left: getWidth(context) / 36.0),
                               child: Text(
-                                'Phases',
+                                'Moon phases',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15.5,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: getWidth(context) / 15.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PlanetsHome(
+                                        title: 'Solar system',
+                                        headerText: 'Planets',
+                                        arrayCardText:
+                                            PlanetsInfos().planetsName,
+                                        arrayCardSubtitleText: PlanetsInfos().planetsSubtitle,
+                                        overviewDescription:
+                                            'Our solar system consists of our star, the Sun, and everything bound to it by gravity — the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune, dwarf planets such as Pluto, dozens of moons and millions of asteroids, comets and meteoroids. Beyond our own solar system, we have discovered thousands of planetary systems orbiting other stars in the Milky Way.',
+                                      )));
+                        },
+                        child: Row(
+                          children: [
+                            Icon(PlanetIcon.planet_svgrepo_com),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: getWidth(context) / 36.0),
+                              child: Text(
+                                'Planets',
                                 style: GoogleFonts.poppins(
                                     fontSize: 15.5,
                                     fontWeight: FontWeight.w500),

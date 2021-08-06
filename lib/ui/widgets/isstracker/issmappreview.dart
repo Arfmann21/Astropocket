@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:collection';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/style/custom_icons/expand_icon_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,9 +10,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class IssMapPreview extends StatelessWidget {
   final Completer<GoogleMapController> controller;
-  Set<Marker> _markers = HashSet<Marker>();
-  BitmapDescriptor markerImage;
-
   final AsyncSnapshot snapshot;
   final Set<Marker> markers ;
 

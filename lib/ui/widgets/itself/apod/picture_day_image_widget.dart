@@ -64,7 +64,9 @@ class _PictureDayImageWidgetState extends State<PictureDayImageWidget> {
                         alignment: Alignment.bottomRight,
                         child: GestureDetector(
                           onTap: () async {
-                            if (await Permission.storage.isGranted) {
+                            if (await Permission.storage.request().isGranted) {
+                              _downloadImage(apodObject.hdurl);
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                       behavior: SnackBarBehavior.floating,
@@ -78,7 +80,6 @@ class _PictureDayImageWidgetState extends State<PictureDayImageWidget> {
                                                 .timerTextColor),
                                       )));
                             }
-                            _downloadImage(apodObject.hdurl);
                           },
                           child: Container(
                             margin: EdgeInsets.only(
@@ -153,13 +154,11 @@ class _PictureDayImageWidgetState extends State<PictureDayImageWidget> {
         if (destination == null) {
           imageId = await ImageDownloader.downloadImage(
             url,
-            outputMimeType: outputMimeType,
+             
           );
         } else {
           imageId = await ImageDownloader.downloadImage(
             url,
-            destination: destination,
-            outputMimeType: outputMimeType,
           );
         }
       }

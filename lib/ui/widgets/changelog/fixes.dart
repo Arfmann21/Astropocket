@@ -29,7 +29,7 @@ class Fixes extends StatelessWidget {
           child: RichText(
             text: TextSpan(children: [
               TextSpan(
-                text: 'Connection status:',
+                text: 'Status bar color:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
@@ -38,14 +38,14 @@ class Fixes extends StatelessWidget {
               ),
               TextSpan(
                 text:
-                    ' fixed a bug of the connection status that was causing offline drawer even if there was an active connection.',
+                    ' fixed a bug causing a wrong status bar color on white theme.',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.0,
                   color: SpecificColors(context).secondaryTextColor,
                 ),)
                 ,
-                 TextSpan(
+                 /*TextSpan(
                 text: '\n\nChangelog status bar color:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -61,7 +61,7 @@ class Fixes extends StatelessWidget {
                   fontSize: 15.0,
                   color: SpecificColors(context).secondaryTextColor,
                 ),
-              ),
+              ),*/
             ]),
           ),
         ),

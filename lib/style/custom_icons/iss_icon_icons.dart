@@ -21,5 +21,5 @@ class IssIcon {
   static const _kFontFam = 'IssIcon';
   static const String _kFontPkg = null;
 
-  static const IconData space_station = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData satellite = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

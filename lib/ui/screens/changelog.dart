@@ -1,10 +1,8 @@
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/style/themes.dart';
 import 'package:astropocket/ui/screens/home.dart';
 import 'package:astropocket/ui/widgets/changelog/fixes.dart';
 import 'package:astropocket/ui/widgets/changelog/new_features.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Changelog extends StatelessWidget {
@@ -14,12 +12,7 @@ class Changelog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'AstroPocket',
-        themeMode: themeChanger.currentTheme(),
-        theme: lightTheme(),
-        darkTheme: darkTheme(),
-        home: Scaffold(
+    return Scaffold(
           appBar: AppBar(
             title: Material(
               color: Colors.transparent,
@@ -62,6 +55,6 @@ class Changelog extends StatelessWidget {
               ],
             ),
           ),
-        ));
+        );
   }
 }

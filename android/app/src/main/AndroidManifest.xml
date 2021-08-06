@@ -12,7 +12,7 @@
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
        android:roundIcon="@drawable/logo_rounded" >
-       <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCdE8Cs8nwgAcKy-ODfL9AsoKr9RlJDIbI"/>
+       <meta-data android:name="com.google.android.geo.API_KEY" android:value="value"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

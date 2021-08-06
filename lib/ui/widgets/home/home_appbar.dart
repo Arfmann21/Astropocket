@@ -28,6 +28,7 @@ class _HomeAppbarState extends State<HomeAppbar>
     // I have no idea how this works anymore. All I know is that I should have used normal if-else instead of ternary
     drawerState.loadState()
         ? drawerState.loadPressed()
+            // ignore: unnecessary_statements
             ? null
             : _animationController.reverse()
         : _animationController.reverse();

@@ -30,18 +30,23 @@ class _SettingsState extends State<Settings> {
           child: Column(
             children: [
               SettingsSection(),
+
+              // Separator
               Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.only(top: getHeight(context) / 25.0),
                 height: getWidth(context) / 180,
                 margin: EdgeInsets.only(
                     left: getWidth(context) / 20,
                     right: getWidth(context) / 20,
                     top: MediaQuery.of(context).size.height / 20),
-                color: SpecificColors(context).secondaryTextColor,
+                color: SpecificColors(context).blueGreenColor,
               ),
+
               Padding(
-                padding: EdgeInsets.only(top: getHeight(context) / 25.0, left: getWidth(context) / 20.0, right: getWidth(context) / 20.0),
+                padding: EdgeInsets.only(
+                    top: getHeight(context) / 25.0,
+                    left: getWidth(context) / 20.0,
+                    right: getWidth(context) / 20.0),
                 child: InfoSection(),
               )
             ],

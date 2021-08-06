@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:astropocket/backend/global_variables.dart';
+import 'package:astropocket/backend/scroll_behavior.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/style/themes.dart';
 import 'package:astropocket/ui/screens/drawer/hidden_drawer.dart';
@@ -20,6 +21,12 @@ class HomeDrawerBuilder extends StatelessWidget {
     );
 
     return MaterialApp(
+      builder: (context, child) {
+        return ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: child,
+        );
+      },
       title: 'Astropocket',
       themeMode: themeChanger.currentTheme(),
       theme: lightTheme(),

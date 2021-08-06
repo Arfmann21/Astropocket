@@ -30,7 +30,7 @@ class NewFeatures extends StatelessWidget {
           child: RichText(
             text: TextSpan(children: [
               TextSpan(
-                text: 'Download picture:',
+                text: 'Planets:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
@@ -39,7 +39,7 @@ class NewFeatures extends StatelessWidget {
               ),
               TextSpan(
                 text:
-                    ' you can now download the picture of the day.',
+                    ' explore our Solar System across the 8 planets and their major Moons.',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.0,

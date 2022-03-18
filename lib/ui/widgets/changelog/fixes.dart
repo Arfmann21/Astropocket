@@ -29,7 +29,7 @@ class Fixes extends StatelessWidget {
           child: RichText(
             text: TextSpan(children: [
               TextSpan(
-                text: 'Status bar color:',
+                text: 'NASA Reports:',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 15.0,
@@ -38,7 +38,7 @@ class Fixes extends StatelessWidget {
               ),
               TextSpan(
                 text:
-                    ' fixed a bug causing a wrong status bar color on white theme.',
+                    ' fixed the reports section not working due to changes of the API',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15.0,

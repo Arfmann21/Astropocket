@@ -24,7 +24,7 @@ Future<NasaReportsApi> fetchReports() async {
   // try for network issues
   try {
     final response = await http
-            .get("https://spaceflightnewsapi.net/api/v2/reports?_limit=100");
+            .get("https://api.spaceflightnewsapi.net/v3/reports?_limit=100");
         
 
     // status code 200 means the get request is successful

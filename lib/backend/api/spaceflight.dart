@@ -34,9 +34,9 @@ Future<NewsApi> fetchNews(bool home, String type) async {
   try {
     final response = home
         ? await http
-            .get("https://spaceflightnewsapi.net/api/v2/articles?_limit=1")
+            .get("https://api.spaceflightnewsapi.net/v3/articles?_limit=1")
         : await http
-            .get("https://spaceflightnewsapi.net/api/v2/$type?_limit=100");
+            .get("https://api.spaceflightnewsapi.net/v3/$type?_limit=100");
 
     // status code 200 means the get request is successful
     if (response.statusCode == 200) {

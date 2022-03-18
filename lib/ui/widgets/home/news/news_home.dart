@@ -6,7 +6,6 @@ import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/screens/news.dart';
 import 'package:astropocket/ui/widgets/home/news/news_skeleton_home.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:skeleton_animation/skeleton_animation.dart';

@@ -98,6 +98,9 @@ class PlanetsInfos {
       case 'Jupiter':
         return jupiterInfos;
 
+      case 'Saturn':
+      return saturnInfos;
+
       case 'Uranus':
         return uranusInfos;
         break;

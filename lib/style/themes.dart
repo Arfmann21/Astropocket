@@ -5,7 +5,6 @@ ThemeData lightTheme() {
   return ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: Color(0xFFFAFAFA),
-    accentColor: Colors.red,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: Colors.white,
     ),
@@ -25,7 +24,7 @@ ThemeData lightTheme() {
       bodyText1: GoogleFonts.poppins(color: Color(0xFF414C6B)),
       bodyText2: GoogleFonts.poppins(color: Color(0xFF414C6B)),
     ),
-    iconTheme: IconThemeData(color: Color(0xFF414C6B)),
+    iconTheme: IconThemeData(color: Color(0xFF414C6B)), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.red),
   );
 }
 

@@ -1,7 +1,6 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/ui/screens/home.dart';
 import 'package:astropocket/ui/widgets/changelog/fixes.dart';
-import 'package:astropocket/ui/widgets/changelog/new_features.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -50,8 +49,8 @@ class Changelog extends StatelessWidget {
                 ),
 
                 // New features and Fixes widgets. Just comment if one of them is not present
-                NewFeatures(),
-                //Fixes()
+                //NewFeatures(),
+                Fixes()
               ],
             ),
           ),

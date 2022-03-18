@@ -4,7 +4,7 @@ import 'package:astropocket/backend/moon_phases_returner.dart';
 import 'package:astropocket/style/custom_icons/calendar_icon_icons.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rounded_date_picker/rounded_picker.dart';
+import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MoonPhases extends StatefulWidget {

@@ -169,7 +169,7 @@ class PlanetsInfos {
           'Mercury has no moons.',
           'There are no rings around Mercury',
           'No evidence for life has been found on Mercury. Daytime Temperatures can reach 430 degrees Celsius (800 degrees Fahrenheit) and drop to -180 degrees Celsius (-290 degrees Fahrenheit) at night. It is unlikely life (as we know it) could survive on this planet.',
-          'tanding on Mercury\'s surface at its closest approach to the Sun, our star would appear more than three times larger than it does on Earth.',
+          'Standing on Mercury\'s surface at its closest approach to the Sun, our star would appear more than three times larger than it does on Earth.',
           'The two spacecraft of ESA-JAXA\'s BepiColombo are en route to Mercury. NASA\'s Mariner 10 was the first mission to explore Mercury. NASA\'s MESSENGER was the first to orbit the innermost planet.'
         ];
         break;

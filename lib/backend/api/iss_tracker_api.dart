@@ -28,7 +28,6 @@ Future<IssLocationApi> fetchLocation() async {
     else
       throw Exception('Failed to load JSON');
   } catch (_) {
-    print(_.toString());
     return null;
   }
 }

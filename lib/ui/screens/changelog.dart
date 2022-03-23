@@ -3,7 +3,6 @@ import 'package:astropocket/ui/screens/home.dart';
 import 'package:astropocket/ui/widgets/changelog/fixes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart';
 
 class Changelog extends StatelessWidget {
   final versionNumber;

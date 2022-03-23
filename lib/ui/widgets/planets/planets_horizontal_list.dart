@@ -5,16 +5,10 @@ import 'package:astropocket/ui/screens/explore_planets.dart';
 import 'package:flutter/material.dart';
 
 class PlanetsHorizontalList extends StatelessWidget {
-  final List<String> arrayCardText;
-  final List<String> arrayCardSubtitleText;
-  final String headerText;
   final index;
 
   PlanetsHorizontalList(
-      {this.arrayCardText,
-      this.arrayCardSubtitleText,
-      this.headerText,
-      this.index,});
+      {this.index,});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +18,9 @@ class PlanetsHorizontalList extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => ExplorePlanets(
-                      planetName: arrayCardText[index],
-                      planetSubtitle: arrayCardSubtitleText[index],
-                      heroTag: arrayCardText[index].toString().toLowerCase(),
+                      planetName: PlanetsInfos().planetsName[index],
+                      planetSubtitle: PlanetsInfos().planetsSubtitle[index],
+                      heroTag: PlanetsInfos().planetsSubtitle[index].toString().toLowerCase(),
                       majorMoons: PlanetsInfos().getMajorMoons(index),
                       facts: PlanetsInfos().getPlanetFacts(index),
                       factsTitle: PlanetsInfos().getPlanetFactsTitle(index)
@@ -63,7 +57,7 @@ class PlanetsHorizontalList extends StatelessWidget {
                       children: [
                         // Title
                         Text(
-                          arrayCardText[index],
+                          PlanetsInfos().planetsSubtitle[index],
                           style: TextStyle(
                               color: Color(0xFFE6E6E6),
                               fontWeight: FontWeight.w700,
@@ -72,7 +66,7 @@ class PlanetsHorizontalList extends StatelessWidget {
 
                         // Subtitle
                         Text(
-                          arrayCardSubtitleText[index],
+                          PlanetsInfos().planetsSubtitle[index],
                           style: TextStyle(
                               color: Color(0xFFD1B13F),
                               fontSize: 16.0,
@@ -98,9 +92,9 @@ class PlanetsHorizontalList extends StatelessWidget {
               width: getWidth(context),
               alignment: Alignment.topCenter,
               child: Hero(
-                tag: arrayCardText[index].toLowerCase() + 'Hero',
+                tag: PlanetsInfos().planetsSubtitle[index].toLowerCase() + 'Hero',
                 child: Image.asset(
-                    'assets/images/${headerText.toLowerCase()}/${arrayCardText[index].toLowerCase()}.png'),
+                    'assets/images/planets/${PlanetsInfos().planetsName[index].toLowerCase()}.png'),
               ),
             ),
           ],

@@ -89,58 +89,6 @@ class _InfoSectionState extends State<InfoSection> {
             )
           ],
         ),
-
-        // A paid version of the app will be avaible. (only to support the project, features will be the same)
-        /*Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Support the project',
-              style: GoogleFonts.poppins(
-                  fontSize: 16.0, fontWeight: FontWeight.w600),
-            ),
-            Transform.rotate(
-              alignment: Alignment.center,
-              angle: isExpanded ? 180 * 3.14 / 180 : 0,
-              child: IconButton(
-                icon: Icon(
-                  Icons.arrow_drop_down,
-                  color: SpecificColors(context).primaryTextColor,
-                ),
-                iconSize: 32.0,
-                onPressed: () {
-                  setState(() {
-                    isExpanded = !isExpanded;
-                  });
-                },
-              ),
-            ),
-          ],
-        ),
-        Visibility(
-          visible: isExpanded,
-          child: RichText(
-            text: TextSpan(children: [
-              TextSpan(
-                  text:
-                      'Astropocket is totally free, without In-App purchases and ad, reason why there are some limits, like the amount of requests to services in a certain amount of time.\n\nWith your support, we can remove those limits: if you want, you can do it buying the paid version from ',
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.0,
-                      color: SpecificColors(context).secondaryTextColor)),
-              TextSpan(
-                  text: 'here',
-                  recognizer: TapGestureRecognizer()..onTap = () {
-                    launch('https://play.google.com/store');
-                  },
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline,
-                      fontSize: 15.0,
-                      color: Colors.blue[700]))
-            ]),
-          ),
-        ),*/
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

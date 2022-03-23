@@ -6,6 +6,6 @@ class DistanceUnitParsing {
   DistanceUnitParsing({this.distance});
 
   String getParsedDistance() {
-    return isKilometers ? (distance * 1.609344).toString() + "km" : distance.toString() + "mi";
+    return isKilometers ? (distance * 1.609344).toInt().toString() + "km" : distance.toInt().toString() + "mi";
   }
 }

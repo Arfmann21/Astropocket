@@ -89,7 +89,6 @@ class IssMapPreview extends StatelessWidget {
   ) async {
     final GoogleMapController mController = await controller.future;
     final zoomLevel = await mController.getZoomLevel();
-    print('sono qui');
     mController.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(target: LatLng(lat, long), zoom: zoomLevel)));
   }

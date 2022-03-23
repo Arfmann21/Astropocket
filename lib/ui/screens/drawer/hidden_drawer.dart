@@ -26,8 +26,12 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
 
   @override
   void initState() {
+
     drawerState.addListener(() {
-      setState(() {});
+
+      if(this.mounted) {
+        setState(() {});
+      }
     });
     super.initState();
     _animationController = AnimationController(

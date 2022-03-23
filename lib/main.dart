@@ -97,8 +97,6 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitDown,
     ]);
 
-    print(themeChanger.currentTheme().toString());
-
     return MaterialApp(
       title: 'AstroPocket',
       themeMode: themeChanger.currentTheme(),

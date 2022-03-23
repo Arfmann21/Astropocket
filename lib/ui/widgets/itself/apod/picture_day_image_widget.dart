@@ -145,7 +145,6 @@ class _PictureDayImageWidgetState extends State<PictureDayImageWidget> {
             }
           }
 
-          print(error);
         }).timeout(Duration(seconds: 10), onTimeout: () {
           print("timeout");
           return;

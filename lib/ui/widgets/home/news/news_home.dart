@@ -127,8 +127,9 @@ class _NewsHomeState extends State<NewsHome> {
                                   maxLines: 5,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 15.5),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15.5,
+                                      color: SpecificColors(context).secondaryTextColor),
                                 ),
                               )
                             ],

@@ -1,3 +1,4 @@
+import 'package:astropocket/backend/changelog_data.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
@@ -18,51 +19,43 @@ class Fixes extends StatelessWidget {
                 child: Text(
                   'Fixes',
                   style: GoogleFonts.poppins(
-                      fontSize: 18.0, fontWeight: FontWeight.w600),
+                      fontSize: 19.0, fontWeight: FontWeight.w600),
                 ),
               ),
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: getHeight(context) / 30.0),
-          child: RichText(
-            text: TextSpan(children: [
-              TextSpan(
-                text: 'NASA Reports:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).primaryTextColor,
-                ),
+          padding: EdgeInsets.only(top: getWidth(context) / 40.0),
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: ChangelogData().fixesTitles.length,
+            itemBuilder: (context, i) {
+              return Padding(
+              padding: EdgeInsets.only(top: getHeight(context) / 40.0),
+              child: RichText(
+                text: TextSpan(children: [
+                  TextSpan(
+                    text: ChangelogData().fixesTitles[i],
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15.0,
+                      color: SpecificColors(context).primaryTextColor,
+                    ),
+                  ),
+                  TextSpan(
+                    text: ChangelogData().fixesContent[i],
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 15.0,
+                      color: SpecificColors(context).secondaryTextColor,
+                    ),
+                  ),
+                ]),
               ),
-              TextSpan(
-                text:
-                    ' fixed the reports section not working due to changes of the API',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).secondaryTextColor,
-                ),)
-                ,
-                 /*TextSpan(
-                text: '\n\nChangelog status bar color:',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).primaryTextColor,
-                ),
-              ),
-              TextSpan(
-                text:
-                    ' fixed a bug in the changelog screen that was causing a wrong status bar color for light theme.',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.0,
-                  color: SpecificColors(context).secondaryTextColor,
-                ),
-              ),*/
-            ]),
+            );
+            }
           ),
         ),
       ],

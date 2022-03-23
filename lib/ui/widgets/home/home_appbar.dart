@@ -1,5 +1,4 @@
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/screens/drawer/hidden_drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +13,11 @@ class _HomeAppbarState extends State<HomeAppbar>
 
   @override
   void initState() {
+
     drawerState.addListener(() {
-      setState(() {});
+      if(this.mounted) {
+        setState(() {});
+      }
     });
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 350));
@@ -49,7 +51,6 @@ class _HomeAppbarState extends State<HomeAppbar>
               icon: AnimatedIcons.menu_arrow,
               size: 38.0,
               progress: _animationController,
-              color: SpecificColors(context).primaryTextColor,
             ),
             onPressed: () {
               drawerState.setState();              

@@ -18,7 +18,6 @@ class OnBoardingHome extends StatelessWidget {
               child: Container(
                 padding:
                     EdgeInsetsDirectional.only(top: getWidth(context) / 8.0),
-                color: Colors.transparent,
                 child: Image.asset(
                   'assets/images/onboarding_image.png',
                   height: getHeight(context) / 3,
@@ -31,11 +30,10 @@ class OnBoardingHome extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: getWidth(context) / 40.0),
                     child: Text(
                       'Explore',
                       style: GoogleFonts.poppins(
-                        fontSize: 30.0,
+                        fontSize: 33.0,
                         fontWeight: FontWeight.w600,
                         color: SpecificColors(context).primaryTextColor,
                       ),
@@ -50,9 +48,9 @@ class OnBoardingHome extends StatelessWidget {
                       'Start your journey across the universe with tons of services, including Mars weather, Moon phases, NASA reports and much more.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
-                        fontSize: 17.0,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFFD9D9D9),
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromRGBO(217, 217, 217, 50),
                       ),
                     ),
                   ),
@@ -77,7 +75,7 @@ class OnBoardingHome extends StatelessWidget {
                     primary: Color(0xFF082C50),
                   ),
                   child: Text(
-                    'Start now',
+                    'LIFTOFF',
                     style: GoogleFonts.poppins(
                       fontSize: 20.0, 
                       fontWeight: FontWeight.w500,

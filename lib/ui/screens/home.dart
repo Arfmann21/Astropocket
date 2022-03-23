@@ -80,7 +80,6 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> updateConnectionStatus(ConnectivityResult result) async {
-    print(result);
     switch (result) {
       case ConnectivityResult.wifi:
         connectionNotifier.setAvailability(isAvaible: true);
@@ -108,29 +107,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        /*floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: FloatingActionButton(
-          elevation: 5,
-          child: SizedBox(
-          height: 38, child: Image.asset('assets/images/rocket_fab.png')),
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ExploreHome(
-                  title: 'Solar system',
-                  headerText: 'Planets',
-                  arrayCardText: PlanetsInfos().planetsName,
-                  arrayCardSubtitleText: planetsSubtitle,
-                  overviewDescription: 'Our solar system consists of our star, the Sun, and everything bound to it by gravity — the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune, dwarf planets such as Pluto, dozens of moons and millions of asteroids, comets and meteoroids. Beyond our own solar system, we have discovered thousands of planetary systems orbiting other stars in the Milky Way.',
-                )));
-          },
-        ),*/
-
         body: _connectionStatus == 'ConnectivityResult.none'
             ? Column(
                 children: [
                   HomeAppbar(),
                   Container(
                       height: getHeight(context) / 6.22,
-                      margin: EdgeInsets.only(top: getHeight(context) / 9.6),
+                      margin: EdgeInsets.only(top: getHeight(context) / 1.5),
                       child: Image.asset('assets/images/no_connection.png')),
                   Padding(
                     padding: EdgeInsets.only(
@@ -150,22 +133,10 @@ class _HomeState extends State<Home> {
                       'Check your connection and try again',
                       style: TextStyle(
                           fontSize: 15.0,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w500,
                           color: SpecificColors(context).blueGreenColor),
                     ),
                   ),
-                  /* Expanded(
-                      child: Container(
-                    child: Text(
-                      'You can still explore',
-                      style: TextStyle(
-                          color: SpecificColors(context).darkGreyLightGreyColor,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15.0),
-                    ),
-                    margin: EdgeInsets.only(bottom: 80.0),
-                    alignment: Alignment.bottomCenter,
-                  )),*/
                 ],
               )
             : SingleChildScrollView(

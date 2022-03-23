@@ -17,7 +17,7 @@ class PictureDayContentHome extends StatelessWidget {
             text: TextSpan(
                 // Set default TextStyle for the entire TextSpan
                 style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 15.0,
                     color: SpecificColors(context).secondaryTextColor),
 
@@ -28,7 +28,7 @@ class PictureDayContentHome extends StatelessWidget {
                   /// Only the first must be bold for this UI
                   TextSpan(
                       text: apodObject.explanation,
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.w600))
+                      style: GoogleFonts.poppins(fontWeight: FontWeight.w500))
                 ])));
   }
 }

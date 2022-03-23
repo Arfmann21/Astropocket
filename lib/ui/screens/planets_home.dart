@@ -4,20 +4,9 @@ import 'package:astropocket/ui/widgets/planets/planets_overview.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PlanetsHome extends StatelessWidget {
-  final String title;
-  final headerText;
-  final List<String> arrayCardText;
-  final List<String> arrayCardSubtitleText;
-  final overviewDescription;
+import '../../backend/planets_infos.dart';
 
-  PlanetsHome({
-    this.title,
-    this.headerText,
-    this.arrayCardText,
-    this.overviewDescription,
-    this.arrayCardSubtitleText,
-  });
+class PlanetsHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +14,7 @@ class PlanetsHome extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             title: Text(
-              title,
+              'Solar System',
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600, fontSize: 22.0),
             ),
@@ -39,7 +28,7 @@ class PlanetsHome extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: getWidth(context) / 20),
                     child: Text(
-                      headerText,
+                      'Planets',
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600, fontSize: 23.0),
                     ),
@@ -58,21 +47,15 @@ class PlanetsHome extends StatelessWidget {
                           left: getWidth(context) / 36.0,
                           right: getWidth(context) / 36.0),
                       scrollDirection: Axis.horizontal,
-                      itemCount: arrayCardText.length,
+                      itemCount: PlanetsInfos().planetsName.length,
                       itemBuilder: (context, index) {
                         return PlanetsHorizontalList(
-                          arrayCardText: arrayCardText,
-                          arrayCardSubtitleText: arrayCardSubtitleText,
-                          headerText: headerText,
                           index: index,
                         );
                       },
                     ),
                   ),
-                  PlanetsOverview(
-                    title: title,
-                    overviewDescription: overviewDescription,
-                  )
+                  PlanetsOverview()
                 ],
               ),
             ),

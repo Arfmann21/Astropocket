@@ -42,31 +42,39 @@ class _SettingsSectionState extends State<SettingsSection> {
         Padding(
           padding: EdgeInsets.only(
               top: getWidth(context) / 20.0, left: getWidth(context) / 20.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: getWidth(context) / 1.5,
-                child: Text(
-                  'Use Celsius instead of Fahrenheit',
-                  style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: SpecificColors(context).secondaryTextColor),
+          child: GestureDetector(
+            onTap: () {
+               SetSettings().setSettings('isCelsius', !isCelsius, bool);
+                    setState(() {
+                      isCelsius = !isCelsius;
+                    });
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: getWidth(context) / 1.5,
+                  child: Text(
+                    'Use Celsius instead of Fahrenheit',
+                    style: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: SpecificColors(context).secondaryTextColor),
+                  ),
                 ),
-              ),
-              Checkbox(
-                value: isCelsius,
-                onChanged: (value) {
-                  SetSettings().setSettings('isCelsius', value, bool);
-                  setState(() {
-                    isCelsius = !isCelsius;
-                  });
-                },
-                checkColor: SpecificColors(context).checkboxcCheckedColor,
-                activeColor: SpecificColors(context).checkboxActiveBoxColor,
-              )
-            ],
+                Checkbox(
+                  value: isCelsius,
+                  onChanged: (value) {
+                    SetSettings().setSettings('isCelsius', value, bool);
+                    setState(() {
+                      isCelsius = !isCelsius;
+                    });
+                  },
+                  checkColor: SpecificColors(context).checkboxcCheckedColor,
+                  activeColor: SpecificColors(context).checkboxActiveBoxColor,
+                )
+              ],
+            ),
           ),
         ),
 
@@ -116,7 +124,7 @@ class _SettingsSectionState extends State<SettingsSection> {
                     'Miles',
                     style: GoogleFonts.poppins(
                         fontSize: 15,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                         color: SpecificColors(context).secondaryTextColor),
                   ),
                   onChanged: (value) {
@@ -136,7 +144,7 @@ class _SettingsSectionState extends State<SettingsSection> {
                     'Kilometers',
                     style: GoogleFonts.poppins(
                         fontSize: 15,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                         color: SpecificColors(context).secondaryTextColor),
                   ),
                   groupValue: distanceUnitType,
@@ -198,7 +206,7 @@ class _SettingsSectionState extends State<SettingsSection> {
                   'Month / Day / Year',
                   style: GoogleFonts.poppins(
                       fontSize: 15,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       color: SpecificColors(context).secondaryTextColor),
                 ),
                 onChanged: (value) {
@@ -217,7 +225,7 @@ class _SettingsSectionState extends State<SettingsSection> {
                   'Day / Month / Year',
                   style: GoogleFonts.poppins(
                       fontSize: 15,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w400,
                       color: SpecificColors(context).secondaryTextColor),
                 ),
                 groupValue: type,

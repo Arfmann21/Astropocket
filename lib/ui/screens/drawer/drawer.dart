@@ -1,16 +1,6 @@
+import 'package:astropocket/backend/drawer_builder.dart';
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/backend/planets_infos.dart';
-import 'package:astropocket/style/custom_icons/iss_icon_icons.dart';
-import 'package:astropocket/style/custom_icons/moon_icon_icons.dart';
-import 'package:astropocket/style/custom_icons/planet_icon_icons.dart';
-import 'package:astropocket/style/custom_icons/rocket_icon_icons.dart';
-import 'package:astropocket/ui/screens/iss/issmain.dart';
-import 'package:astropocket/ui/screens/launches/launches.dart';
-import 'package:astropocket/ui/screens/mars_weather.dart';
-import 'package:astropocket/ui/screens/moon_phases.dart';
-import 'package:astropocket/ui/screens/nasa_reports.dart';
-import 'package:astropocket/ui/screens/planets_home.dart';
-import 'package:astropocket/ui/screens/settings.dart';
+import 'package:astropocket/style/specific_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,14 +13,11 @@ class _DrawerHomeState extends State<DrawerHome> {
   @override
   void initState() {
     connectionNotifier.addListener(() {
-      setState(() {});
+      if (this.mounted) {
+        setState(() {});
+      }
     });
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   @override
@@ -46,6 +33,7 @@ class _DrawerHomeState extends State<DrawerHome> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Application logo
                 Container(
                   height: 100,
                   width: 100,
@@ -57,266 +45,66 @@ class _DrawerHomeState extends State<DrawerHome> {
                             BorderRadius.circular(getWidth(context) / 25.0)),
                   ),
                 ),
+
                 Visibility(
                   visible: connectionNotifier.getAvailability(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: getWidth(context) / 10.0),
-                        child: Text(
-                          'Missions',
-                          style: GoogleFonts.poppins(
-                              fontSize: 17.0, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: getWidth(context) / 15.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Launches()));
-                          },
-                          child: Row(
-                            children: [
-                              Icon(RocketIcon.rocket_outline),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: getWidth(context) / 36.0),
-                                child: Text(
-                                  'Launches',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 15.5,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: getWidth(context) / 30.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => NasaReports()));
-                          },
-                          child: Row(
-                            children: [
-                              Icon(Icons.insert_chart_outlined),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: getWidth(context) / 36.0),
-                                child: Text(
-                                  'NASA Reports',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 15.5,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: getWidth(context) / 30.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => IssMain()));
-                          },
-                          child: Row(
-                            children: [
-                              Icon(IssIcon.satellite),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: getWidth(context) / 36.0),
-                                child: Text(
-                                  'ISS Tracker',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 15.5,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: getWidth(context) / 10.0),
-                        child: Text(
-                          'Solar System',
-                          style: GoogleFonts.poppins(
-                              fontSize: 17.0, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                      Column(
+                  child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 3,
+                    itemBuilder: (context, i) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          /*Row(
-                            children: [
-                              Icon(Icons.crop_original_outlined),
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(left: getWidth(context) / 36.0),
-                                child: GestureDetector(
-                                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MarsPhotosHome())),
-                                                            child: Text(
-                                    'Mars Rover Photos',
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w500, fontSize: 15.5),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),*/
                           Padding(
                             padding:
-                                EdgeInsets.only(top: getWidth(context) / 15.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => MarsWeather()));
-                              },
-                              child: Row(
-                                children: [
-                                  Icon(Icons.wb_sunny_outlined),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        left: getWidth(context) / 36.0),
-                                    child: Text(
-                                      'InSight Weather',
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 15.5,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
+                                EdgeInsets.only(top: getWidth(context) / 10.0),
+                            child: Text(DrawerBuilder().sectionTitles[i],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.w600)),
                           ),
+                          ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: i < 2 ? 3 : 1,
+                            itemBuilder: (context, j) {
+                              
+                              return Padding(
+                                padding: EdgeInsets.only(
+                                    top: getWidth(context) / 15.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                   DrawerBuilder().goToRoute(context, i, j);
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        DrawerBuilder().iconsList[i][j],
+                                        color: SpecificColors(context)
+                                            .secondaryTextColor,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: getWidth(context) / 36.0),
+                                        child: Text(
+                                          DrawerBuilder().sectionNames[i][j],
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 15.5,
+                                              fontWeight: FontWeight.w400,
+                                              color: SpecificColors(context)
+                                                  .secondaryTextColor),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          )
                         ],
-                      ),
-                    ],
-                  ),
-                ),
-                Column(
-                  children: [
-                    /*Row(
-                      children: [
-                        Icon(Icons.crop_original_outlined),
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: getWidth(context) / 36.0),
-                          child: GestureDetector(
-                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => MarsPhotosHome())),
-                                                      child: Text(
-                              'Mars Rover Photos',
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500, fontSize: 15.5),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),*/
-                    Padding(
-                      padding: EdgeInsets.only(top: getWidth(context) / 15.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MoonPhases()));
-                        },
-                        child: Row(
-                          children: [
-                            Icon(MoonIcon.moon),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: getWidth(context) / 36.0),
-                              child: Text(
-                                'Moon phases',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15.5,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: getWidth(context) / 15.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PlanetsHome(
-                                        title: 'Solar system',
-                                        headerText: 'Planets',
-                                        arrayCardText:
-                                            PlanetsInfos().planetsName,
-                                        arrayCardSubtitleText: PlanetsInfos().planetsSubtitle,
-                                        overviewDescription:
-                                            'Our solar system consists of our star, the Sun, and everything bound to it by gravity — the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune, dwarf planets such as Pluto, dozens of moons and millions of asteroids, comets and meteoroids. Beyond our own solar system, we have discovered thousands of planetary systems orbiting other stars in the Milky Way.',
-                                      )));
-                        },
-                        child: Row(
-                          children: [
-                            Icon(PlanetIcon.planet_svgrepo_com),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  left: getWidth(context) / 36.0),
-                              child: Text(
-                                'Planets',
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15.5,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: getWidth(context) / 10.0),
-                  child: Text(
-                    'System',
-                    style: GoogleFonts.poppins(
-                        fontSize: 17.0, fontWeight: FontWeight.w600),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: getWidth(context) / 15.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Settings()));
+                      );
                     },
-                    child: Row(
-                      children: [
-                        Icon(Icons.settings_outlined),
-                        Padding(
-                          padding:
-                              EdgeInsets.only(left: getWidth(context) / 36.0),
-                          child: Text(
-                            'Settings & info',
-                            style: GoogleFonts.poppins(
-                                fontSize: 15.5, fontWeight: FontWeight.w500),
-                          ),
-                        )
-                      ],
-                    ),
                   ),
                 ),
               ],

@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PlanetsOverview extends StatelessWidget {
-  final String title;
-  final String overviewDescription;
-
-  PlanetsOverview({this.title, this.overviewDescription});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +40,7 @@ class PlanetsOverview extends StatelessWidget {
                 left: getWidth(context) / 36.0,
                 right: getWidth(context) / 36.0),
             child: Text(
-              overviewDescription,
+              'Our solar system consists of our star, the Sun, and everything bound to it by gravity — the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune, dwarf planets such as Pluto, dozens of moons and millions of asteroids, comets and meteoroids. Beyond our own solar system, we have discovered thousands of planetary systems orbiting other stars in the Milky Way.',
               style: GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w500),
             ),
           )

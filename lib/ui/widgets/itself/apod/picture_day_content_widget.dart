@@ -69,7 +69,7 @@ class _PictureDayContentWidgetState extends State<PictureDayContentWidget> {
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.poppins(
                 fontSize: 15.5,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w400,
                 letterSpacing: 1.0,
                 color: SpecificColors(context).secondaryTextColor),
           ),

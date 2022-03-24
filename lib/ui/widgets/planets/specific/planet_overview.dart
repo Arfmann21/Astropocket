@@ -93,7 +93,7 @@ class PlanetOverview extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            'Year lenght',
+                            'Year length',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFD58235),

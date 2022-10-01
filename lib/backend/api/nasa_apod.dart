@@ -4,11 +4,11 @@ import 'package:astropocket/backend/api/nasa_api.dart';
 import 'package:http/http.dart' as http;
 
 class ApodApi {
-  final String title;
-  final String explanation;
-  final String hdurl;
-  final String type;
-  final String copyright;
+  final String? title;
+  final String? explanation;
+  final String? hdurl;
+  final String? type;
+  final String? copyright;
 
   ApodApi({this.title, this.explanation, this.hdurl, this.type, this.copyright});
 
@@ -24,7 +24,7 @@ class ApodApi {
   }
 }
 
-Future<ApodApi> fetchApod() async {
+Future<ApodApi?> fetchApod() async {
 
   // try for network issues
   try {

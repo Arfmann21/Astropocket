@@ -130,12 +130,12 @@ class _UpcomingLaunchesListState extends State<UpcomingLaunchesList> {
                                       fit: BoxFit.cover,
                                       // Sometimes, there's no image: in this case, show the launch provider logo
                                       // If also the logo is unavaible, show a text
-                                      imageUrl: snapshot.data.general[index]
+                                      imageUrl: snapshot.data!.general[index]
                                                   ['image'] !=
                                               null
-                                          ? snapshot.data.general[index]
+                                          ? snapshot.data!.general[index]
                                               ['image']
-                                          : snapshot.data.general[index][
+                                          : snapshot.data!.general[index][
                                                       'launch_service_provider']
                                                   ['logo_url'] ??
                                               'Image unavaible',
@@ -164,7 +164,7 @@ class _UpcomingLaunchesListState extends State<UpcomingLaunchesList> {
                                   child: Container(
                                     width: getWidth(context),
                                     child: Text(
-                                      snapshot.data.general[index]['name'],
+                                      snapshot.data!.general[index]['name'],
                                       style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 17.0),

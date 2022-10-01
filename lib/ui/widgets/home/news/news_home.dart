@@ -16,7 +16,7 @@ class NewsHome extends StatefulWidget {
 }
 
 class _NewsHomeState extends State<NewsHome> {
-  Future<NewsApi> futureNews;
+  late Future<NewsApi?> futureNews;
 
   @override
   void initState() {
@@ -66,7 +66,7 @@ class _NewsHomeState extends State<NewsHome> {
         // Actually News container
         Container(
             height: getHeight(context) / 5,
-            child: FutureBuilder<NewsApi>(
+            child: FutureBuilder<NewsApi?>(
                 future: futureNews,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting)
@@ -77,7 +77,7 @@ class _NewsHomeState extends State<NewsHome> {
                       // If the user click on the News container, the browser will open to see the news on its website
                       return GestureDetector(
                         onTap: () {
-                            launchURL(snapshot.data.url);
+                            launchURL(snapshot.data!.url);
                         },
                         // Use card for the elevation
                         child: Card(
@@ -101,7 +101,7 @@ class _NewsHomeState extends State<NewsHome> {
                                       // Use CachedNetworkImgae to show a loading animation (or screen) when getitng picture from the internet
                                       child: CachedNetworkImage(
                                         fit: BoxFit.cover,
-                                        imageUrl: snapshot.data.thumbnail,
+                                        imageUrl: snapshot.data!.thumbnail,
                                         placeholder: (context, url) {
                                           return Skeleton(
                                             height: getWidth(context) / 3.6,
@@ -123,7 +123,7 @@ class _NewsHomeState extends State<NewsHome> {
                                 margin: EdgeInsets.only(
                                     left: getWidth(context) / 24.0),
                                 child: Text(
-                                  snapshot.data.title,
+                                  snapshot.data!.title.toString(),
                                   maxLines: 5,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(

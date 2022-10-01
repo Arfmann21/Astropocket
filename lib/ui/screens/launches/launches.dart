@@ -15,10 +15,11 @@ class Launches extends StatefulWidget {
 }
 
 class _LaunchesState extends State<Launches> {
-  Future<LaunchesApi> futureLaunches;
+  late Future<LaunchesApi> futureLaunches;
+
   int index = 0;
   final Connectivity _connectivity = Connectivity();
-  StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   @override
   void initState() {

@@ -13,7 +13,7 @@ class IssNextPassesApi {
   final Position userPosition;
 
   IssNextPassesApi(
-      {this.general, this.passesCount, this.userLatitude, this.userPosition});
+      {required this.general, required this.passesCount, required this.userLatitude, required this.userPosition});
 
   // 'json' is the map fetched from the response body (decoded in json)
   factory IssNextPassesApi.fromJson(Map<String, dynamic> json) {
@@ -27,7 +27,7 @@ class IssNextPassesApi {
   }
 }
 
-Future<IssNextPassesApi> fetchIssPasses() async {
+Future<IssNextPassesApi?> fetchIssPasses() async {
   // try for network issues
   try {
     futureUserPosition = await Geolocator.getCurrentPosition();

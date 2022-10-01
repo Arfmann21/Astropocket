@@ -1,4 +1,5 @@
 import 'package:astropocket/backend/global_variables.dart';
+import 'package:astropocket/ui/screens/drawer/hidden_drawer.dart';
 import 'package:astropocket/ui/screens/home.dart';
 import 'package:astropocket/ui/widgets/changelog/fixes.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class Changelog extends StatelessWidget {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeDrawerBuilder()),
+                              builder: (context) => SlidingDrawerMain()),
                           (route) => false);
                     },
                   ),

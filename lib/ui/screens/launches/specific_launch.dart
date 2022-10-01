@@ -16,7 +16,7 @@ class SpecificLaunch extends StatefulWidget {
   final String heroTag;
   final String nameHeroTag;
 
-  SpecificLaunch({this.heroTag, this.nameHeroTag});
+  const SpecificLaunch({required this.heroTag, required this.nameHeroTag});
 
   @override
   _SpecificLaunchState createState() => _SpecificLaunchState();
@@ -26,7 +26,8 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
   // On dispose, the timer must be cancelled
   @override
   void dispose() {
-    timer.cancel();
+
+    if(mounted) timer!.cancel();
     super.dispose();
   }
 
@@ -34,12 +35,12 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
   static const duration = const Duration(seconds: 1);
 
   // Get the difference between the launch date and the current date, in seconds
-  int timeDiff = DateTime.parse(launchesObject.launchDate)
+  int timeDiff = DateTime.parse(launchesObject.launchDate.toString())
       .difference(DateTime.now())
       .inSeconds;
 
   // Timer object
-  Timer timer;
+  late Timer? timer;
 
   // Use this variable for the TabBar, to get which widget must be shown
   int selectedIndex = 0;
@@ -69,14 +70,14 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
 
     //The strings for the share, based on the status of the launch: the upcoming list could contain an already launched launch
     String shareUpcomingText =
-        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} will launch on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n';
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} will launch on ${LaunchDataParse(date: launchesObject.launchDate.toString()).dateParse()} for the mission ${launchesObject.missionName}!\n\n';
     String sharePreviousTextSuccess =
-        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n✅ Status: Successful\n\n';
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate.toString()).dateParse()} for the mission ${launchesObject.missionName}!\n\n✅ Status: Successful\n\n';
     String sharePreviousTextFailure =
-        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n❌ Status: Failure\n\n';
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate.toString()).dateParse()} for the mission ${launchesObject.missionName}!\n\n❌ Status: Failure\n\n';
 
     String sharePreviousTextPartialFailure =
-        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate).dateParse()} for the mission ${launchesObject.missionName}!\n\n❌ Status: Partial failure\n\n';
+        '🚀 The ${launchesObject.rocketName} from ${launchesObject.rocketProvider} has been launched on ${LaunchDataParse(date: launchesObject.launchDate.toString()).dateParse()} for the mission ${launchesObject.missionName}!\n\n❌ Status: Partial failure\n\n';
 
     // Use a DefaultTabController as root to avoid a second Scaffold
     return DefaultTabController(
@@ -92,7 +93,7 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
                   icon: Icon(Icons.share_outlined),
                   onPressed: () async {
                     // Share string based on the state
-                    switch (LaunchDataParse(state: launchesObject.state)
+                    switch (LaunchDataParse(state: launchesObject.state.toString())
                         .stateParse()) {
                       case 'Success':
                         await Share.share(sharePreviousTextSuccess);
@@ -176,7 +177,7 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
                                     color: Colors.transparent,
                                     child: Text(
                                       LaunchDataParse(
-                                                  state: launchesObject.state)
+                                                  state: launchesObject.state.toString())
                                               .isUpcomingLaunched()
                                           ? 'Launched'
                                           : days.toString() +
@@ -219,7 +220,7 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
                           child: SizedBox(
                             width: getWidth(context),
                             child: Text(
-                              launchesObject.launchName,
+                              launchesObject.launchName.toString(),
                               textAlign: TextAlign.center,
                               style: GoogleFonts.poppins(
                                   fontSize: 21.0, fontWeight: FontWeight.w600),
@@ -276,7 +277,7 @@ class _SpecificLaunchState extends State<SpecificLaunch> {
 
                   /*
                   The tabs must be in a Column, so an Expanded is required for a TabView, but there is also a SingelChildScrollView
-                  Those 4 widget can't be used togheter , so I've created my own "TabView" with a stack and animated opacity.
+                  Those 4 widgets can't be used togheter , so I've created my own "TabView" with a stack and animated opacity.
                   The scroll animation is not possible this way, that's why I used an AnimatedOpacity
                    */
                   Stack(

@@ -17,10 +17,10 @@ class PictureOfTheDay extends StatefulWidget {
 }
 
 class _PictureOfTheDayState extends State<PictureOfTheDay> {
-  Future<ApodApi> futureApod;
+  late Future<ApodApi?> futureApod;
 
   final Connectivity _connectivity = Connectivity();
-  StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   bool isExpanded = false;
 
@@ -77,7 +77,7 @@ class _PictureOfTheDayState extends State<PictureOfTheDay> {
                 var apodObject = await fetchApod();
 
                 // assign url to the variable
-                imageUrl = apodObject.hdurl;
+                imageUrl = apodObject!.hdurl.toString();
 
                 // Method to share something from the app (package Share)
                 await Share.share(

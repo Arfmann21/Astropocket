@@ -16,7 +16,8 @@ class ExplorePlanets extends StatelessWidget {
   final List<String> factsTitle;
 
   ExplorePlanets(
-      {this.planetName, this.planetSubtitle, this.heroTag, this.majorMoons, this.facts, this.factsTitle});
+      {this.planetName, this.planetSubtitle, this.heroTag, 
+      required this.majorMoons, required this.facts, required this.factsTitle});
 
 
   /*final List<Icon> iconList = [

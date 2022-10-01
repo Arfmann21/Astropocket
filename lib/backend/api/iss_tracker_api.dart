@@ -7,7 +7,7 @@ class IssLocationApi {
   final double altitude;
   final double velocity;
 
-  IssLocationApi({this.long, this.lat, this.altitude, this.velocity});
+  IssLocationApi({required this.long, required this.lat, required this.altitude, required this.velocity});
 
   factory IssLocationApi.fromJson(Map<String, dynamic> json) {
     return IssLocationApi(
@@ -19,7 +19,7 @@ class IssLocationApi {
   }
 }
 
-Future<IssLocationApi> fetchLocation() async {
+Future<IssLocationApi?> fetchLocation() async {
   try {
     final response = await http.get("https://api.wheretheiss.at/v1/satellites/25544");
 
@@ -32,7 +32,7 @@ Future<IssLocationApi> fetchLocation() async {
   }
 }
 
-Stream<IssLocationApi> streamLocation() async* {
+Stream<IssLocationApi?> streamLocation() async* {
   while (true) {
         await Future.delayed(Duration(seconds: 1));
     yield await fetchLocation();

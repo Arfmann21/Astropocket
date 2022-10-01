@@ -15,10 +15,10 @@ class NasaReports extends StatefulWidget {
 }
 
 class _NasaReportsState extends State<NasaReports> {
-  Future<NasaReportsApi> futureReports;
+  late Future<NasaReportsApi> futureReports;
 
   final Connectivity _connectivity = Connectivity();
-  StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   @override
   void initState() {
@@ -72,11 +72,11 @@ class _NasaReportsState extends State<NasaReports> {
                         bottom: getWidth(context) / 20.0),
                     child: GestureDetector(
                         onTap: () {
-                          launchURL(snapshot.data.general[index]['url']);
+                          launchURL(snapshot.data!.general![index]['url']);
                         },
                         child: NasaReportItselfWidget(
                           index: index,
-                          data: snapshot.data.general,
+                          data: snapshot.data!.general,
                         )),
                   );
                 });

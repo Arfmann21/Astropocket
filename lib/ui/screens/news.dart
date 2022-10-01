@@ -14,7 +14,7 @@ class _NewsState extends State<News> {
   int _index = 0;
 
   final Connectivity _connectivity = Connectivity();
-  StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   @override
   void initState() {

@@ -57,7 +57,7 @@ class PlanetsHorizontalList extends StatelessWidget {
                       children: [
                         // Title
                         Text(
-                          PlanetsInfos().planetsSubtitle[index],
+                          PlanetsInfos().planetsName[index],
                           style: TextStyle(
                               color: Color(0xFFE6E6E6),
                               fontWeight: FontWeight.w700,

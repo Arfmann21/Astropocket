@@ -19,7 +19,7 @@ class _SearchLaunchesState extends State<SearchLaunches> {
   String query = '';
 
   // To fetch the API using the query as search field
-  Future futureLaunches;
+  late Future futureLaunches;
 
   // Check if the query is empty. If true, show the suggested
   bool isClear = true;
@@ -133,7 +133,7 @@ class _SearchLaunchesState extends State<SearchLaunches> {
               ),
             )
           : query.length >= 3
-              ? FutureBuilder<LaunchesApi>(
+              ? FutureBuilder<LaunchesApi?>(
                   future: fetchLaunches('none', true, query),
                   builder: (context, snapshot) {
                     // The API, as every HTTP(s) request, takes times to load
@@ -145,9 +145,9 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                             addAutomaticKeepAlives: true,
 
                             // There are much more than 100 upcoming launches (usually) but the API have max 100 launches per page
-                            itemCount: snapshot.data.count >= 100
+                            itemCount: snapshot.data!.count !>= 100
                                 ? 100
-                                : snapshot.data.count,
+                                : snapshot.data!.count,
                             itemBuilder: (builder, index) {
                               // General padding for each item. With the bottom one, the ListView.separator() can be avoided (in this case, at least)
                               return Padding(
@@ -162,63 +162,63 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                                   onTap: () {
                                     // Set a global object to use for specific launch infos
                                     launchesObject = LaunchesApi(
-                                      state: snapshot.data.general[index]
+                                      state: snapshot.data!.general![index]
                                           ['status']['name'],
                                       launchImageUrl:
-                                          snapshot.data.general[index]['image'],
-                                      launchDate: snapshot.data.general[index]
+                                          snapshot.data!.general![index]['image'],
+                                      launchDate: snapshot.data!.general![index]
                                           ['window_start'],
-                                      launchName: snapshot.data.general[index]
+                                      launchName: snapshot.data!.general![index]
                                           ['name'],
 
                                       // Sometimes, the live is not avaible
                                       liveUrl: snapshot
-                                              .data.general[index]['vidURLs']
+                                              .data!.general![index]['vidURLs']
                                               .toString()
                                               .contains('url')
-                                          ? snapshot.data.general[index]
+                                          ? snapshot.data!.general![index]
                                               ['vidURLs'][0]['url']
                                           : 'No video avaibles',
 
                                       // Sometimes, mission name and description is not avaible
                                       missionDescription: snapshot.data
-                                                  .general[index]['mission'] !=
+                                                  !.general![index]['mission'] !=
                                               null
-                                          ? snapshot.data.general[index]
+                                          ? snapshot.data!.general![index]
                                               ['mission']['description']
-                                          : snapshot.data.general[index][
+                                          : snapshot.data!.general![index][
                                                       'launch_service_provider']
                                                   ['name'] +
                                               ' didn\'t provide mission details',
-                                      missionName: snapshot.data.general[index]
+                                      missionName: snapshot.data!.general![index]
                                                   ['mission'] !=
                                               null
-                                          ? snapshot.data.general[index]
+                                          ? snapshot.data!.general![index]
                                               ['mission']['name']
                                           : 'Mission details unavaibles',
 
                                       // Launch agency name and logo
                                       launchServiceProvider: snapshot
-                                              .data.general[index]
+                                              .data!.general![index]
                                           ['launch_service_provider']['name'],
                                       launchServiceProviderLogo:
-                                          snapshot.data.general[index]
+                                          snapshot.data!.general![index]
                                                   ['launch_service_provider']
                                               ['logo_url'],
 
                                       // Rocket name, description and provider name and logo
-                                      rocketName: snapshot.data.general[index]
+                                      rocketName: snapshot.data!.general![index]
                                               ['rocket']['configuration']
                                           ['full_name'],
                                       rocketDescription:
-                                          snapshot.data.general[index]['rocket']
+                                          snapshot.data!.general![index]['rocket']
                                               ['configuration']['description'],
                                       rocketProvider:
-                                          snapshot.data.general[index]['rocket']
+                                          snapshot.data!.general![index]['rocket']
                                                   ['configuration']
                                               ['manufacturer']['name'],
                                       rocketProviderLogo:
-                                          snapshot.data.general[index]['rocket']
+                                          snapshot.data!.general![index]['rocket']
                                                   ['configuration']
                                               ['manufacturer']['logo_url'],
                                     );
@@ -259,13 +259,13 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                                                   // Sometimes, there's no image: in this case, show the launch provider logo
                                                   // If also the logo is unavaible, show a text
                                                   imageUrl: snapshot
-                                                                  .data.general[
+                                                                  .data!.general![
                                                               index]['image'] !=
                                                           null
                                                       ? snapshot.data
-                                                              .general[index]
+                                                              !.general![index]
                                                           ['image']
-                                                      : snapshot.data.general[
+                                                      : snapshot.data!.general![
                                                                       index][
                                                                   'launch_service_provider']
                                                               ['logo_url'] ??
@@ -295,7 +295,7 @@ class _SearchLaunchesState extends State<SearchLaunches> {
                                               child: Container(
                                                 width: getWidth(context),
                                                 child: Text(
-                                                  snapshot.data.general[index]
+                                                  snapshot.data!.general![index]
                                                       ['name'],
                                                   style: GoogleFonts.poppins(
                                                       fontWeight:

@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NasaReportsApi {
-  final String title;
-  final String thumbnail;
-  final String websiteName;
-  final String url;
-  final List general;
-  final int itemNumber;
+  final String? title;
+  final String? thumbnail;
+  final String? websiteName;
+  final String? url;
+  final List? general;
+  final int? itemNumber;
 
   NasaReportsApi(
       {this.title, this.thumbnail, this.websiteName, this.url, this.general, this.itemNumber});
@@ -20,7 +20,7 @@ class NasaReportsApi {
   }
 }
 
-Future<NasaReportsApi> fetchReports() async {
+Future<NasaReportsApi?> fetchReports() async {
   // try for network issues
   try {
     final response = await http

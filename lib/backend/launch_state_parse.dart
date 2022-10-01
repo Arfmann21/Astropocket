@@ -1,8 +1,8 @@
 import 'package:astropocket/backend/global_variables.dart';
 
 class LaunchDataParse {
-  final String state;
-  final String date;
+  final String? state;
+  final String? date;
 
   LaunchDataParse({this.state, this.date});
 
@@ -38,11 +38,11 @@ class LaunchDataParse {
   }
 
   String dateParse() {
-    var year = date.substring(0, 4);
-    var month = date.substring(5, 7);
-    var day = date.substring(8, 10);
-    var hour = date.substring(11, 13);
-    var minutes = date.substring(14, 16);
+    var year = date!.substring(0, 4);
+    var month = date!.substring(5, 7);
+    var day = date!.substring(8, 10);
+    var hour = date!.substring(11, 13);
+    var minutes = date!.substring(14, 16);
 
     return dateFormat == "mdy" ? "$month / $day / $year, $hour:$minutes CET" : "$day / $month / $year, $hour:$minutes CET";
   }

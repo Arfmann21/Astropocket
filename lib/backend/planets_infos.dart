@@ -113,31 +113,25 @@ class PlanetsInfos {
     }
   }
 
-  List<String> getMajorMoons(int index) {
+  List<String>? getMajorMoons(int index) {
     switch (index) {
       case 0:
         return null;
-        break;
 
       case 1:
         return null;
-        break;
 
       case 2:
         return ['Moon'];
-        break;
 
       case 3:
         return ['Deimos', 'Phobos'];
-        break;
 
       case 4:
         return ['Ganymede', 'Io', 'Europa', 'Callisto'];
-        break;
 
       case 5:
         return ['Titan', 'Rhea', 'Iapetus', 'Tethys', 'Enceladus'];
-        break;
 
       case 6:
         return [
@@ -146,18 +140,16 @@ class PlanetsInfos {
           'Ariel',
           'Miranda',
         ];
-        break;
 
       case 7:
         return ['Proteus', 'Triton', 'Titania'];
-        break;
 
       default:
         return null;
     }
   }
 
-  List<String> getPlanetFacts(int index) {
+  List<String>? getPlanetFacts(int index) {
     switch (index) {
       case 0:
         return [
@@ -172,7 +164,6 @@ class PlanetsInfos {
           'Standing on Mercury\'s surface at its closest approach to the Sun, our star would appear more than three times larger than it does on Earth.',
           'The two spacecraft of ESA-JAXA\'s BepiColombo are en route to Mercury. NASA\'s Mariner 10 was the first mission to explore Mercury. NASA\'s MESSENGER was the first to orbit the innermost planet.'
         ];
-        break;
 
       case 1:
         return [
@@ -187,7 +178,6 @@ class PlanetsInfos {
           'Venus is an unlikely place for life as we know it, but some scientists theorize microbes might exist high in the clouds where it’s cooler and the pressure is similar to Earth’s surface. Phosphine, a possible indicator of microbial life, has been observed in the clouds.',
           'Venus rotates backward on its axis compared to most planets in our solar system. This means the Sun rises in the west and sets in the east, opposite of what we see on Earth.',
         ];
-        break;
 
       case 2:
         return [
@@ -202,7 +192,6 @@ class PlanetsInfos {
           'Earth is the perfect place for life as we know it.',
           'Our atmosphere protects us from incoming meteoroids, most of which break up in our atmosphere before they can strike the surface.'
         ];
-        break;
 
       case 3:
         return [
@@ -217,7 +206,6 @@ class PlanetsInfos {
           'At this time, Mars\' surface cannot support life as we know it. Current missions are determining Mars\' past and future potential for life.',
           'Mars is known as the Red Planet because iron minerals in the Martian soil oxidize, or rust, causing the soil and atmosphere to look red.'
         ];
-        break;
 
       case 4:
         return [
@@ -232,7 +220,6 @@ class PlanetsInfos {
           'Jupiter cannot support life as we know it. But some of Jupite\'s moons have oceans beneath their crusts that might support life.',
           'Jupiter\'s Great Red Spot is a gigantic storm that’s about twice the size of Earth and has raged for over a century.'
         ];
-        break;
 
       case 5:
         return [
@@ -247,7 +234,6 @@ class PlanetsInfos {
           'Saturn cannot support life as we know it, but some of Saturn\'s moons have conditions that might support life.',
           'About two tons of Saturn’s mass came from Earth—the Cassini spacecraft was intentionally vaporized in Saturn’s atmosphere in 2017.'
         ];
-        break;
 
       case 6:
         return [
@@ -262,7 +248,6 @@ class PlanetsInfos {
           'Uranus cannot support life as we know it.',
           'Like Venus, Uranus rotates east to west. But Uranus is unique in that it rotates on its side.'
         ];
-        break;
 
       case 7:
         return [
@@ -277,15 +262,13 @@ class PlanetsInfos {
           'Neptune cannot support life as we know it.',
           'Because of dwarf planet Pluto’s elliptical orbit, Pluto is sometimes closer to the Sun (and us) than Neptune is.'
         ];
-        break;
 
       default:
         return null;
-        break;
     }
   }
 
-  List<String> getPlanetFactsTitle(int index) {
+  List<String>? getPlanetFactsTitle(int index) {
     switch (index) {
       case 0:
         return [
@@ -300,7 +283,6 @@ class PlanetsInfos {
           'Big Sun',
           'Robotic visitors',
         ];
-        break;
 
       case 1:
         return [
@@ -315,7 +297,6 @@ class PlanetsInfos {
           'Life on Venus',
           'Backward sunrise'
         ];
-        break;
 
       case 2:
         return [
@@ -330,7 +311,6 @@ class PlanetsInfos {
           'Home, sweet home',
           'Protective shield'
         ];
-        break;
 
       case 3:
         return [
@@ -345,7 +325,6 @@ class PlanetsInfos {
           'Tough place for life',
           'Rusty planet'
         ];
-        break;
 
       case 4:
         return [
@@ -360,7 +339,6 @@ class PlanetsInfos {
           'Ingredients for life?',
           'Super storm'
         ];
-        break;
 
       case 5:
         return [
@@ -375,7 +353,6 @@ class PlanetsInfos {
           'Lifeless behemoth',
           'Add a dash of Earth'
         ];
-        break;
 
       case 6:
         return [
@@ -390,7 +367,6 @@ class PlanetsInfos {
           'Lifeless',
           'One cool fact'
         ];
-        break;
 
       case 7:
         return [
@@ -405,7 +381,6 @@ class PlanetsInfos {
           'Lifeless',
           'One cool fact'
         ];
-        break;
 
       default:
         return null;

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:astropocket/backend/api/insight_weather_api.dart';
+import 'package:astropocket/backend/api/mars_weather_api.dart';
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/widgets/insight/current_day.dart';
@@ -17,7 +17,7 @@ class MarsWeather extends StatefulWidget {
 
 class _MarsWeatherState extends State<MarsWeather> {
   final Connectivity _connectivity = Connectivity();
-  StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   @override
   void initState() {
@@ -49,7 +49,7 @@ class _MarsWeatherState extends State<MarsWeather> {
           title: Material(
             color: Colors.transparent,
             child: Text(
-              'InSight Weather',
+              'Mars Weather',
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600, fontSize: 21.0),
             ),
@@ -60,21 +60,21 @@ class _MarsWeatherState extends State<MarsWeather> {
               top: getHeight(context) / 70.0,
               left: getWidth(context) / 36.0,
               right: getWidth(context) / 36.0),
-          child: FutureBuilder<InsightWeatherApi>(
-              future: fetchInsightWeatherApi(),
+          child: FutureBuilder<MarsWeatherApi?>(
+              future: fetchMarsWeatherApi(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
                   if (snapshot.hasData) {
 
                     // The API returns the keys from the earlier to the most recent: it must be the opposite
-                    var reversedSolKeys =
+                    /*var reversedSolKeys =
                         snapshot.data.solKeys.reversed.toList();
 
                     var weatherData = [];
 
                     for (int i = 0; i < reversedSolKeys.length; i++)
                       weatherData
-                          .add(snapshot.data.general[reversedSolKeys[i]]);
+                          .add(snapshot.data.general[reversedSolKeys[i]]);*/
                           
                     return SingleChildScrollView(
                       child: Column(
@@ -87,9 +87,8 @@ class _MarsWeatherState extends State<MarsWeather> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(
                                           getWidth(context) / 36.0)),
-                                  child: InsightCurrentDay(
-                                    reversedSolKeys: reversedSolKeys,
-                                    weatherData: weatherData,
+                                  child: MarsWeatherCurrentDay(
+                                    snapshot: snapshot,
                                   ))),
 
                           // Separator between current day and previous days
@@ -118,7 +117,7 @@ class _MarsWeatherState extends State<MarsWeather> {
                             ),
                           ),*/
 
-                          Padding(
+                          /*Padding(
                             padding: EdgeInsets.only(top: getHeight(context) / 10.0),
                             child: Center(
                               child: Text(
@@ -131,7 +130,7 @@ class _MarsWeatherState extends State<MarsWeather> {
                                 ),
                               ),
                             ),
-                          ),
+                          ),*/
 
                           // Build the list of previous days weather
                          /* ListView.separated(

@@ -16,10 +16,15 @@ class ThemeChanger extends ChangeNotifier {
   void setStatusBarColor() {
     if (isDark)
       SystemChrome.setSystemUIOverlayStyle(
-          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.light, statusBarColor: Color(0xFF041a2f)));
+          SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.light, statusBarColor: Color(0xFF041a2f),
+            systemNavigationBarIconBrightness: Brightness.light, systemNavigationBarColor: Color(0xFF041a2f)
+            ));
     else{
       SystemChrome.setSystemUIOverlayStyle(
-          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark, statusBarColor: Color(0xFFFAFAFA)));
+          SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark, statusBarColor: Color(0xFFFAFAFA),
+          systemNavigationBarIconBrightness: Brightness.dark, systemNavigationBarColor: Color(0xFFFAFAFA)
+          ));
     }
   }
 

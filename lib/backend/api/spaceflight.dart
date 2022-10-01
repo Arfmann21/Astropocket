@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class NewsApi {
-  final String title;
-  final String thumbnail;
-  final String websiteName;
-  final String url;
-  final List general;
-  final int totalDocs;
+  final String? title;
+  final String? thumbnail;
+  final String? websiteName;
+  final String? url;
+  final List? general;
+  final int? totalDocs;
 
   NewsApi(
       {this.title,
@@ -29,7 +29,7 @@ class NewsApi {
   }
 }
 
-Future<NewsApi> fetchNews(bool home, String type) async {
+Future<NewsApi?> fetchNews(bool home, String type) async {
   // try for network issues
   try {
     final response = home

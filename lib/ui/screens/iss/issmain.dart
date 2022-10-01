@@ -22,12 +22,12 @@ class IssMain extends StatefulWidget {
 class _IssMainState extends State<IssMain> {
   int _index = 0;
   bool isLocationPermissionGranted = false;
-  Position userPosition;
+  late Position userPosition;
 
   // For the GoogleMaps()
   Completer<GoogleMapController> _controller = Completer();
   Set<Marker> _markers = HashSet<Marker>();
-  BitmapDescriptor markerImage;
+  late BitmapDescriptor markerImage;
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class _IssMainState extends State<IssMain> {
                   right: getWidth(context) / 18.0),
 
               // The data for the current ISS position is updated once a second, so a Stream is required
-              child: StreamBuilder(
+              child: StreamBuilder<IssLocationApi?>(
                   stream: streamLocation(),
                   builder: (context, snapshot) {
                     // Don't use a ConnectionStatus because it would be kinda useless: one update per second, one loading per second
@@ -95,11 +95,11 @@ class _IssMainState extends State<IssMain> {
                       _markers.add(Marker(
                           markerId: MarkerId("marker_id"),
                           position:
-                              LatLng(snapshot.data.lat, snapshot.data.long),
+                              LatLng(snapshot.data!.lat, snapshot.data!.long),
                           icon: markerImage));
 
                       // ISS must be followed for each snapshot, since there are new coordinates each second
-                      _followIss(snapshot.data.lat, snapshot.data.long);
+                      _followIss(snapshot.data!.lat, snapshot.data!.long);
 
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

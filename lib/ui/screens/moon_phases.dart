@@ -37,7 +37,7 @@ class _MoonPhasesState extends State<MoonPhases> {
             IconButton(
               icon: Icon(CalendarIcon.calendar_month_outline),
               onPressed: () async {
-                DateTime selectedDateTime = await showRoundedDatePicker(
+                DateTime? selectedDateTime = await showRoundedDatePicker(
                   context: context,
                   initialDate: DateTime.now(),
                   firstDate: DateTime(DateTime.now().year - 1),

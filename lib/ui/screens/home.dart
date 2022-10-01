@@ -1,40 +1,13 @@
 import 'dart:async';
 
 import 'package:astropocket/backend/global_variables.dart';
-import 'package:astropocket/backend/scroll_behavior.dart';
 import 'package:astropocket/style/specific_colors.dart';
-import 'package:astropocket/style/themes.dart';
-import 'package:astropocket/ui/screens/drawer/hidden_drawer.dart';
 import 'package:astropocket/ui/widgets/home/home_appbar.dart';
 import 'package:astropocket/ui/widgets/home/news/news_home.dart';
 import 'package:astropocket/ui/widgets/home/picture_day/picture_day_home_widget.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-class HomeDrawerBuilder extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    Widget child = Home();
-    child = SlidingDrawerMain(
-      child: child,
-    );
-
-    return MaterialApp(
-      builder: (context, child) {
-        return ScrollConfiguration(
-          behavior: MyBehavior(),
-          child: child,
-        );
-      },
-      title: 'Astropocket',
-      themeMode: themeChanger.currentTheme(),
-      theme: lightTheme(),
-      darkTheme: darkTheme(),
-      home: child,
-    );
-  }
-}
 
 class Home extends StatefulWidget {
   @override
@@ -43,8 +16,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String _connectionStatus = 'Unknown';
+
   final Connectivity _connectivity = Connectivity();
-  StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   @override
   void initState() {

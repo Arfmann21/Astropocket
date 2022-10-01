@@ -13,27 +13,24 @@ class _HomeAppbarState extends State<HomeAppbar>
 
   @override
   void initState() {
+    super.initState();
+
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 350));
 
     drawerState.addListener(() {
       if(this.mounted) {
-        setState(() {});
+        setState(() {
+          _animationController.isCompleted ?
+              _animationController.reverse() : _animationController.forward();
+        });
       }
     });
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 350));
-    super.initState();
+    
   }
 
   @override
   Widget build(BuildContext context) {
-
-    // I have no idea how this works anymore. All I know is that I should have used normal if-else instead of ternary
-    drawerState.loadState()
-        ? drawerState.loadPressed()
-            // ignore: unnecessary_statements
-            ? null
-            : _animationController.reverse()
-        : _animationController.reverse();
 
     ThemeData currentTheme = Theme.of(context);
     String image = currentTheme.brightness == Brightness.light
@@ -49,23 +46,11 @@ class _HomeAppbarState extends State<HomeAppbar>
           child: IconButton(
             icon: AnimatedIcon(
               icon: AnimatedIcons.menu_arrow,
-              size: 38.0,
+              size: getWidth(context) / 10.0,
               progress: _animationController,
             ),
             onPressed: () {
-              drawerState.setState();              
-              setState(() {
-                drawerState.loadState()
-                    ? _animationController.forward()
-                    : _animationController.reverse();
-              });
-              if (drawerState.loadState()) {
-                SlidingDrawerMain.of(context).open();
-              } else {
-                SlidingDrawerMain.of(context).close();
-              }
-
-            
+              SlidingDrawerMain.of(context).toggleDrawer();              
             },
           ),
         ),
@@ -74,9 +59,6 @@ class _HomeAppbarState extends State<HomeAppbar>
                 right: getWidth(context) / 18.0,
                 top: getHeight(context) / 62.2),
             child: IconButton(
-              splashColor: themeChanger.currentTheme() == ThemeMode.light
-                  ? Colors.black38
-                  : Colors.white70,
               icon: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 200),
                   child: Image.asset(

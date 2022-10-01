@@ -7,9 +7,9 @@ import 'package:share/share.dart';
 
 class NasaReportItselfWidget extends StatelessWidget {
   final int index;
-  final List data;
+  final List? data;
 
-  NasaReportItselfWidget({this.index, this.data});
+  NasaReportItselfWidget({required this.index, required this.data});
 
   @override
   Widget build(BuildContext context) {

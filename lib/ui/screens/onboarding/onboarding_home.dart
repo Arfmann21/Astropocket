@@ -1,5 +1,6 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
+import 'package:astropocket/ui/screens/drawer/hidden_drawer.dart';
 import 'package:astropocket/ui/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -86,7 +87,7 @@ class OnBoardingHome extends StatelessWidget {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HomeDrawerBuilder()));
+                            builder: (context) => SlidingDrawerMain()));
                   },
                 ),
               ),

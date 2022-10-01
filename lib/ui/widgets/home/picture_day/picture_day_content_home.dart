@@ -23,7 +23,7 @@ class PictureDayContentHome extends StatelessWidget {
 
                 // The actuals texts
                 children: [
-                  TextSpan(text: apodObject.title + ' - '),
+                  TextSpan(text: apodObject.title !+ ' - '),
 
                   /// Only the first must be bold for this UI
                   TextSpan(

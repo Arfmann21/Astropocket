@@ -2,51 +2,51 @@ import 'package:flutter/material.dart';
 
 class SpecificColors {
   // Onboarding colors (only dark)
-  Color exploreTextColor;
-  Color startNowTextColor;
+  late Color exploreTextColor;
+  late Color startNowTextColor;
 
-  Color backgroundColorAsScaffold;
+  late Color backgroundColorAsScaffold;
 
-  Color shimmerColor;
-  Color skeletonContainerColor;
+  late Color shimmerColor;
+  late Color skeletonContainerColor;
 
-  Color pulseColorBase;
-  Color pulseColorHighlight;
+  late Color pulseColorBase;
+  late Color pulseColorHighlight;
 
-  Color systemNavigationBarColor;
-  Color statusBarColor;
+  late Color systemNavigationBarColor;
+  late Color statusBarColor;
 
-  Color blueGreenColor;
+  late Color blueGreenColor;
 
-  Color exploreCardColor;
-  Color backgroundAsCardColor;
+  late Color exploreCardColor;
+  late Color backgroundAsCardColor;
 
-  Color timerBackgroundColor;
-  Color timerTextColor;
+  late Color timerBackgroundColor;
+  late Color timerTextColor;
 
-  Color unselectedLabelColor;
-  Color selectedLabelColor;
-  Color indicatorColor;
+  late Color unselectedLabelColor;
+  late Color selectedLabelColor;
+  late Color indicatorColor;
 
-  Color stateColor;
-  Color unavaibleLaunchVideoColor;
+  late Color stateColor;
+  late Color unavaibleLaunchVideoColor;
 
-  Color launchFailedColor;
+  late Color launchFailedColor;
 
-  Color secondaryTextColor;
-  Color primaryTextColor;
+  late Color secondaryTextColor;
+  late Color primaryTextColor;
 
-  Color marsHighColor;
-  Color marsLowColor;
+  late Color marsHighColor;
+  late Color marsLowColor;
 
-  Color checkboxcCheckedColor;
-  Color checkboxActiveBoxColor;
+  late Color checkboxcCheckedColor;
+  late Color checkboxActiveBoxColor;
 
-  Color snackbarBackgroundColor;
+  late Color snackbarBackgroundColor;
 
-  Color grantPermissionBackgroundColor;
+  late Color grantPermissionBackgroundColor;
   
-  Color issNextPassesOverviewBackgroundColor;
+  late Color issNextPassesOverviewBackgroundColor;
 
   SpecificColors(BuildContext context) {
     final ThemeData currentTheme = Theme.of(context);

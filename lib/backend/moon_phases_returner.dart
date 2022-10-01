@@ -147,6 +147,8 @@ class Moon {
     if (daysSinceNewMoon >= 25.7 && daysSinceNewMoon < 29.5) {
       return 'Waning Crescent';
     }
+
+    return '';
   }
 
   static String getIlluminationPercentage(phase) {

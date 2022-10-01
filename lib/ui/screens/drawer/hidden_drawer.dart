@@ -1,31 +1,32 @@
 import 'package:astropocket/backend/global_variables.dart';
 import 'package:astropocket/style/specific_colors.dart';
 import 'package:astropocket/ui/screens/drawer/drawer.dart';
+import 'package:astropocket/ui/screens/home.dart';
 import 'package:flutter/material.dart';
 
 class SlidingDrawerMain extends StatefulWidget {
-  final Widget child;
 
-  const SlidingDrawerMain({Key key, this.child}) : super(key: key);
+  const SlidingDrawerMain({Key? key}) : super(key: key);
 
-  static SlidingDrawerMainState of(BuildContext context) =>
-      context.findAncestorStateOfType<SlidingDrawerMainState>();
+  static _SlidingDrawerMainState? of(BuildContext context) =>
+      context.findAncestorStateOfType<_SlidingDrawerMainState>();
 
   @override
-  SlidingDrawerMainState createState() => SlidingDrawerMainState();
+  _SlidingDrawerMainState createState() => _SlidingDrawerMainState();
 }
 
-class SlidingDrawerMainState extends State<SlidingDrawerMain>
-    with SingleTickerProviderStateMixin {
+class _SlidingDrawerMainState extends State<SlidingDrawerMain> with SingleTickerProviderStateMixin {
+
   static const Duration toggleDuration = Duration(milliseconds: 150);
   static const double maxSlide = 225;
   static const double minDragStartEdge = 60;
   static const double maxDragStartEdge = maxSlide - 16;
-  AnimationController _animationController;
-  // bool _canBeDragged = false;
+
+  late AnimationController _animationController;
 
   @override
   void initState() {
+    super.initState();
 
     drawerState.addListener(() {
 
@@ -33,10 +34,10 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
         setState(() {});
       }
     });
-    super.initState();
+
     _animationController = AnimationController(
       vsync: this,
-      duration: SlidingDrawerMainState.toggleDuration,
+      duration: _SlidingDrawerMainState.toggleDuration,
     );
   }
 
@@ -44,7 +45,15 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
 
   void open() => _animationController.forward();
 
-  void toggleDrawer() => _animationController.isCompleted ? close() : open();
+  void toggleDrawer() {
+    if(_animationController.isCompleted) {
+      close();
+      drawerState.setState(false);
+    } else {
+      open();
+      drawerState.setState(true);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,51 +61,46 @@ class SlidingDrawerMainState extends State<SlidingDrawerMain>
     return WillPopScope(
       onWillPop: () async {
         if (_animationController.isCompleted) {
-          drawerState.setState();
           close();
+          drawerState.setState(false);
           return false;
         }
         return true;
       },
-      child: GestureDetector(
-        /*onHorizontalDragStart: _onDragStart,
-        onHorizontalDragUpdate: _onDragUpdate,
-        onHorizontalDragEnd: _onDragEnd, */
-        child: AnimatedBuilder(
-          child: widget.child,
-          animation: _animationController,
-          builder: (context, _) {
-            double animValue = _animationController.value;
-            final slideAmount = maxSlide * animValue;
-            final contentScale = 1.0 - (0.3 * animValue);
-            return Stack(
-              children: [
-                DrawerHome(),
-                Transform(
-                    transform: Matrix4.identity()
-                      ..translate(slideAmount)
-                      ..scale(contentScale, contentScale),
-                    alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                        onTap: () => {
-                              drawerState.setState(),
-                              _animationController.isCompleted ? close() : null
-                            },
-                        child: Card(
-                            elevation: drawerState.loadState() ? 5.0 : 0.0,
-                            color: SpecificColors(context)
-                                .backgroundColorAsScaffold,
-                            margin: EdgeInsets.all(0),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: drawerState.loadState()
-                                    ? BorderRadius.circular(
-                                        getWidth(context) / 36.0)
-                                    : BorderRadius.circular(0.0)),
-                            child: Container(child: widget.child))))
-              ],
-            );
-          },
-        ),
+      child: AnimatedBuilder(
+        child: Home(),
+        animation: _animationController,
+        builder: (context, _) {
+          double animValue = _animationController.value;
+          final slideAmount = maxSlide * animValue;
+          final contentScale = 1.0 - (0.3 * animValue);
+          return Stack(
+            children: [
+              DrawerHome(),
+              Transform(
+                  transform: Matrix4.identity()
+                    ..translate(slideAmount)
+                    ..scale(contentScale, contentScale),
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                      onTap: () => {
+                            drawerState.setState(false),
+                            _animationController.isCompleted ? close() : null
+                          },
+                      child: Card(
+                          elevation: drawerState.loadState() ? 5.0 : 0.0,
+                          color: SpecificColors(context)
+                              .backgroundColorAsScaffold,
+                          margin: EdgeInsets.all(0),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: drawerState.loadState()
+                                  ? BorderRadius.circular(
+                                      getWidth(context) / 36.0)
+                                  : BorderRadius.circular(0.0)),
+                          child: Container(child: Home()))))
+            ],
+          );
+        },
       ),
     );
   }

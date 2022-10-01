@@ -2,28 +2,28 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class LaunchesApi {
-  final List<dynamic> general;
-  final int count;
+  final List<dynamic>? general;
+  final int? count;
 
-  final String launchImageUrl;
+  final String? launchImageUrl;
 
   // For the 'State' screen
-  final String state;
-  final String launchDate;
-  final String liveUrl;
-  final String launchName;
+  final String? state;
+  final String? launchDate;
+  final String? liveUrl;
+  final String? launchName;
 
 // For the 'Mission' screen
-  final String missionName;
-  final String missionDescription;
-  final String launchServiceProvider;
-  final String launchServiceProviderLogo;
+  final String? missionName;
+  final String? missionDescription;
+  final String? launchServiceProvider;
+  final String? launchServiceProviderLogo;
 
   //For the 'Rocket' screen
-  final String rocketName;
-  final String rocketDescription;
-  final String rocketProvider;
-  final String rocketProviderLogo;
+  final String? rocketName;
+  final String? rocketDescription;
+  final String? rocketProvider;
+  final String? rocketProviderLogo;
 
   LaunchesApi(
       {this.count,
@@ -48,7 +48,7 @@ class LaunchesApi {
   }
 }
 
-Future<LaunchesApi> fetchLaunches(type, isSearched, searchName) async {
+Future<LaunchesApi?> fetchLaunches(type, isSearched, searchName) async {
   // try for network issues
   try {
     final response = isSearched == true ? await http.get("https://ll.thespacedevs.com/2.0.0/launch/?search=$searchName&mode=detailed") :  await http.get(

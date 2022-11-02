@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/TelescopeIcon.ttf
 ///
-/// 
+///
 ///
 import 'package:flutter/widgets.dart';
 
@@ -19,7 +19,8 @@ class TelescopeIcon {
   TelescopeIcon._();
 
   static const _kFontFam = 'TelescopeIcon';
-  static const String _kFontPkg = null;
+  static const String? _kFontPkg = null;
 
-  static const IconData telescope = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData telescope =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

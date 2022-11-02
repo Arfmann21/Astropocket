@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/NewspaperIcon.ttf
 ///
-/// 
+///
 ///
 import 'package:flutter/widgets.dart';
 
@@ -19,7 +19,8 @@ class NewspaperIcon {
   NewspaperIcon._();
 
   static const _kFontFam = 'NewspaperIcon';
-  static const String _kFontPkg = null;
+  static const String? _kFontPkg = null;
 
-  static const IconData newspaper_variant_outline = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData newspaper_variant_outline =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -19,7 +19,7 @@ class CalendarIcon {
   CalendarIcon._();
 
   static const _kFontFam = 'CalendarIcon';
-  static const String _kFontPkg = null;
+  static const String? _kFontPkg = null;
 
   static const IconData calendar_month_outline = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

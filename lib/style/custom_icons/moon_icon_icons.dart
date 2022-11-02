@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/MoonIcon.ttf
 ///
-/// 
+///
 /// * Font Awesome 4, Copyright (C) 2016 by Dave Gandy
 ///         Author:    Dave Gandy
 ///         License:   SIL ()
@@ -23,7 +23,8 @@ class MoonIcon {
   MoonIcon._();
 
   static const _kFontFam = 'MoonIcon';
-  static const String _kFontPkg = null;
+  static const String? _kFontPkg = null;
 
-  static const IconData moon = IconData(0xf186, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData moon =
+      IconData(0xf186, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/IssIcon.ttf
 ///
-/// 
+///
 ///
 import 'package:flutter/widgets.dart';
 
@@ -19,7 +19,8 @@ class IssIcon {
   IssIcon._();
 
   static const _kFontFam = 'IssIcon';
-  static const String _kFontPkg = null;
+  static const String? _kFontPkg = null;
 
-  static const IconData satellite = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData satellite =
+      IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
